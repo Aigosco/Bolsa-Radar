@@ -62,7 +62,9 @@ La página es una guía PARA LA ACCIÓN. Por eso:
   los niveles del paquete (gatillo, stop y objetivo del plan técnico del activo), o por qué esperar. No inventes niveles.
 - "agenda_accion": una entrada por cada evento de impacto ALTO de las próximas 36 h y de las últimas 12 h (usa su id).
   En 2-4 frases conecta el fundamental con el técnico. Di por qué importa el dato ahora (según los titulares) y qué
-  escenario de su guía tiene más sentido. Di si hay opción de entrada (con el gatillo de la guía) o por qué no entrar
+  escenario de su guía tiene más sentido. Usa la probabilidad de la guía (alta / media / baja, medida en el laboratorio:
+  las ventas y las compras sin las dos tendencias a favor son de baja probabilidad). Di si hay opción de entrada (con el
+  gatillo de la guía) o por qué no entrar
   (tendencia en contra, gatillo lejano, sin conexión entre dato y precio). Si el dato ya salió, di cómo reaccionó el
   precio."""
 
@@ -95,7 +97,7 @@ def paquete():
                 if x:
                     p.append(f"    plan {k}: gatillo cierre 4h {'sobre' if k == 'compra' else 'bajo'} {x['gatillo']} "
                              f"({x['distancia_pct']:+}% del precio, {x['distancia_atr']} ATR 4h), stop {x['stop']} "
-                             f"({x['stop_es']}), objetivo {x['objetivo']} (2R) → {x['estado']}")
+                             f"({x['stop_es']}), objetivo {x['objetivo']} (2R) → probabilidad {x['prob']} ({x['prob_motivo']})")
     b = leer_json(WEB / "bonos.json", {})
     for f in b.get("tabla", []):
         p.append(f"- Bono {f['nombre']}: {f['ultimo']} ({f['d1_pb']:+} pb 1 d, {f['d5_pb']:+} pb 1 sem) al {f['fecha']}")

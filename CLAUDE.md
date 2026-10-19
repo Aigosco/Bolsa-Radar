@@ -74,7 +74,12 @@ radar/            (corre en la nube y en el PC)
   guia.py         GUÍA PARA LA ACCIÓN (reglas fijas, nada inventado): tendencia diaria = precio vs media 200 d; 4h = Supertrend
                   10/3; gatillo = cierre 4h fuera del máximo/mínimo de las 20 velas de 4h anteriores; stop = Supertrend o 2 ATR 4h;
                   objetivo 2R; estado posible/cautela/no según cuántas tendencias acompañan. MAPA moneda → activos y signo.
-                  Para cada noticia: escenario dato mejor/peor → acción en cada activo → veredicto Entrar/Cautela/No entrar
+                  Para cada noticia: escenario dato mejor/peor → acción en cada activo → veredicto por PROBABILIDAD.
+                  PROBABILIDAD (laboratorio G1 del proyecto Trading, estrategia/resultados_laboratorio_G1.md):
+                  ALTA = compra con las dos tendencias en XAU/XAG/BTC/ETH/USDJPY; MEDIA = compra con las dos en índices
+                  o petróleo (el precio acompaña, el swap pesa); BAJA = ventas, compras sin las dos tendencias, divisas.
+                  Tablas LAB / LAB_SIN_SWAP con las cifras medidas; la página las muestra en cada plan. El usuario pidió
+                  la escala alta/media/baja (no 'sin ventaja probada'). Si se repite el laboratorio, actualizar esas tablas.
   tesis.py        verifica datos/tesis/<autor>/*.json con precios → web/tesis.json (marcador, recientes, cerradas, pendientes)
   resumen.py      paquete del día (desde web/*.json, con planes y guías) + ESQUEMA/SISTEMA de la lectura con IA (incluye
                   `agenda_accion` por evento de alto impacto e ideas con `clave` y `plan`); llama a la API (ia.py)

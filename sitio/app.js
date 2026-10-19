@@ -14,8 +14,7 @@ let idioma = "es";
 try { idioma = localStorage.getItem("radar-idioma") || "es"; } catch (e) { /* sin almacenamiento */ }
 const TIPOS = { prediccion: "predicción", recomendacion: "recomendación", diagnostico: "diagnóstico" };
 const PRINCIPALES = ["XAUUSD", "XAGUSD", "BTCUSD", "US500", "USTEC", "XTIUSD", "EURUSD", "DXY"];
-const NIVEL_TXT = { entrar: "Entrar", cautela: "Cautela", no: "No entrar" };
-const ESTADO_NIVEL = { posible: "entrar", cautela: "cautela", no: "no" };
+const NIVEL_TXT = { alta: "Alta probabilidad", media: "Media probabilidad", baja: "Baja probabilidad" };
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -161,6 +160,16 @@ function porQue(p) {
   if (p.estado === "cautela") return `solo acompaña la tendencia ${p.a_favor.join(" y ")}; la otra va en contra`;
   return "va contra las tendencias diaria y de 4h";
 }
+function labTxt(p) {
+  const L = p.lab;
+  if (!L) return "";
+  const r = (v) => `${v >= 0 ? "+" : ""}${fmt(v)} R`;
+  if (L.swap_dudoso) return `Laboratorio 2020-2026 (${L.ops} operaciones): ${L.E_ss != null ? `${r(L.E_ss)} por operación sin swap (factor de beneficio ${fmt(L.PF_ss)})` : `${r(L.E)} por operación`}; el resultado con swap del petróleo no es fiable`;
+  if (L.E_ss != null) return `Laboratorio 2020-2026 (${L.ops} operaciones): ${r(L.E_ss)} por operación sin swap y ${r(L.E)} con swap (factor de beneficio ${fmt(L.PF_ss)} / ${fmt(L.PF)})`;
+  return `Laboratorio 2020-2026 (${L.ops} operaciones): ${r(L.E)} por operación con swap, factor de beneficio ${fmt(L.PF)}`;
+}
+const may = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+function etiquetaProb(n) { return `<span class="nivel ${n}">${NIVEL_TXT[n]}</span>`; }
 function extras(p) {
   const x = [];
   if (p.ya_roto) x.push("el precio ya pasó el gatillo: no perseguir, esperar retroceso");
@@ -176,9 +185,9 @@ function fraseVeredicto(v) {
   const quien = `<button type="button" class="enlace-activo" data-clave="${esc(v.clave)}">${esc(v.nombre)}</button>`;
   const rel = v.accion === "compra" ? "sobre" : "bajo";
   const cond = v.publicado ? "" : `Si sale el ${esc(v.si.replace(/^dato /, "dato "))}: `;
-  if (v.nivel === "no") return `No entrar: ${v.publicado ? "la reacción del dato" : "la mejor reacción posible"} (${v.accion} de ${quien}) iría contra las tendencias diaria y de 4h.`;
   let t = `${cond}${v.accion === "compra" ? "compra" : "venta"} de ${quien} si una vela de 4h cierra ${rel} <b class="num">${precio(v.gatillo, ref)}</b>, stop <span class="num">${precio(v.stop, ref)}</span>, objetivo <span class="num">${precio(v.objetivo, ref)}</span>.`;
-  if (v.nivel === "cautela") t += ` Cautela: solo acompaña la tendencia ${v.a_favor.join(" y ")}.`;
+  t += ` ${v.nivel === "alta" ? "Alta probabilidad" : v.nivel === "media" ? "Probabilidad media" : "Baja probabilidad"}: ${esc(v.motivo)}.`;
+  if (v.nivel === "baja") t += " Mejor no operar esta noticia.";
   if (v.ya_roto) t += " El precio ya pasó el gatillo: no perseguir.";
   else if (v.lejano) t += ` El gatillo está lejos (${fmt(v.distancia_atr, 1)} veces el recorrido medio de una vela de 4h): poco probable hoy.`;
   return t.charAt(0).toUpperCase() + t.slice(1);
@@ -214,8 +223,8 @@ function tarjetaEvento(evs) {
       const dado = x.realizado && s.si.startsWith(`dato ${x.realizado}`), descartado = x.realizado && !dado;
       return `<div class="esc ${descartado ? "descartado" : ""} ${dado ? "dado" : ""}">
         <div class="esc-si">Si sale ${esc(s.si.replace(/^dato /, ""))}${dado ? ` <span class="chip acento">así salió</span>` : ""}</div>
-        <div class="esc-plan"><span class="nivel ${ESTADO_NIVEL[s.estado]}">${NIVEL_TXT[ESTADO_NIVEL[s.estado]]}</span> ${linea(s, x.ultimo)}</div>
-        <div class="esc-pq">${esc(porQue(s))} · ${esc(extras(s))}</div></div>`;
+        <div class="esc-plan">${etiquetaProb(s.prob)} ${linea(s, x.ultimo)}</div>
+        <div class="esc-pq">${esc(s.prob_motivo)} · ${esc(porQue(s))} · ${esc(extras(s))}${s.lab ? ` · ${esc(labTxt(s))}` : ""}</div></div>`;
     }).join("");
     const reac = x.reaccion_pct != null ? `<span class="reac">Desde el dato: <b class="${clase(x.reaccion_pct)}">${pct(x.reaccion_pct)}</b></span>` : "";
     return `<div class="ev-activo">
@@ -230,7 +239,7 @@ function tarjetaEvento(evs) {
       <div class="ev-tit"><h3>${esc(base.moneda)} · ${esc(evs.length > 1 ? `${evs.length} datos` : base.nombre)}</h3><ul class="ev-datos">${datos}</ul></div>
       <div class="cuenta" data-t="${base.t}">${publicado ? "publicado" : cuentaAtras(base.t)}</div>
     </header>
-    <div class="veredicto ${v.nivel}"><span class="nivel ${v.nivel}">${NIVEL_TXT[v.nivel]}</span><p>${fraseVeredicto(v)}</p></div>
+    <div class="veredicto v-${v.nivel}">${etiquetaProb(v.nivel)}<p>${fraseVeredicto(v)}</p></div>
     ${ia.length ? `<p class="ia-lectura"><span class="etq">Lectura IA</span> ${ia.map(esc).join(" ")}</p>` : ""}
     <div class="ev-activos">${activos}</div>${ef}</article>`;
 }
@@ -257,7 +266,9 @@ function sparkline(v, w = 210, h = 38) {
     <path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
     <circle cx="${u[0]}" cy="${u[1]}" r="2.6" fill="${col}"/></svg>`;
 }
-const SESGO_TXT = { compras: "Solo compras", ventas: "Solo ventas", esperar: "Esperar" };
+const SESGO_TXT = { compra_alta: "Compra: alta probabilidad", compra_media: "Compra: probabilidad media",
+  venta_alta: "Venta: alta probabilidad", venta_media: "Venta: probabilidad media", esperar: "Esperar: baja probabilidad" };
+const sesgoClase = (s) => !s ? "" : s === "esperar" ? "esperar" : s.endsWith("alta") ? "alta" : "media";
 function tablero() {
   const todos = D.mercado?.activos || [];
   const grupos = ["Principales", ...new Set(todos.map((a) => a.grupo)), "Todos"];
@@ -272,7 +283,7 @@ function tablero() {
       <span class="fila"><span class="chips">
         <span class="chip ${x.tend_diaria || ""}" title="Tendencia de fondo: precio frente a su media de 200 días">Diaria ${x.tend_diaria || "–"}</span>
         <span class="chip ${x.tend_4h || ""}" title="Tendencia de corto plazo: Supertrend 10/3 en velas de 4 h">4h ${x.tend_4h || "–"}</span></span></span>
-      <span class="sesgo ${x.plan?.sesgo || ""}">${SESGO_TXT[x.plan?.sesgo] || "Sin plan"}<span aria-hidden="true"> ›</span></span>
+      <span class="sesgo ${sesgoClase(x.plan?.sesgo)}">${SESGO_TXT[x.plan?.sesgo] || "Sin plan"}<span aria-hidden="true"> ›</span></span>
     </button>`).join("");
 }
 
@@ -427,16 +438,17 @@ function explicar(a) {
   if (a.vs_ma200 != null) t.push(`<p><b>Tendencia de fondo (meses): ${a.tend_diaria}.</b> El precio está ${fmt(Math.abs(a.vs_ma200), 1)} % ${a.vs_ma200 >= 0 ? "por encima" : "por debajo"} de su precio medio de los últimos 200 días (<span class="num">${precio(n.ma200, a.ultimo)}</span>, la línea azul punteada del gráfico diario). ${a.vs_ma200 >= 0 ? "Mientras siga encima, las caídas son correcciones dentro de una subida." : "Mientras siga debajo, las subidas son rebotes dentro de una bajada."}</p>`);
   if (n.st_4h != null) t.push(`<p><b>Tendencia de corto plazo (días): ${a.tend_4h}.</b> El Supertrend de 4 horas está ${a.tend_4h === "alcista" ? "por debajo del precio, en" : "por encima del precio, en"} <span class="num">${precio(n.st_4h, a.ultimo)}</span>${n.st_desde ? ` desde el ${fechaLarga(n.st_desde)}` : ""}. Si una vela de 4h cierra al otro lado, la tendencia de corto plazo gira.</p>`);
   const s = a.plan?.sesgo;
-  t.push(`<p class="conclusion ${s || ""}"><b>${SESGO_TXT[s] || "Sin plan"}.</b> ${s === "compras" ? "Las dos tendencias apuntan arriba: solo buscar compras, con el gatillo de abajo." : s === "ventas" ? "Las dos tendencias apuntan abajo: solo buscar ventas, con el gatillo de abajo." : "Las tendencias se contradicen: no hay ventaja clara. Si se opera, solo con el gatillo y con menos riesgo."}</p>`);
+  const mejor = s && s !== "esperar" ? a.plan[s.split("_")[0]] : null;
+  const tend = a.tend_diaria && a.tend_4h ? (a.tend_diaria === a.tend_4h ? `Las dos tendencias son ${a.tend_diaria}s.` : "Las tendencias diaria y de 4h se contradicen.") : "";
+  t.push(`<p class="conclusion ${sesgoClase(s)}"><b>${SESGO_TXT[s] || "Sin plan"}.</b> ${tend} ${mejor ? `${esc(mejor.prob_motivo.charAt(0).toUpperCase() + mejor.prob_motivo.slice(1))}. El plan está abajo.` : "Ningún plan de este activo tiene ventaja medida ahora mismo: mejor esperar a que cambie la situación."}</p>`);
   return t.join("");
 }
 function planCaja(p, a) {
   if (!p) return "";
-  const nv = ESTADO_NIVEL[p.estado];
-  return `<div class="plan-caja ${p.accion}"><div class="fila"><h3>${p.accion === "compra" ? "Plan de compra" : "Plan de venta"}</h3><span class="nivel ${nv}">${NIVEL_TXT[nv]}</span></div>
+  return `<div class="plan-caja ${p.accion}"><div class="fila"><h3>${p.accion === "compra" ? "Plan de compra" : "Plan de venta"}</h3>${etiquetaProb(p.prob)}</div>
     <dl class="niveles"><div><dt>Gatillo</dt><dd class="num">cierre 4h ${p.accion === "compra" ? "sobre" : "bajo"} ${precio(p.gatillo, a.ultimo)}</dd></div>
       <div><dt>Stop</dt><dd class="num">${precio(p.stop, a.ultimo)}</dd></div><div><dt>Objetivo (2R)</dt><dd class="num">${precio(p.objetivo, a.ultimo)}</dd></div></dl>
-    <p class="nota">${esc(porQue(p))}. ${esc(extras(p))}.</p></div>`;
+    <p class="nota"><b>${esc(may(p.prob_motivo))}.</b> ${esc(may(porQue(p)))}. ${esc(may(extras(p)))}.${p.lab ? ` ${esc(labTxt(p))}.` : ""}</p></div>`;
 }
 async function abrirFicha(clave) {
   const a = activo(clave);
@@ -470,7 +482,7 @@ function pintarFicha(clave) {
     </div>
     <h3 class="sub">Diario · 6 meses</h3><div class="graf-velas" id="g-diario">${g ? "" : `<p class="vacio">Cargando gráfico…</p>`}</div>
     <h3 class="sub">4 horas · últimas 90 velas</h3><div class="graf-velas" id="g-4h">${g ? "" : `<p class="vacio">Cargando gráfico…</p>`}</div>
-    ${eventos.length ? `<h3 class="sub">Noticias que lo mueven</h3><ul class="ficha-lista">${eventos.map((ev) => { const e = ev[0], dt = new Date(e.t * 1000); return `<li><span class="num">${fechaCorta(dt, "America/Bogota")} ${hora(dt, "America/Bogota")}</span> ${esc(e.moneda)} · ${esc(ev.map((x) => x.nombre).join(", "))} <span class="nivel ${e.guia.veredicto.nivel}">${NIVEL_TXT[e.guia.veredicto.nivel]}</span></li>`; }).join("")}</ul>` : ""}
+    ${eventos.length ? `<h3 class="sub">Noticias que lo mueven</h3><ul class="ficha-lista">${eventos.map((ev) => { const e = ev[0], dt = new Date(e.t * 1000); return `<li><span class="num">${fechaCorta(dt, "America/Bogota")} ${hora(dt, "America/Bogota")}</span> ${esc(e.moneda)} · ${esc(ev.map((x) => x.nombre).join(", "))} ${etiquetaProb(e.guia.veredicto.nivel)}</li>`; }).join("")}</ul>` : ""}
     ${senal ? `<h3 class="sub">Bot</h3><p>${esc(senal.estrategia)}: ${esc(senal.distancia)}</p>` : ""}
     ${tes.length ? `<h3 class="sub">Lo que dice Cava</h3><div class="tesis-lista corta">${tes.map((x) => `<div class="tes"><div class="fila"><span>${esc(TIPOS[x.tipo] || x.tipo)} ${esc(x.direccion)} ${esc(x.horizonte)}</span><span class="estado ${estadoClase(x.estado)}">${esc(x.estado)}</span></div><q>${esc(x.cita)}</q><span class="nota">${esc(x.fecha_video)} · <a href="https://youtu.be/${esc(x.video_id)}?t=${minutoSeg(x.minuto)}" target="_blank" rel="noopener">${esc(x.minuto)}</a></span></div>`).join("")}</div>` : ""}`;
   if (!g) return;

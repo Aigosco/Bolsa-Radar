@@ -2,7 +2,7 @@ name: Noticias (cada 15 min)
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "4,19,34,49 * * * *"   # cada 15 min, en minutos poco concurridos (GitHub retrasa los :00/:15/:30)
   workflow_dispatch:
 
 concurrency:

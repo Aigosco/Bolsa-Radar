@@ -30,7 +30,7 @@ def git(*a):
 
 
 def main(push=True, forzar=False):
-    git("pull", "-q", "--rebase", "-X", "theirs")  # datos frescos de la nube
+    git("pull", "-q", "--rebase", "--autostash", "-X", "theirs")  # datos frescos de la nube
     ahora = datetime.now(timezone.utc)
     previa = json.loads((WEB / "resumen.json").read_text(encoding="utf-8")) if (WEB / "resumen.json").exists() else {}
     if not forzar and previa.get("generado") and "PC" in previa.get("modelo", ""):
@@ -67,7 +67,7 @@ def main(push=True, forzar=False):
         git("add", "datos/web/resumen.json", "datos/resumen")
         git("commit", "-q", "-m", f"lectura IA (PC) {ahora:%Y-%m-%dT%H:%MZ}")
         for _ in range(3):
-            git("pull", "-q", "--rebase", "-X", "theirs")
+            git("pull", "-q", "--rebase", "--autostash", "-X", "theirs")
             p = git("push", "-q")
             if p.returncode == 0:
                 print("push OK")

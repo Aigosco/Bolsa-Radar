@@ -8,12 +8,13 @@ de dónde sale cada afirmación. Sin clave: no hace nada (la página muestra la 
 """
 import sys
 
-from .comun import DATOS, WEB, ahora_utc, guardar_json, iso, leer_json
+from .comun import DATOS, TEMAS, WEB, ahora_utc, guardar_json, iso, leer_json
 from . import ia
 from .guia import texto_evento
 from .mercado import ACTIVOS
 
 CLAVES = [a[0] for a in ACTIVOS]
+NOMBRES_TEMAS = [t for t, _ in TEMAS]
 
 ESQUEMA = {
     "type": "object", "additionalProperties": False,
@@ -22,8 +23,10 @@ ESQUEMA = {
         "lo_esencial": {"type": "array", "items": {"type": "string"}},
         "temas": {"type": "array", "items": {
             "type": "object", "additionalProperties": False,
-            "required": ["tema", "que_paso", "coinciden", "discrepan", "efecto_posible", "medios"],
-            "properties": {"tema": {"type": "string"}, "que_paso": {"type": "string"}, "coinciden": {"type": "string"},
+            "required": ["tema", "modo", "que_paso", "coinciden", "discrepan", "efecto_posible", "medios"],
+            "properties": {"tema": {"type": "string", "enum": NOMBRES_TEMAS},
+                           "modo": {"type": "string", "enum": ["cruce", "resumen"]},
+                           "que_paso": {"type": "string"}, "coinciden": {"type": "string"},
                            "discrepan": {"type": "string"}, "efecto_posible": {"type": "string"},
                            "medios": {"type": "array", "items": {"type": "string"}}}}},
         "ideas": {"type": "array", "items": {
@@ -49,6 +52,12 @@ Ten presente lo medido (estudio F1): las noticias mueven en los primeros minutos
 contexto y filtro de riesgo, no gatillo. Escribe en español, claro, frases cortas, sin adornos.
 
 La página es una guía PARA LA ACCIÓN. Por eso:
+- "temas": EXACTAMENTE una entrada por cada tema de titulares del paquete que tenga titulares, con el mismo nombre del
+  paquete (las pestañas de la página). Si los titulares del tema tratan el mismo hecho o se relacionan, modo "cruce":
+  qué pasó, en qué coinciden y en qué difieren los medios. Si son noticias sueltas sin relación entre sí, modo "resumen":
+  en "que_paso" escribe un resumen de 3-5 frases que dé contexto del tema (qué está pasando en ese mercado según esos
+  titulares, sin forzar conexiones) y deja "coinciden" y "discrepan" vacíos. En ambos modos, "efecto_posible" dice qué
+  significa para los activos del tablero (interpretación, marcada como tal), o queda vacío si no hay efecto claro.
 - En cada idea, "clave" es el símbolo del activo (de la lista del paquete; "" si no es ninguno) y "plan" dice qué hacer con
   los niveles del paquete (gatillo, stop y objetivo del plan técnico del activo), o por qué esperar. No inventes niveles.
 - "agenda_accion": una entrada por cada evento de impacto ALTO de las próximas 36 h y de las últimas 12 h (usa su id).

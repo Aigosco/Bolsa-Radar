@@ -337,9 +337,11 @@ function titulares() {
   $("pestanas").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => { temaSel = b.dataset.tema; titulares(); }));
   const g = temas.find((x) => x.tema === temaSel);
   const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
-  const ia = (D.resumen?.temas || []).find((x) => norm(x.tema).split(/[ ,y]+/).some((w) => w.length > 3 && norm(temaSel || "").includes(w)));
+  const temasIA = D.resumen?.temas || [];
+  const ia = temasIA.find((x) => x.tema === temaSel) ||
+    temasIA.find((x) => norm(x.tema).split(/[^a-z0-9]+/).some((w) => w.length > 3 && norm(temaSel || "").split(/[^a-z0-9]+/).includes(w)));
   const analisis = ia ? `<div class="analisis-tema">
-      <div><b>Qué pasó.</b> ${esc(ia.que_paso)}</div>${ia.coinciden ? `<div><b>Coinciden.</b> ${esc(ia.coinciden)}</div>` : ""}
+      <div><b>${ia.modo === "resumen" ? "Contexto." : "Qué pasó."}</b> ${esc(ia.que_paso)}</div>${ia.coinciden ? `<div><b>Coinciden.</b> ${esc(ia.coinciden)}</div>` : ""}
       ${ia.discrepan ? `<div><b>Difieren.</b> ${esc(ia.discrepan)}</div>` : ""}${ia.efecto_posible ? `<div><b>Efecto posible.</b> ${esc(ia.efecto_posible)}</div>` : ""}
       <p class="nota">Lectura con IA ${haceTxt(D.resumen.generado)}.</p></div>`
     : `<div class="analisis-tema"><p class="nota">${g ? `${g.n_24h} titulares en 24 h de ${g.medios} medios distintos.` : ""}</p></div>`;

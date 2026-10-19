@@ -87,7 +87,7 @@ def nube():
                           "-q", '.[] | select(.status != "completed") | .databaseId'], capture_output=True, text=True).stdout.split()
     for i in ids:
         corre("gh", "run", "watch", i, "-R", GH_REPO, "--exit-status", timeout=900)
-    corre("git", "pull", "-q", "--rebase", "-X", "theirs")
+    corre("git", "pull", "-q", "--rebase", "--autostash", "-X", "theirs")
     print("Nube al día.")
 
 
@@ -105,7 +105,7 @@ def main():
     except Exception as e:  # noqa: BLE001
         print("fallo:", e)
     paso(3, "Repo al día")
-    corre("git", "pull", "-q", "--rebase", "-X", "theirs")
+    corre("git", "pull", "-q", "--rebase", "--autostash", "-X", "theirs")
     paso(4, "Nube: noticias, mercado y cierre diario")
     try:
         nube()

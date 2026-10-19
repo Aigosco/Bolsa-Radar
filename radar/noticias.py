@@ -52,6 +52,8 @@ FEEDS = {
                           "&ceid=US:en",
     # Investing publica ~20 titulares/hora y su feed solo trae 10: esta búsqueda recupera parte de lo que se escapa
     "google/investing": "https://news.google.com/rss/search?q=site:investing.com+when:1d&hl=en-US&gl=US&ceid=US:en",
+    # FXStreet responde 403 a los servidores de GitHub (2026-10-19); su contenido llega por esta búsqueda
+    "google/fxstreet": "https://news.google.com/rss/search?q=site:fxstreet.com+when:1d&hl=en-US&gl=US&ceid=US:en",
 }
 NOMBRES = {"bloomberg": "Bloomberg", "yahoo": "Yahoo Finance", "cnbc": "CNBC", "wsj": "WSJ", "marketwatch": "MarketWatch",
            "ft": "Financial Times", "investing": "Investing.com", "fxstreet": "FXStreet", "fed": "Reserva Federal"}

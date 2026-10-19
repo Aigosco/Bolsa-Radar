@@ -16,6 +16,21 @@ Usuario: trader/inversor en Colombia (hora de Bogotá, UTC−5). Sigue oro, plat
 José Luis Cava. Correo: nefranco93@gmail.com. El repo está en la cuenta **Aigosco** (la de `gh` en este PC); la idea a
 futuro es transferirlo a la cuenta de nefranco93 (si se hace: cambiar `REPO` en `sitio/app.js` y la URL de este archivo).
 
+## 0. Orden de arranque: "ejecutar bolsa"
+Cuando el usuario encienda el PC y diga **"ejecutar bolsa"** (o "arranca todo", o `/ejecutar-bolsa`), se usa la skill
+personal `C:\Users\franc\.claude\skills\ejecutar-bolsa\SKILL.md`. Esa skill corre `local/arrancar.py`, que hace esto:
+1. abre MT5 (`C:\Program Files\MetaTrader 5 IC Markets Global\terminal64.exe`) y espera a que conecte; avisa si "Algo Trading"
+   está apagado;
+2. arranca el bot (`Trading\iniciar_bot_tendencia.bat`, en su ventana) si no corre;
+3. ejecuta `git pull`;
+4. lanza noticias y mercado en la nube (con cierre diario si falta) y espera a que terminen;
+5. revisa los videos nuevos de Cava;
+6. genera la lectura con IA si no hay una de hoy;
+7. publica desde el PC;
+8. muestra el estado.
+
+El usuario también puede hacer doble clic en `local\arrancar.bat`. Al terminar, se informa de cada paso en español.
+
 ## 2. Rutas
 | Qué | Dónde |
 |---|---|
@@ -37,6 +52,7 @@ En Bash usa `PYTHONIOENCODING=utf-8`; en `.bat` ya está puesto (la consola cp12
 | **7:30 L-V** | PC | Videos nuevos de Cava → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
 | **8:10 diario** | PC | Lectura del día con IA (Claude Code, plan Pro) → `datos/web/resumen.json` | tarea "Bolsa-Radar lectura IA" → `local/lectura_ia_pc.bat` |
 | **cada hora (:05)** | PC | Estado del bot (MT5), tesis, radar de acciones, efecto F1 → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
+| **cada 15 min** | PC | Respaldo: si GitHub no corrió noticias en 20 min (o mercado en 40), los lanza con `gh workflow run` | tarea "Bolsa-Radar respaldo nube" → `local/respaldo_nube.bat` (log `%TEMP%\bolsa_radar_respaldo.log`) |
 | al cambiar `sitio/` | Nube | Publica la página | `pagina.yml` |
 | (en pausa) 8:15 | Nube | Lectura con IA vía API | `resumen.yml` — horario comentado hasta que la API tenga saldo |
 
@@ -112,9 +128,12 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
 Último estado: 2026-10-19.
 - Funcionando: noticias, mercado, calendario, tesis (40 videos de Cava, 224 tesis), página, bot.json, lectura IA desde el PC,
   extracción automática de videos nuevos de Cava (probada: 11 tesis, 0 citas no literales, 30 s).
-- **Vigilar:** a las 06:06 UTC del 19-oct GitHub aún no había disparado NINGUNA ejecución programada (solo las manuales). Se
-  movieron los cron a minutos poco concurridos y se volvió a subir. Comprobar con `gh run list --event schedule`; si sigue
-  sin disparar, usar como respaldo una tarea del PC que lance `gh workflow run` (ver historial de la sesión).
+- **Vigilar:** a las 06:22 UTC del 19-oct GitHub aún no había disparado NINGUNA ejecución programada (solo las manuales),
+  ni tras mover los cron a minutos poco concurridos. Mientras tanto, el respaldo del PC ("Bolsa-Radar respaldo nube",
+  cada 15 min) las lanza. Comprobar con `gh run list -R Aigosco/Bolsa-Radar --event schedule`. Si GitHub empieza a
+  dispararlas, el respaldo no hace nada (solo actúa si no hubo ejecución reciente). Con el PC apagado y sin cron de GitHub,
+  la nube no se actualiza: es el punto débil a resolver (posibles causas: retraso de GitHub en repos nuevos; si persiste
+  días, contactar soporte de GitHub o usar un disparador externo).
 - Pendiente del usuario: cargar saldo en la API (platform.claude.com → Facturación) y entonces descomentar el horario de
   `resumen.yml` y desactivar la tarea "Bolsa-Radar lectura IA"; decidir si transferir el repo a la cuenta nefranco93.
 - Ideas aparcadas: correo diario (sustituido por la página), n8n, filtro de riesgo electoral y VIX>20 en el laboratorio,

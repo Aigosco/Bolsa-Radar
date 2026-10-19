@@ -1,7 +1,9 @@
 """Videos nuevos de José Luis Cava → transcripción → tesis (Claude Code en el PC) → GitHub.
 
-Corre EN EL PC (YouTube bloquea a los servidores de GitHub). De lunes a viernes a las 7:30 Bogotá: Cava publica a las
-6:00 de Madrid (23:00 Bogotá del día anterior), así que su video ya está disponible.
+Corre EN EL PC (YouTube bloquea a los servidores de GitHub). De lunes a viernes, cada hora de 7:30 a 16:30 Bogotá: Cava
+publica entre las 5:00 y las 8:40 Bogotá y YouTube tarda un rato en generar los subtítulos automáticos, así que se
+reintenta hasta que aparezcan. "Sin subtítulos todavía" es normal en la primera hora; un bloqueo de YouTube se reporta
+aparte ("YouTube bloquea") y detiene la ejecución sin insistir.
 
   1. Revisa solo los últimos N videos del canal (consulta ligera; nunca listar el canal entero: provocó un bloqueo).
   2. Por cada video sin tesis: baja SOLO la transcripción (sin video) con las funciones del proyecto local.

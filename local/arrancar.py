@@ -126,7 +126,7 @@ def main():
     paso(8, "Estado")
     corre("gh", "run", "list", "-R", GH_REPO, "--limit", "5")
     print("\nPágina: https://aigosco.github.io/Bolsa-Radar/")
-    print("Tareas de Windows activas: videos de Cava (L-V 7:30), lectura IA (8:10), publicar (cada hora), respaldo nube (15 min).")
+    print("Tareas de Windows activas: videos de Cava (L-V cada hora 7:30-16:30), lectura IA (8:10), publicar (cada hora), respaldo nube (15 min).")
 
 
 if __name__ == "__main__":

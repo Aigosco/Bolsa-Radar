@@ -1,8 +1,10 @@
 name: Lectura con IA (1 al día)
 
+# PAUSADO en la nube mientras la cuenta de la API no tenga saldo: la lectura la hace el PC con Claude Code
+# (local/lectura_ia_pc.py, 8:10 Bogotá). Para reactivar aquí, quitar el comentario del horario.
 on:
-  schedule:
-    - cron: "15 13 * * *"    # 08:15 Bogotá: antes de los datos de las 8:30 NY y la apertura (todos los días)
+  # schedule:
+  #   - cron: "15 13 * * *"    # 08:15 Bogotá: antes de los datos de las 8:30 NY y la apertura (todos los días)
   workflow_dispatch:
 
 concurrency:

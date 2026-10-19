@@ -11,7 +11,7 @@ desde este repo.
 | `noticias.yml` | cada 15 min | Lee 27 feeds RSS (Bloomberg, Reuters vía Google News, WSJ, FT, CNBC, Yahoo, Investing, FXStreet, Fed…) y guarda cada titular una vez en `datos/titulares/AAAA/MM/DD.jsonl` |
 | `mercado.yml` | cada 30 min | Calendario de Forex Factory y foto de mercado (Yahoo) |
 | `mercado.yml` | 22:40 UTC | Cierre diario: historia de precios desde 2005, bonos del Tesoro, valor relativo, verificación de tesis |
-| `resumen.yml` | 05:15, 08:15 y 16:30 Bogotá | Lectura del momento con Claude (necesita el secreto `ANTHROPIC_API_KEY`) |
+| `resumen.yml` | 08:15 Bogotá, todos los días | Lectura del momento con Claude (necesita el secreto `ANTHROPIC_API_KEY`) |
 | `pagina.yml` | al cambiar `sitio/` | Publica la página |
 
 Desde el PC (MT5 y YouTube no funcionan en la nube): `python local/publicar_desde_pc.py` sube el estado del bot (sin datos

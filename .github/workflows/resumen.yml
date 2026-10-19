@@ -1,10 +1,8 @@
-name: Lectura con IA (3 veces al día)
+name: Lectura con IA (1 al día)
 
 on:
   schedule:
-    - cron: "15 10 * * 1-5"  # 05:15 Bogotá: cierre de Asia, Londres abierto
-    - cron: "15 13 * * 1-5"  # 08:15 Bogotá: antes de los datos de las 8:30 NY y la apertura
-    - cron: "30 21 * * *"    # 16:30 Bogotá: cierre de NY (también fines de semana)
+    - cron: "15 13 * * *"    # 08:15 Bogotá: antes de los datos de las 8:30 NY y la apertura (todos los días)
   workflow_dispatch:
 
 concurrency:

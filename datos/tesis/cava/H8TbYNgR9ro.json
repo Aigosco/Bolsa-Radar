@@ -1,0 +1,33 @@
+{
+ "video_id": "H8TbYNgR9ro",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "Video breve. Los resultados de Nvidia siempre superan las expectativas y aun así la cotización cae después. No tiene que ver con los resultados, sino con el posicionamiento en opciones: la gente compra calls, los dealers las venden y se cubren comprando acciones; al publicarse los resultados cae la volatilidad implícita, los dealers necesitan menos cobertura y venden esas acciones.",
+ "temas": [
+  "Nvidia",
+  "resultados",
+  "posicionamiento en opciones",
+  "volatilidad implícita"
+ ],
+ "tesis": [
+  {
+   "tipo": "diagnostico",
+   "activo": "Nvidia tras resultados",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "la caída que estamos viendo hoy es o ayer es solamente debida al posicionamiento que hay en los mercados de opciones",
+   "minuto": "01:05",
+   "conviccion": "alta"
+  }
+ ],
+ "titulo": "Si sabíamos que los resultados de #NVDA iban a ser buenos, ¿por qué cayó su cotización?  JLCava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-08-27"
+}

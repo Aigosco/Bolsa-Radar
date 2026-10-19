@@ -1,0 +1,163 @@
+{
+ "lo_esencial": [
+  "El bono de EE. UU. a 10 años sigue por encima del 5 % (5,09 %; rendimiento real 2,74 %), aunque bajó 13 pb en la semana: varios medios hablan de su mayor caída semanal en más de un año, ayudada por la bajada del petróleo.",
+  "El discurso de Warsh redujo las apuestas de subida de tipos: titulares de Yahoo, Bloomberg y FXStreet atribuyen a eso el rebote del oro, y Polymarket baja al 14 % la probabilidad de subida en la reunión de octubre. En sentido contrario, UBS eleva su previsión a tres subidas (incluidas diciembre de 2026 y marzo de 2027).",
+  "Energía: Trump suspende 60 días las sanciones al petróleo y combustibles rusos; el WTI cae hacia 97,5 (cierre diario MT5 98,68, −1,4 %). A la vez, la Guardia Revolucionaria iraní informa de un petrolero que tocó una mina en Ormuz.",
+  "Tecnología: tras la venta del viernes en chips e IA ('Black Monday fears'), los futuros de EE. UU. rebotan antes de una semana cargada de resultados (Tesla, Meta, GE, GM, IBM). El Nasdaq 100 cae un 3,8 % en 5 días.",
+  "Oro 4.175 (+0,1 % en 5 días, −4,6 % en un mes, 7,6 % bajo su media de 200 días) y plata 57,4 (−13 % en un mes). Ambos siguen en tendencia diaria bajista según la media de 200 días.",
+  "Bot (demo): sin posiciones. El oro está a +0,60 % del gatillo del Donchian (4.199); la plata y el BTC, a +1,1 % y +0,9 % del giro del Supertrend. El lunes no hay noticias de EE. UU. de alto impacto; el dato fuerte es el IPC de Canadá a las 8:30 NY."
+ ],
+ "temas": [
+  {
+   "tema": "Fed y tasas",
+   "que_paso": "Las apuestas de subida de tipos de la Fed se moderaron tras un discurso de Warsh; el 10 años sigue por encima del 5 %, aunque con una fuerte bajada semanal.",
+   "coinciden": "Yahoo, Bloomberg, FXStreet, Livemint y BigGo coinciden en que el discurso de Warsh bajó la probabilidad de subida y debilitó algo el dólar frente a CAD, AUD y JPY.",
+   "discrepan": "UBS (vía BigGo) espera ahora tres subidas (diciembre de 2026 y marzo de 2027), frente al 14 % de Polymarket para octubre. CNBC y Bloomberg advierten del riesgo de un shock en bonos por las posiciones apalancadas de los hedge funds.",
+   "efecto_posible": "Menos subidas descontadas y rendimientos más bajos son viento a favor del oro (correlación oro–dólar −0,41). Pero con un rendimiento real del 2,74 % el apoyo es limitado; el estudio F1 mide que la relación oro–rendimiento real se ha debilitado.",
+   "medios": [
+    "Yahoo",
+    "Bloomberg",
+    "FXStreet",
+    "Livemint",
+    "BigGo Finance",
+    "CNBC",
+    "Business Recorder",
+    "Cryptonews"
+   ]
+  },
+  {
+   "tema": "Oro y metales",
+   "que_paso": "El oro rebota sobre los 4.150 con menos apuestas de subida, tras una semana débil. La plata perdió un 6,6 % en la semana.",
+   "coinciden": "Varios medios atribuyen el rebote al tono de Warsh y a la caída de los rendimientos; FXLeaders añade la demanda de los bancos centrales.",
+   "discrepan": "Hay previsiones opuestas en los titulares: Forex Factory ('los bajistas apuntan a 4.000'), un analista en CaptainAltcoin (3.333 en 2027) e IBJA (posible subida del 10–12 % hasta 4.700 a 30 de noviembre). Bloomberg señala dudas sobre el mercado alcista del cobre.",
+   "efecto_posible": "Para el bot, la referencia es técnica: cierre de 4h sobre 4.199 = compra del Donchian; bajo la línea central 4.136 no habría señal. La tendencia diaria (bajo la media de 200 días) va en contra.",
+   "medios": [
+    "Yahoo",
+    "Bloomberg",
+    "FXStreet",
+    "FXLeaders",
+    "Forex Factory",
+    "ET Now",
+    "Sada Elbalad",
+    "Barchart"
+   ]
+  },
+  {
+   "tema": "Energía",
+   "que_paso": "EE. UU. suspende 60 días las sanciones al crudo y al diésel rusos (acuerdo de diésel con Rusia, que también llegará a Turquía). El petróleo baja, pero sigue la tensión en Ormuz.",
+   "coinciden": "Reuters, Investing, FXStreet y WSJ coinciden en que la exención presiona el crudo a la baja; el WSJ añade que la caída puede quedar limitada por la geopolítica.",
+   "discrepan": "La Casa Blanca (secretario de Energía, Rubio) lo presenta como 'incentivo para acabar la guerra' y una 'pausa de 60 días'; otros medios lo ligan a los precios del diésel antes de las elecciones (CNN con un congresista republicano).",
+   "efecto_posible": "Un petróleo más barato bajó los rendimientos según Reuters ('Wall Street y bonos ayudados por la bajada del petróleo'), algo favorable para bonos e índices a corto plazo. El WTI sigue un 15 % sobre su media de 200 días.",
+   "medios": [
+    "Reuters",
+    "WSJ",
+    "FXStreet",
+    "Investing.com",
+    "CNN",
+    "Business Insider",
+    "The Kyiv Independent"
+   ]
+  },
+  {
+   "tema": "Geopolítica",
+   "que_paso": "Escala la tensión entre Trump y Zelenski; Ucrania lanza más de 1.000 drones contra Rusia; Putin propone una cumbre con EE. UU. y China; hay ataques en Riad y un petrolero tocó una mina en Ormuz.",
+   "coinciden": "CNBC, Washington Post, NYT y Bloomberg coinciden en el deterioro de la relación EE. UU.–Ucrania (aunque Reuters informa de que se retomó el intercambio de inteligencia).",
+   "discrepan": "Hay señales de desescalada (cumbre propuesta por Putin, exención de sanciones) y de escalada (Irán habla de un 'nuevo plan operativo' si EE. UU. reanuda los ataques; Egipto ofrece apoyo a Arabia Saudí contra los hutíes).",
+   "efecto_posible": "Más riesgo en Ormuz y el Golfo pesa sobre la energía y puede sostener al oro como refugio. Bloomberg informa de que el euro cayó por el riesgo ruso y las protestas en Francia.",
+   "medios": [
+    "CNBC",
+    "The Washington Post",
+    "The New York Times",
+    "Bloomberg",
+    "Reuters",
+    "FXStreet",
+    "WSJ"
+   ]
+  },
+  {
+   "tema": "Bolsa y empresas",
+   "que_paso": "Rebote de futuros tras la venta del viernes en chips e IA; caen Asia (Nikkei −1,8 %, Corea por el modelo DeepSeek y dudas de financiación). Anthropic destinará un 5 % de sus acciones a un fondo de 'beneficio público' antes de su salida a bolsa.",
+   "coinciden": "Yahoo, Barron's y Bloomberg coinciden en el rebote de los futuros y en que la semana de resultados será clave.",
+   "discrepan": "Unos titulares hablan de 'vuelta al trade de IA' (Investing) y otros de 'escepticismo creciente' sobre la IA en los resultados de Meta y Tesla (Yahoo) y de miedo a un 'lunes negro'.",
+   "efecto_posible": "La beta alta de la tecnología marcará al Nasdaq y al S&P 500 en la semana; el S&P 500 está un 5,8 % sobre su media de 200 días, en tendencia alcista.",
+   "medios": [
+    "Yahoo",
+    "Bloomberg",
+    "Barron's",
+    "Investing",
+    "WSJ",
+    "Reuters"
+   ]
+  },
+  {
+   "tema": "Cripto",
+   "que_paso": "Bitcoin en un rango cerca de 81.000–82.000; salidas de casi 1.000 millones de los ETF de bitcoin en dos semanas.",
+   "coinciden": "Yahoo y TokenPost coinciden en las salidas de los ETF ('Uptober' en rojo).",
+   "discrepan": "Las previsiones van de 10.000 (advertencia de un analista de Bloomberg) a 85.000–100.000 a final de año (Pluang, bloomingbit), y Fidelity ve un mercado alcista.",
+   "efecto_posible": "El estudio F1 mide que el BTC ya casi no reacciona a las noticias de EE. UU. y que se mueve con los índices (correlación 0,40): el trade de IA del lunes importa más que la Fed.",
+   "medios": [
+    "Yahoo",
+    "TokenPost",
+    "bloomingbit",
+    "Pluang",
+    "TradingView",
+    "BigGo Finance"
+   ]
+  }
+ ],
+ "ideas": [
+  {
+   "activo": "Oro (XAUUSD)",
+   "horizonte": "corto",
+   "idea": "El bot comprará si una vela de 4h cierra sobre 4.199 (máximo de 20 velas). Es mecánico; la idea es solo anticipar el contexto si llega la señal.",
+   "a_favor": "Menos apuestas de subida de tipos, rendimientos bajando en la semana y demanda de bancos centrales según FXLeaders. Cava mantiene el oro alcista a largo plazo.",
+   "en_contra": "Precio 7,6 % bajo su media de 200 días y −4,6 % en un mes; rendimiento real alto (2,74 %); titulares con objetivos bajistas (4.000).",
+   "que_la_invalida": "Para el bot, un cierre de 4h bajo la línea central (4.136) tras una eventual compra; para el contexto, que el 10 años vuelva a subir con fuerza."
+  },
+  {
+   "activo": "S&P 500 / Nasdaq",
+   "horizonte": "corto",
+   "idea": "Contrastar la tesis repetida de Cava, 'subida hasta el 3 de noviembre', con lo que hace el mercado esta semana de resultados.",
+   "a_favor": "Futuros al alza tras el viernes y bonos aliviados por el petróleo. El S&P 500 sigue en tendencia alcista diaria.",
+   "en_contra": "Nasdaq −3,8 % en 5 días; escepticismo sobre la IA. La mayoría de las predicciones de Cava de 'sube hasta el 3 de noviembre' están hoy 'en curso en contra' según la verificación.",
+   "que_la_invalida": "Una nueva venta fuerte en semiconductores esta semana o el 10 años de nuevo sobre el 5,2 %."
+  },
+  {
+   "activo": "Petróleo (WTI/Brent)",
+   "horizonte": "mediano",
+   "idea": "Vigilar si la exención de sanciones a Rusia (60 días) marca una tregua de precios hasta las elecciones, como sostiene Cava, frente al riesgo de Ormuz.",
+   "a_favor": "Más oferta rusa de crudo y diésel; Cava espera caída del petróleo hasta el 3 de noviembre o diciembre (Brent hacia 90–80).",
+   "en_contra": "WTI todavía un 15 % sobre su media de 200 días; incidente con un petrolero en Ormuz y ataques en el Golfo.",
+   "que_la_invalida": "Una escalada en Ormuz que devuelva el WTI sobre 100 con fuerza."
+  },
+  {
+   "activo": "Plata y Bitcoin (bot)",
+   "horizonte": "corto",
+   "idea": "Ambos están a ~1 % del giro alcista del Supertrend de 4h: posible señal de compra del bot en los próximos días.",
+   "a_favor": "Rebote de las últimas sesiones; BTC +2 % el último día.",
+   "en_contra": "Plata −13 % en un mes y bajo su media de 200 días; salidas de los ETF de bitcoin.",
+   "que_la_invalida": "Nuevos mínimos de 4h que alejen la línea del Supertrend."
+  },
+  {
+   "activo": "Bono de EE. UU. a 10 años",
+   "horizonte": "mediano",
+   "idea": "Un rendimiento sobre el 5 % (el primero en casi 20 años, según Yahoo) reabre el debate de comprar bonos.",
+   "a_favor": "Rendimiento nominal alto y gran caída semanal (posible techo).",
+   "en_contra": "Cava insiste en no comprar bonos largos hasta un techo claro, que según él exige recesión; CNBC alerta del riesgo de un shock por las posiciones apalancadas.",
+   "que_la_invalida": "Que el rendimiento vuelva a máximos (por encima del 5,2 %) y abra un nuevo tramo alcista."
+  }
+ ],
+ "analistas": "José Luis Cava (40 videos del 25-ago al 16-oct) repite un esquema: las bolsas suben hasta las elecciones del 3 de noviembre, sostenidas por Bessent, Warsh y las 'operaciones TACO', y después caen entre un 10 % y un 20 %. A largo plazo, la degradación monetaria favorece al oro, Bitcoin, los activos duros y, tras la caída, también al S&P 500. Verificación con precios a hoy: en el S&P 500, 2 tesis cumplidas, 8 fallidas, 4 en curso a favor y 11 en contra (cuando dio un %, se exige que el precio lo recorra); en el oro, 1 cumplida, 1 fallida, 7 a favor y 12 en contra (el oro bajó desde ~4.800 en septiembre). Acertó Oracle (tocó 140). Fallaron sus caídas previstas para septiembre (8–10 %) y la subida del S&P 500 hasta el vencimiento del 16 de octubre. Hay contradicciones entre sus videos: el 14-sep anticipa una recesión provocada en el primer semestre de 2027 y el 10-sep, bolsas subiendo con fuerza en ese mismo semestre; el 31-ago veía improbable una subida de tipos antes de las elecciones y en su video del 25-sep comenta la subida de la Fed del 16-sep. Lo que hoy encaja con los datos: el 10 años sobre el 5 % (su tesis de tipos largos al alza) y la tregua petrolera previa a las elecciones (exención a Rusia).",
+ "vigilar": [
+  "Oro: cierre de 4h sobre 4.199 (gatillo del bot) o bajo 4.136 (línea central)",
+  "Plata: cierre de 4h sobre 57,96; BTC: sobre 82.936 (giro del Supertrend)",
+  "Bono de EE. UU. a 10 años: 5,0 % (abajo) y 5,2 % (arriba)",
+  "IPC de Canadá, lunes 8:30 NY (impacto alto en CAD)",
+  "Resultados de Tesla, Meta, GE, GM e IBM esta semana (trade de IA)",
+  "Estrecho de Ormuz y exención de 60 días a las sanciones a Rusia",
+  "Reunión de la Fed de octubre (Polymarket: 14 % de subida)",
+  "3 de noviembre: elecciones de mitad de mandato (eje de las tesis de Cava)"
+ ],
+ "generado": "2026-10-19T02:05:00Z",
+ "modelo": "claude-code (redactado en sesión)"
+}

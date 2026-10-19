@@ -1,0 +1,34 @@
+{
+ "video_id": "sBoOCsuNmWs",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "Día del Trabajo, con Wall Street cerrado: uno de los 'trucos' de su playbook, sin tesis de mercado. Patrón: un tramo alcista y luego un lateral (no hace nada mientras dura); el precio supera los máximos del lateral; retrocede y reconoce esos máximos como soporte; se gira con violencia al alza al iniciar un nuevo tramo. Filtros para subir la probabilidad: (1) volumen, con aumento significativo en la ruptura respecto a los días previos, contracción en el retroceso y expansión en el giro; (2) tendencia, aplicándolo solo cuando la tendencia de medio y largo plazo es claramente alcista. No funciona al 100 %: con un acierto del 40–50 % basta con limitar las pérdidas con stop para ganar. Pide probarlo y no creerle.",
+ "temas": [
+  "patrón de entrada",
+  "ruptura de lateral y retesteo",
+  "volumen",
+  "tendencia",
+  "stop"
+ ],
+ "tesis": [
+  {
+   "tipo": "diagnostico",
+   "activo": "patrón de trading (ruptura de lateral + retesteo como soporte)",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "volumen creciente en la ruptura, decreciente en el retroceso y creciente en el giro; solo con tendencia alcista de medio y largo plazo",
+   "activa_desde_ya": true,
+   "cita": "en el retroceso el precio reconozca como soporte a los máximos dibujados durante el movimiento lateral y tras reconocerlo como soporte que se gire violentamente al alza en el inicio de un nuevo tramo al alza",
+   "minuto": "01:05",
+   "conviccion": "alta"
+  }
+ ],
+ "titulo": "El mercado es un DEMONIO. Aquí tienen un truco para especular. José Luis Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-09-07"
+}

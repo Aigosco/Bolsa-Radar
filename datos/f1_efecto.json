@@ -1,0 +1,131 @@
+{
+ "_nota": "Estudio F1 (sep-2023 → oct-2026): % de veces que el activo se movió 'de libro' (dato bueno para el USD → oro baja; inflación caliente → índices bajan) y movimiento absoluto mediano / p90 en 1 h.",
+ "Fed": {
+  "XAUUSD": {
+   "libro_15m": 1.0,
+   "libro_1h": 1.0,
+   "mov_1h": 0.289,
+   "p90_1h": 1.084
+  },
+  "XAGUSD": {
+   "libro_15m": 1.0,
+   "libro_1h": 1.0,
+   "mov_1h": 0.59,
+   "p90_1h": 2.023
+  },
+  "US500": {
+   "libro_15m": 1.0,
+   "libro_1h": 1.0,
+   "mov_1h": 0.236,
+   "p90_1h": 0.758
+  },
+  "USTEC": {
+   "libro_15m": 1.0,
+   "libro_1h": 1.0,
+   "mov_1h": 0.264,
+   "p90_1h": 0.897
+  },
+  "BTCUSD": {
+   "libro_15m": 1.0,
+   "libro_1h": 1.0,
+   "mov_1h": 0.437,
+   "p90_1h": 1.475
+  }
+ },
+ "Empleo": {
+  "XAUUSD": {
+   "libro_15m": 0.725,
+   "libro_1h": 0.719,
+   "mov_1h": 0.219,
+   "p90_1h": 0.581
+  },
+  "XAGUSD": {
+   "libro_15m": 0.688,
+   "libro_1h": 0.637,
+   "mov_1h": 0.386,
+   "p90_1h": 1.323
+  },
+  "US500": {
+   "libro_15m": 0.516,
+   "libro_1h": 0.559,
+   "mov_1h": 0.139,
+   "p90_1h": 0.456
+  },
+  "USTEC": {
+   "libro_15m": 0.528,
+   "libro_1h": 0.578,
+   "mov_1h": 0.193,
+   "p90_1h": 0.617
+  },
+  "BTCUSD": {
+   "libro_15m": 0.571,
+   "libro_1h": 0.553,
+   "mov_1h": 0.335,
+   "p90_1h": 1.14
+  }
+ },
+ "Inflación": {
+  "XAUUSD": {
+   "libro_15m": 0.714,
+   "libro_1h": 0.651,
+   "mov_1h": 0.229,
+   "p90_1h": 0.931
+  },
+  "XAGUSD": {
+   "libro_15m": 0.746,
+   "libro_1h": 0.651,
+   "mov_1h": 0.575,
+   "p90_1h": 1.76
+  },
+  "US500": {
+   "libro_15m": 0.825,
+   "libro_1h": 0.762,
+   "mov_1h": 0.168,
+   "p90_1h": 0.613
+  },
+  "USTEC": {
+   "libro_15m": 0.825,
+   "libro_1h": 0.778,
+   "mov_1h": 0.246,
+   "p90_1h": 0.59
+  },
+  "BTCUSD": {
+   "libro_15m": 0.714,
+   "libro_1h": 0.651,
+   "mov_1h": 0.309,
+   "p90_1h": 1.461
+  }
+ },
+ "Actividad": {
+  "XAUUSD": {
+   "libro_15m": 0.667,
+   "libro_1h": 0.587,
+   "mov_1h": 0.183,
+   "p90_1h": 0.539
+  },
+  "XAGUSD": {
+   "libro_15m": 0.579,
+   "libro_1h": 0.563,
+   "mov_1h": 0.387,
+   "p90_1h": 1.162
+  },
+  "US500": {
+   "libro_15m": 0.46,
+   "libro_1h": 0.452,
+   "mov_1h": 0.193,
+   "p90_1h": 0.499
+  },
+  "USTEC": {
+   "libro_15m": 0.46,
+   "libro_1h": 0.452,
+   "mov_1h": 0.256,
+   "p90_1h": 0.681
+  },
+  "BTCUSD": {
+   "libro_15m": 0.54,
+   "libro_1h": 0.484,
+   "mov_1h": 0.402,
+   "p90_1h": 1.292
+  }
+ }
+}

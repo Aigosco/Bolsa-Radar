@@ -1,0 +1,66 @@
+{
+ "video_id": "icsVW7vfE_k",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "¿Por qué tres 'señores de la IA' que se odian (Amodei, Altman y, como secundario, Musk) piden a la vez frenar la IA porque podría acabar con el ser humano? Porque quieren posponer las salidas a bolsa de Anthropic y OpenAI: un mensaje que da miedo no casa con una colocación, y sugiere que el crecimiento de beneficios se frena. 'Se ponen la venda' antes de una crisis: las grietas en el crédito de baja calidad anticipan menos crecimiento y más inflación, con una gran crisis de capitales tras el 3 de noviembre liderada por el Nasdaq (más beta), y no quieren ser el chivo expiatorio. Trump quiere seguir (guerra con China) y crear un fondo soberano que compre empresas estratégicas en las caídas, con la liquidez que inyectará Warsh. Los demócratas (Obama, Sanders, Harris) también quieren controlar la IA: hay 'contubernio'. La volatilidad está en una compresión épica; nadie compra puts aunque la incertidumbre se disparará tras el 3 de noviembre, y el día que lo hagan habrá una caída violenta. Sobre la Fed: el mercado descuenta un 95 % de subida; Cava no la ve necesaria, pero Warsh no puede decepcionar.",
+ "temas": [
+  "IA y OPV de OpenAI/Anthropic",
+  "crisis tras el 3 de noviembre",
+  "fondo soberano",
+  "volatilidad comprimida",
+  "Fed"
+ ],
+ "tesis": [
+  {
+   "tipo": "prediccion",
+   "activo": "Nasdaq / tecnología",
+   "simbolo": "USTEC",
+   "direccion": "baja",
+   "horizonte": "mediano",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "2026-11-03",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "después del 3 de noviembre yo lo que creo es que se va a producir una gran crisis, una crisis de capitales. [...] si las bolsas caen, muy probablemente están estarán lideradas por el sector que tenga una mayor beta. Y ese es el Nasdaq",
+   "minuto": "04:02",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "OpenAI y Anthropic",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "la primera conclusión a la que llego yo aquí es que esta gente quieren posponer la colocación y lo que están haciendo es anticiparse a lo que pueda suceder",
+   "minuto": "03:04",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "bolsas (caída violenta cuando se compre protección)",
+   "simbolo": "",
+   "direccion": "baja",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "el día que el mercado empiece a comprar puts/volatilidad; luego volvería a subir",
+   "activa_desde_ya": false,
+   "cita": "el día en que lo hagan muy probablemente se producirá una caída violenta que les gusta. Provocarían la caída, luego la base y luego a continuación volvería a subir",
+   "minuto": "08:53",
+   "conviccion": "media"
+  }
+ ],
+ "titulo": "Se avecina una CRISIS y los señores de la IA la ven venir. José Luis Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-09-15"
+}

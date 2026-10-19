@@ -1,0 +1,83 @@
+{
+ "video_id": "sJS7THHdEOw",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "Grabado el 14 de septiembre (patrocinado por Freedom24). 'Verdad inexorable': harán lo necesario para que las bolsas suban hasta el 3 de noviembre. Los republicanos dan por perdida la Cámara y luchan por el Senado, y a Bessent, como gestor de fondos, le encargaron subir las bolsas. Ya compra renta fija larga y tiene potencia de fuego (más de 880.000 millones en la cuenta del Tesoro en la Fed) para el mes y medio que falta. Warsh 'calienta en el banquillo' para la crisis importante que espera tras el 3 de noviembre (menos crecimiento con más inflación). Ya actúan sobre el petróleo (China aumenta la oferta de derivados; Trump da ayudas a las refinerías). Del 30 de septiembre al 3 de noviembre, entorno alcista, una vez pasado el gran vencimiento de opciones (incluido el collar de JPM) que libera la volatilidad. Su jugada: sobreponderar el Russell 2000 (IWM; en Europa ZPRR) frente al Nasdaq (QQQ), porque los bancos cayeron por las expectativas de subidas de tipos y tienen recorrido. Objetivo de IWM: 307. Volumen alto los días 10 y 11 de septiembre (posible cierre de cortos y suelo): compraría retrocesos si supera 292–293, o si pierde 288 y lo recupera.",
+ "temas": [
+  "elecciones de mitad de mandato",
+  "Bessent",
+  "Warsh",
+  "petróleo",
+  "Russell 2000 vs Nasdaq",
+  "vencimiento de opciones"
+ ],
+ "tesis": [
+  {
+   "tipo": "prediccion",
+   "activo": "bolsas de EE. UU.",
+   "simbolo": "US500",
+   "direccion": "sube",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "2026-09-30",
+   "fecha_limite": "2026-11-03",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "yo sinceramente pienso que del periodo comprendido entre el 30 de septiembre y el 3 de noviembre vamos a estar en un entorno alcista para las bolsas",
+   "minuto": "03:50",
+   "conviccion": "alta"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "bolsas / economía de EE. UU.",
+   "simbolo": "US500",
+   "direccion": "baja",
+   "horizonte": "mediano",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "2026-11-03",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "yo lo que creo es que a partir del 3 de noviembre se va a producir una crisis importante, dado que estamos viendo señales en los mercados financieros que nos anticipan un periodo de menor crecimiento con un aumento de la inflación",
+   "minuto": "02:00",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "recomendacion",
+   "activo": "Russell 2000 (IWM / ZPRR)",
+   "simbolo": "IWM",
+   "direccion": "sube",
+   "horizonte": "corto",
+   "nivel": 307,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2026-11-03",
+   "condicion": "sobreponderar frente al Nasdaq (QQQ); entrada en retrocesos si supera 292–293",
+   "activa_desde_ya": true,
+   "cita": "yo voy a jugar más del lado de la inversión especulativa de cara a las elecciones de medio mandato, que el ETF, que tiene como [nemónico] IWM suba y se dirija hacia qué zona? Pues a la zona de 307.",
+   "minuto": "06:32",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "petróleo y gasolina",
+   "simbolo": "XTIUSD",
+   "direccion": "baja",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2026-11-03",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "Ven ustedes que todo va encaminado y desde el punto de vista de la [cotización] del petróleo, pues ya han visto ustedes que ha comenzado el retroceso.",
+   "minuto": "03:37",
+   "conviccion": "media"
+  }
+ ],
+ "titulo": "HARÁN lo que sea NECESARIO para que SUBAN de cara a las Elecciones de mitad de mandato. JL Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-09-17"
+}

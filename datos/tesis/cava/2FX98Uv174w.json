@@ -1,0 +1,68 @@
+{
+ "video_id": "2FX98Uv174w",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "El 'montaje' Bessent–Warsh–Druckenmiller (artículo del WSJ). Tras Jackson Hole el mercado descuenta subidas, pero los tipos no son lo importante; lo es el balance de la Fed. Cava cree improbable que Warsh suba tipos un mes antes de las elecciones o justo después: si sube, sería en diciembre. La economía (~2,9 % real) aguantaría dos subidas de 25 pb. La clave estaba en Jackson Hole: la Fed 'solo aumentaría su balance en caso de crisis'. En el activo, Warsh compra letras (+7.000 millones) y reduce en lo mismo bonos largos e hipotecarios, sin cambio neto. El truco está en el pasivo: además de 2,9 billones de reservas, los bancos tienen 362.000 millones en repos inversos. Bessent emitirá letras que los bancos comprarán con ese dinero: 'QE encubierto' con dinero de los bancos, y la cuenta del Tesoro (950.000 millones) llegaría a ~1,3 billones, comparable a QE anteriores (~1,6 billones en 2011–2012; ~3 billones en 2020–2022). Puede haber caídas en los vencimientos de agosto o septiembre y tras las elecciones, 'pero aquí hay liquidez': lo más probable es que las bolsas sigan subiendo hasta la segunda mitad de 2027.",
+ "temas": [
+  "Kevin Warsh",
+  "Bessent",
+  "Druckenmiller",
+  "balance de la Fed",
+  "repos inversos",
+  "QE encubierto",
+  "bolsas hasta 2027"
+ ],
+ "tesis": [
+  {
+   "tipo": "prediccion",
+   "activo": "tipos de la Fed",
+   "simbolo": "",
+   "direccion": "lateral",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2026-11-20",
+   "condicion": "si sube, lo haría en diciembre",
+   "activa_desde_ya": true,
+   "cita": "Yo creo que es improbable que Kevin suba los tipos de interés unos días antes, un mes antes, mes y pico antes de la celebración de las elecciones de medio mandato. Y tampoco creo que sea probable que lo suba después de conocerse el resultado de las elecciones. Por lo tanto, yo pienso que de subir los tipos de interés lo hará en diciembre.",
+   "minuto": "02:51",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "bolsas de EE. UU.",
+   "simbolo": "US500",
+   "direccion": "sube",
+   "horizonte": "largo",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2027-12-31",
+   "condicion": "aunque haya caídas en los vencimientos de agosto o septiembre y tras las elecciones",
+   "activa_desde_ya": true,
+   "cita": "aquí hay dinerito, hay liquidez y por lo tanto lo más probable es que la bolsa sigan subiendo hasta la segunda mitad del año 2027",
+   "minuto": "09:31",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "balance de la Fed y financiación del Tesoro",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "El balance se queda inalterado, pero de forma encubierta hay un QUE. Lo que pasa es que el QE se hace con el dinero de los bancos",
+   "minuto": "07:50",
+   "conviccion": "alta"
+  }
+ ],
+ "titulo": "Kevin va a hacer un QE en colaboración con Bessent. Y llevarás a las bolsas al alza. José Luis Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-08-31"
+}

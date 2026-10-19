@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.log
+# nunca subir datos de la cuenta del bróker ni transcripciones completas
+*estado*.json.bak
+transcripcion*.txt

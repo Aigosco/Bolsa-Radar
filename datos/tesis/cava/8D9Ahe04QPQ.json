@@ -1,0 +1,83 @@
+{
+ "video_id": "8D9Ahe04QPQ",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "'Un delito': como los impuestos no alcanzan para el gasto (Francia, EE. UU.), los gobiernos degradan la moneda; propone que las constituciones limiten la degradación monetaria o el peso del gasto público sobre el PIB. A los jóvenes les hacen un 'timo piramidal'. Trump compartió en Truth Social un video de Jim Rickards con un oro a 10.000 a mediados o finales de 2027. Cava lo presenta como alguien con autoridad (negociador de LTCM con la Fed de Nueva York en 1998, asesor en guerra financiera para el Pentágono, autor de 'Guerra de divisas') cuyos escenarios 'catastróficos' se están cumpliendo: crisis de deuda, falta de liquidez, expansión y represión financiera, el oro como refugio y pérdida de peso del dólar. Rickards ve como mucho una caída temporal a 3.600, y en sus escritos el objetivo es 25.000. Cava no sabe si llegará a 10.000 ('iré día a día'), pero considera el oro alcista a medio y largo plazo y una inversión estratégica. China lleva unos 30 meses comprando oro y monta un circuito yuan–Bolsa de Shanghái–oro para sus proveedores, una demanda estructural que a largo plazo dañará al dólar. Corea del Sur volvió a comprar oro por primera vez en 18 meses.",
+ "temas": [
+  "degradación monetaria",
+  "reforma constitucional",
+  "Jim Rickards",
+  "oro 10.000 / 25.000",
+  "China y el oro",
+  "dólar"
+ ],
+ "tesis": [
+  {
+   "tipo": "prediccion",
+   "activo": "oro",
+   "simbolo": "XAUUSD",
+   "direccion": "sube",
+   "horizonte": "largo",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "yo considero que el oro se encuentra en una tendencia alcista de medio y largo plazo",
+   "minuto": "06:33",
+   "conviccion": "alta"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "oro (tesis de Jim Rickards que Cava cita sin hacerla suya)",
+   "simbolo": "XAUUSD",
+   "direccion": "sube",
+   "horizonte": "largo",
+   "nivel": 10000,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2027-12-31",
+   "condicion": "es la tesis de Rickards; Cava dice 'yo no lo sé'",
+   "activa_desde_ya": true,
+   "cita": "este señor dice que la cotización del oro puede irse al 10,000 a mediados o finales del año 2027",
+   "minuto": "02:16",
+   "conviccion": "baja"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "demanda de oro de China",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "largo",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "Y si China va por este camino, va a suponer que esto es una demanda estructural de oro.",
+   "minuto": "08:34",
+   "conviccion": "alta"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "dólar como moneda de reserva",
+   "simbolo": "",
+   "direccion": "baja",
+   "horizonte": "largo",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "lo que es indudable es que a largo plazo va a dañar el poder de dólar",
+   "minuto": "08:20",
+   "conviccion": "media"
+  }
+ ],
+ "titulo": "Oro, al 10.000. Oro, al 25.000. José Luis Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-08-26"
+}

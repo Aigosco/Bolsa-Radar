@@ -1,0 +1,83 @@
+{
+ "video_id": "3N7gWsTxIFU",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "(1) La semana próxima hay riesgo de fuertes caídas. Septiembre es estacionalmente bajista, sobre todo por el posicionamiento en opciones: VIX en mínimos (como en septiembre y diciembre de 2025), correlación y dispersión en mínimos y gestores sin protección, que tendrían que comprar puts deprisa si el mercado cae, con los dealers vendiendo S&P 500. Señales de aviso: VIX y correlación subiendo a la vez, ruptura del soporte de 7.637 con volumen (el vencimiento del tercer viernes puede dispararlo) y paso de gamma positiva a negativa. Caída esperada del S&P 500 del 8–10 %, mayor que la del Nasdaq, que ya cayó. Sería una oportunidad de compra, porque Bessent y Warsh provocarían un rebote fuerte para llegar a las urnas con bolsas alcistas. (2) La 'oportunidad de compra de nuestras vidas'. Frente al capitalismo de Estado chino, EE. UU. diversificará suministros (más inflación) y comprará participaciones en empresas estratégicas (ya empezó con Intel y MP). Para eso hundirán los precios y monetizarán deuda: en un año la Fed podría hacer un QE para que el Gobierno compre esas participaciones.",
+ "temas": [
+  "septiembre bajista",
+  "posicionamiento en opciones",
+  "señales de caída",
+  "QE para comprar empresas estratégicas",
+  "capitalismo de Estado",
+  "Intel y MP"
+ ],
+ "tesis": [
+  {
+   "tipo": "prediccion",
+   "activo": "S&P 500",
+   "simbolo": "US500",
+   "direccion": "baja",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": -8,
+   "fecha_desde": "",
+   "fecha_limite": "2026-09-30",
+   "condicion": "caída del 8–10 %; señal: ruptura de 7.637 con volumen, VIX y correlación al alza, gamma negativa",
+   "activa_desde_ya": true,
+   "cita": "Bueno, ¿hasta dónde podía caer el SP500? 8 10%.",
+   "minuto": "05:50",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "bolsas (rebote tras la caída)",
+   "simbolo": "US500",
+   "direccion": "sube",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2026-11-03",
+   "condicion": "si se confirma la caída del 8–10 %",
+   "activa_desde_ya": false,
+   "cita": "tratarán de aprovechar ese suelo, ¿de acuerdo? Para provocar un rebote muy fuerte y así que los electores estadounidenses lleguen a las urnas con unas bolsas en clara tendencia [alcista]",
+   "minuto": "06:05",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "Fed / participaciones del Gobierno de EE. UU. en empresas estratégicas",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "mediano",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2027-09-04",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "¿estás diciendo que de aquí a un plazo de un año nos podíamos encontrar con que el sistema de la Reserva Federal lleve a cabo un QUE para que el gobierno de los Estados Unidos compre participación en las empresas que el gobierno considere estratégicas? Y yo les digo, Sí.",
+   "minuto": "09:20",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "rivalidad EE. UU.–China e inflación",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "largo",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "Estados Unidos, evidentemente, va a tratar de diversificar sus suministros. Bien, ¿esto qué supone? Mayor inflación.",
+   "minuto": "08:19",
+   "conviccion": "alta"
+  }
+ ],
+ "titulo": "La oportunidad de COMPRA de nuestras VIDAS. José Luis Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-09-04"
+}

@@ -1,0 +1,67 @@
+{
+ "video_id": "zoUHJ6eB6IY",
+ "origen": "claude-code (lectura completa de la transcripción)",
+ "fecha_extraccion": "2026-10-18",
+ "resumen": "Una 'mano misteriosa' sostiene el S&P 500. En el gráfico de 2 horas, las caídas del 16 de septiembre (subida de tipos de la Fed), del 18 y del 24 se recuperaron enseguida. El día 24, con ventas de futuros de los dealers excepcionales (que en el pasado supusieron caídas cercanas al 2 %), el índice no cayó. Opla compró futuros al superar 7.740 justo cuando salió la noticia de negociación con Irán por Ormuz, y vendió en segundos. Atribuye la mano al 'Plunge Protection Team' de Reagan (Grupo de Trabajo del Presidente: Bessent, Warsh, SEC, CFTC), que no tiene fondo propio pero sí influencia. Nadie compra protección a 1–3 meses. Escenario más probable: seguirán publicando buenas noticias cuando caigan las bolsas y subirán hasta octubre y el 3 de noviembre; luego una caída fuerte (Opla hizo un video sobre qué espera tras ella). El petróleo giró en la resistencia de 107,16: 'lo tienen muy apañadito'. Maldad: la prima de Francia frente a Alemania superó la resistencia de 86 pb que funcionaba desde 2012 y está en 108,4 pb: 'en Francia va a pasar algo' y puede afectar al euro.",
+ "temas": [
+  "mano invisible / Plunge Protection Team",
+  "futuros del S&P 500",
+  "operación TACO Irán",
+  "petróleo",
+  "prima de riesgo de Francia",
+  "euro"
+ ],
+ "tesis": [
+  {
+   "tipo": "prediccion",
+   "activo": "S&P 500",
+   "simbolo": "US500",
+   "direccion": "sube",
+   "horizonte": "corto",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "2026-11-03",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "considero como escenario más probable que a partir de este momento van a seguir publicando noticias buenas cuando las bolsas caigan para realizar una subida desde el momento actual hasta octubre",
+   "minuto": "04:55",
+   "conviccion": "alta"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "Grupo de Trabajo del Presidente sobre mercados financieros",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "Pero, ¿qué tiene? Una capacidad de influencia. Y aquí hay una mano misteriosa que está impidiendo que las bolsas caigan.",
+   "minuto": "06:43",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "prima de riesgo de Francia frente a Alemania",
+   "simbolo": "",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "esa resistencia ha sido superada y ahora mismo la prima es de 108,4 puntos básicos. Este hecho revela que la situación en Francia es muy peligrosa.",
+   "minuto": "09:00",
+   "conviccion": "alta"
+  }
+ ],
+ "titulo": "No CAEN porque una Mano MISTERIOSA las Sujeta. José Luis Cava",
+ "canal": "Jose Luis Cava",
+ "fecha": "2026-09-25"
+}

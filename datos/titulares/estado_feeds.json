@@ -1,0 +1,140 @@
+{
+ "actualizado": "2026-10-19T02:54:09Z",
+ "feeds": {
+  "bloomberg/markets": {
+   "ok": true,
+   "items": 20,
+   "nuevos": 20
+  },
+  "bloomberg/economics": {
+   "ok": true,
+   "items": 6,
+   "nuevos": 6
+  },
+  "bloomberg/politics": {
+   "ok": true,
+   "items": 20,
+   "nuevos": 20
+  },
+  "bloomberg/technology": {
+   "ok": true,
+   "items": 15,
+   "nuevos": 15
+  },
+  "bloomberg/industries": {
+   "ok": true,
+   "items": 6,
+   "nuevos": 6
+  },
+  "bloomberg/opinion": {
+   "ok": true,
+   "items": 4,
+   "nuevos": 4
+  },
+  "yahoo/oro": {
+   "ok": true,
+   "items": 18,
+   "nuevos": 18
+  },
+  "yahoo/plata": {
+   "ok": true,
+   "items": 17,
+   "nuevos": 14
+  },
+  "yahoo/sp500": {
+   "ok": true,
+   "items": 20,
+   "nuevos": 20
+  },
+  "yahoo/nasdaq": {
+   "ok": true,
+   "items": 19,
+   "nuevos": 13
+  },
+  "yahoo/bitcoin": {
+   "ok": true,
+   "items": 20,
+   "nuevos": 18
+  },
+  "yahoo/dolar": {
+   "ok": false,
+   "error": "HTTPSConnectionPool(host='feeds.finance.yahoo.com', port=443): Max retries exceeded with url: /rss/2.0/headline?s=DX-Y.N",
+   "nuevos": 0
+  },
+  "cnbc/economia": {
+   "ok": true,
+   "items": 30,
+   "nuevos": 30
+  },
+  "cnbc/mercados": {
+   "ok": true,
+   "items": 30,
+   "nuevos": 28
+  },
+  "cnbc/top": {
+   "ok": true,
+   "items": 26,
+   "nuevos": 21
+  },
+  "wsj/mercados": {
+   "ok": true,
+   "items": 60,
+   "nuevos": 58
+  },
+  "marketwatch/top": {
+   "ok": true,
+   "items": 10,
+   "nuevos": 10
+  },
+  "ft/mercados": {
+   "ok": true,
+   "items": 25,
+   "nuevos": 25
+  },
+  "investing/noticias": {
+   "ok": true,
+   "items": 10,
+   "nuevos": 10
+  },
+  "fxstreet/noticias": {
+   "ok": true,
+   "items": 30,
+   "nuevos": 30
+  },
+  "fed/comunicados": {
+   "ok": true,
+   "items": 20,
+   "nuevos": 20
+  },
+  "fed/discursos": {
+   "ok": true,
+   "items": 15,
+   "nuevos": 15
+  },
+  "google/reuters": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 100
+  },
+  "google/oro": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 100
+  },
+  "google/fed": {
+   "ok": true,
+   "items": 54,
+   "nuevos": 54
+  },
+  "google/geopolitica": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 97
+  },
+  "google/investing": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 99
+  }
+ }
+}

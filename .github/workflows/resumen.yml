@@ -29,6 +29,7 @@ jobs:
         env:
           PYTHONIOENCODING: utf-8
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_WORKSPACE_ID: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}
         run: python -m radar.resumen
       - name: Subir
         run: bash scripts/subir_datos.sh "lectura IA"

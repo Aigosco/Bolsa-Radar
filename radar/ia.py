@@ -24,7 +24,9 @@ def disponible():
 def pedir_json(sistema, texto, esquema, esfuerzo="high", max_tokens=32000):
     """Una llamada con salida estructurada (output_config.format). Devuelve (dict, info) o lanza RuntimeError."""
     import anthropic
-    cliente = anthropic.Anthropic()
+    # Una clave que no pertenece a un workspace exige indicar cuál usar (secreto opcional ANTHROPIC_WORKSPACE_ID)
+    ws = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+    cliente = anthropic.Anthropic(default_headers={"anthropic-workspace-id": ws} if ws else None)
     try:
         with cliente.beta.messages.stream(
             model=MODELO,

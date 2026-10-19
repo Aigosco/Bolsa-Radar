@@ -123,6 +123,22 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
 - **Heredocs en Git Bash** pueden estropear caracteres no ASCII (·, ó) y las barras invertidas: para editar código con tildes
   usa la herramienta de edición, no `sed`/heredoc.
 - Yahoo da futuros continuos (oro GC=F) que difieren unos dólares del contado del bróker; los niveles del bot salen de MT5.
+- **Videos de Cava sin texto.** Hay tres vías y `cava_diario.py` aplica las dos primeras solo:
+  1. **Subtítulos de YouTube.** Tardan horas en aparecer después de publicar.
+  2. **Audio + Whisper**: `fundamental/audio.py`, faster-whisper `large-v3-turbo` en CPU, unos 8 min por video. Ver
+     el problema de `av` más abajo.
+  3. **Si YouTube bloquea la IP** ("not a bot" / 429), lo que bloquea tanto los subtítulos como el audio, se usa el
+     navegador del usuario:
+     - arrancar `python -m fundamental.receptor` (proyecto Trading, escucha en 127.0.0.1:8765);
+     - abrir el video en Chrome, pulsar "Mostrar transcripción";
+     - leer los elementos `transcript-segment-view-model` (cada uno con el texto "m:ss / N segundos / texto") y
+       enviarlos por POST JSON `{autor, id, titulo, canal, fecha_publicacion, duracion, descripcion, segmentos:[[t, texto]]}`
+       al receptor;
+     - después: `local/cava_diario.py --video <ID>`.
+
+     Así se hizo con Ul5x_FPgnwo el 2026-10-19.
+- **faster-whisper 1.2.1 con av 19** falla (`metadata_errors`). Por eso `audio.py` decodifica el audio con ffmpeg y le
+  pasa un array a Whisper.
 
 ## 9. Estado y pendientes (actualizar al cerrar cada sesión)
 Último estado: 2026-10-19.

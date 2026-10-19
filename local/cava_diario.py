@@ -6,7 +6,9 @@ reintenta hasta que aparezcan. "Sin subtítulos todavía" es normal en la primer
 aparte ("YouTube bloquea") y detiene la ejecución sin insistir.
 
   1. Revisa solo los últimos N videos del canal (consulta ligera; nunca listar el canal entero: provocó un bloqueo).
-  2. Por cada video sin tesis: baja SOLO la transcripción (sin video) con las funciones del proyecto local.
+  2. Por cada video sin tesis: baja SOLO la transcripción (sin video) con las funciones del proyecto local. Si YouTube
+     aún no generó los subtítulos, baja solo el audio y lo transcribe en el PC con Whisper (fundamental/audio.py).
+     Si YouTube bloquea la IP (también el audio), queda la vía manual desde el navegador: fundamental/receptor.py.
   3. Claude Code (plan Pro, Opus) lee la transcripción completa con las mismas reglas que se usaron para los 40 videos
      (fundamental/analistas.py: SISTEMA + ESQUEMA) y devuelve el JSON de tesis.
   4. Comprueba que cada cita existe en la transcripción (las correcciones del reconocimiento de voz van entre corchetes);
@@ -32,6 +34,7 @@ TRADING = Path(os.environ.get("TRADING_DIR", r"C:\Users\franc\OneDrive\Desktop\P
 sys.path.insert(0, str(TRADING))
 sys.path.insert(0, str(REPO / "local"))
 from fundamental import analistas as A  # noqa: E402
+from fundamental import audio as AU  # noqa: E402
 from fundamental import youtube as Y  # noqa: E402
 
 CANAL = "https://www.youtube.com/@JoseLuisCavatv/videos"
@@ -121,10 +124,19 @@ def main():
             except Y.Bloqueo as ex:
                 print(f"{vid}: YouTube bloquea ({ex}); se detiene sin insistir")
                 break
-            if not ok:
-                print(f"{vid}: sin subtítulos todavía ({titulo}); se reintentará en la próxima ejecución")
-                continue
-            print(f"{vid}: transcripción bajada · {res.get('fecha_publicacion')} · {res.get('titulo')}")
+            if ok:
+                print(f"{vid}: transcripción bajada · {res.get('fecha_publicacion')} · {res.get('titulo')}")
+            else:  # plan B: bajar solo el audio y transcribirlo en el PC con Whisper (~8 min por video)
+                print(f"{vid}: sin subtítulos todavía; se transcribe el audio con Whisper…", flush=True)
+                try:
+                    res, seg = AU.transcribir(vid, carpeta)
+                    print(f"{vid}: audio transcrito en {seg:.0f} s · {res.get('titulo')}")
+                except AU.Bloqueo as ex:
+                    print(f"{vid}: YouTube bloquea también el audio ({str(ex)[:80]}); se reintentará en la próxima ejecución")
+                    break
+                except Exception as ex:  # noqa: BLE001
+                    print(f"{vid}: falló la transcripción por audio ({ex}); se reintentará en la próxima ejecución")
+                    continue
         try:
             extraer(carpeta)
             nuevos += 1

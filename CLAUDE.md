@@ -65,10 +65,19 @@ abierta ("Solo interactivo") y necesitan MT5 abierto para la parte del bot. Logs
 radar/            (corre en la nube y en el PC)
   comun.py        rutas, hora, JSON, temas de titulares (TEMAS/RUIDO/GRANDES)
   noticias.py     FEEDS; guarda cada titular una vez (vistos.json, 60 días) en datos/titulares/AAAA/MM/DD.jsonl; web/titulares.json
-  calendario.py   Forex Factory del mes → datos/calendario/AAAA-MM.json; web/agenda.json con efecto histórico F1
-  mercado.py      ACTIVOS (16, tickers Yahoo); foto → web/mercado.json; --diario: precios/*.csv, valor.json, tesoro.csv, bonos.json
+                  con titulo_es (traductor público de Google, caché en datos/titulares/traduccion_es.json; si falla, queda en inglés)
+  calendario.py   Forex Factory del mes → datos/calendario/AAAA-MM.json; web/agenda.json con efecto histórico F1 y la GUÍA de
+                  cada noticia (guia.plan_evento). Corre DESPUÉS de mercado.py porque lee mercado.json y graficos.json
+  mercado.py      ACTIVOS (22, tickers Yahoo, incluye GBP/CAD/AUD/NZD/CHF y Nikkei); foto → web/mercado.json (con `niveles` y
+                  `plan` por activo) y web/graficos.json (velas diarias 130 d + media 200, 90 velas de 4h + Supertrend, 72 h de 1h);
+                  --diario: precios/*.csv, valor.json, tesoro.csv, bonos.json
+  guia.py         GUÍA PARA LA ACCIÓN (reglas fijas, nada inventado): tendencia diaria = precio vs media 200 d; 4h = Supertrend
+                  10/3; gatillo = cierre 4h fuera del máximo/mínimo de las 20 velas de 4h anteriores; stop = Supertrend o 2 ATR 4h;
+                  objetivo 2R; estado posible/cautela/no según cuántas tendencias acompañan. MAPA moneda → activos y signo.
+                  Para cada noticia: escenario dato mejor/peor → acción en cada activo → veredicto Entrar/Cautela/No entrar
   tesis.py        verifica datos/tesis/<autor>/*.json con precios → web/tesis.json (marcador, recientes, cerradas, pendientes)
-  resumen.py      paquete del día (desde web/*.json) + ESQUEMA/SISTEMA de la lectura con IA; llama a la API (ia.py)
+  resumen.py      paquete del día (desde web/*.json, con planes y guías) + ESQUEMA/SISTEMA de la lectura con IA (incluye
+                  `agenda_accion` por evento de alto impacto e ideas con `clave` y `plan`); llama a la API (ia.py)
   ia.py           cliente de Claude (Opus 5.5, salida JSON con esquema, fallbacks "default"; admite ANTHROPIC_WORKSPACE_ID)
 local/            (solo en el PC)
   publicar_desde_pc.py   bot.json (sin datos de cuenta), tesis, radar.json, f1_efecto.json; --historico; git push
@@ -86,7 +95,13 @@ datos/            todo lo publicado (ver sección 5)
 - `datos/calendario/AAAA-MM.json`, `datos/precios/<CLAVE>.csv` (fecha, cierre, maximo, minimo; desde 2005),
   `datos/precios/extra/*.csv` (tickers de tesis), `datos/tesoro.csv`, `datos/tesis/cava/<video_id>.json`,
   `datos/f1_efecto.json`, `datos/resumen/paquete_*.md` (lo que vio la IA, para auditar).
-- `datos/web/*.json`: lo que lee la página (resumen, mercado, agenda, titulares, bot, bonos, valor, tesis, radar).
+- `datos/web/*.json`: lo que lee la página (resumen, mercado, agenda, titulares, bot, bonos, valor, tesis, radar; graficos.json
+  se baja solo al abrir la ficha de un activo).
+- **La página es la revista diaria para la acción** (el PDF del proyecto Trading quedó como respaldo). Orden: lo esencial →
+  agenda para la acción (noticias agrupadas por hora y moneda, con veredicto y escenarios) → tablero (tocar un activo abre su
+  ficha: cómo va, tendencias explicadas, planes de compra/venta, gráfico diario y de 4h, noticias, bot, tesis de Cava) → bot e
+  ideas (enlazan a la ficha) → titulares por tema en español u original → bonos, valor, analistas, radar.
+  Pedidos del usuario (2026-10-19): todo debe ser una guía para la acción; letra grande y cómoda; titulares en español.
 - Lectura directa desde cualquier sitio: `https://raw.githubusercontent.com/Aigosco/Bolsa-Radar/main/datos/...`
 
 ## 6. Reglas (decididas por el usuario; no romperlas)

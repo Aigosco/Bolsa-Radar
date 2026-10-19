@@ -13,6 +13,7 @@ from datetime import datetime, timedelta, timezone
 
 import requests
 
+from . import guia as G
 from .comun import DATOS, UA, WEB, ahora_utc, guardar_json, iso, leer_json
 
 URL = "https://www.forexfactory.com/calendar?month={}"
@@ -83,6 +84,8 @@ def web():
     ev = {e["id"]: e for y, m in meses for e in eventos_de(y, m)}.values()
     t0, t1 = int((ahora - timedelta(hours=24)).timestamp()), int((ahora + timedelta(days=7)).timestamp())
     efecto = leer_json(DATOS / "f1_efecto.json", {}) or {}
+    activos = {a["clave"]: a for a in (leer_json(WEB / "mercado.json", {}) or {}).get("activos", [])}
+    graficos = (leer_json(WEB / "graficos.json", {}) or {}).get("activos", {})
     sel = []
     for e in sorted(ev, key=lambda x: x["t"]):
         if not (t0 <= e["t"] <= t1) or (e["impacto"] or "").lower() not in ("high", "medium"):
@@ -93,6 +96,9 @@ def web():
                            if e["actual_n"] is not None and e["previsto_n"] is not None else None))
         if fam and (e["impacto"] or "").lower() == "high":
             x["efecto"] = efecto.get(fam)
+        x["guia"] = G.plan_evento(x, activos, graficos)
+        if x["guia"] is None:
+            continue  # moneda sin activo en el tablero: sin guía para la acción, no se muestra
         sel.append(x)
     guardar_json(WEB / "agenda.json", {"generado": iso(ahora), "eventos": sel,
                                        "nota_efecto": (efecto or {}).get("_nota")}, compacto=True)

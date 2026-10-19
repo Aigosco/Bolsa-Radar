@@ -10,10 +10,14 @@ import sys
 
 from .comun import DATOS, WEB, ahora_utc, guardar_json, iso, leer_json
 from . import ia
+from .guia import texto_evento
+from .mercado import ACTIVOS
+
+CLAVES = [a[0] for a in ACTIVOS]
 
 ESQUEMA = {
     "type": "object", "additionalProperties": False,
-    "required": ["lo_esencial", "temas", "ideas", "analistas", "vigilar"],
+    "required": ["lo_esencial", "temas", "ideas", "agenda_accion", "analistas", "vigilar"],
     "properties": {
         "lo_esencial": {"type": "array", "items": {"type": "string"}},
         "temas": {"type": "array", "items": {
@@ -24,10 +28,14 @@ ESQUEMA = {
                            "medios": {"type": "array", "items": {"type": "string"}}}}},
         "ideas": {"type": "array", "items": {
             "type": "object", "additionalProperties": False,
-            "required": ["activo", "horizonte", "idea", "a_favor", "en_contra", "que_la_invalida"],
-            "properties": {"activo": {"type": "string"}, "horizonte": {"type": "string", "enum": ["corto", "mediano", "largo"]},
-                           "idea": {"type": "string"}, "a_favor": {"type": "string"}, "en_contra": {"type": "string"},
-                           "que_la_invalida": {"type": "string"}}}},
+            "required": ["activo", "clave", "horizonte", "idea", "plan", "a_favor", "en_contra", "que_la_invalida"],
+            "properties": {"activo": {"type": "string"}, "clave": {"type": "string", "enum": CLAVES + [""]},
+                           "horizonte": {"type": "string", "enum": ["corto", "mediano", "largo"]},
+                           "idea": {"type": "string"}, "plan": {"type": "string"}, "a_favor": {"type": "string"},
+                           "en_contra": {"type": "string"}, "que_la_invalida": {"type": "string"}}}},
+        "agenda_accion": {"type": "array", "items": {
+            "type": "object", "additionalProperties": False, "required": ["evento_id", "lectura"],
+            "properties": {"evento_id": {"type": "integer"}, "lectura": {"type": "string"}}}},
         "analistas": {"type": "string"},
         "vigilar": {"type": "array", "items": {"type": "string"}},
     },
@@ -38,7 +46,16 @@ con su verificación. No uses conocimiento externo de noticias ni inventes cifra
 paquete, no lo afirmes. Distingue hecho de interpretación. Cuando un tema aparece en varios medios, di en qué coinciden y en
 qué difieren. Las ideas son para DISCUTIR, no órdenes: cada una con argumentos a favor, en contra y qué la invalidaría.
 Ten presente lo medido (estudio F1): las noticias mueven en los primeros minutos y no deciden la tendencia del día; son
-contexto y filtro de riesgo, no gatillo. Escribe en español, claro, frases cortas, sin adornos."""
+contexto y filtro de riesgo, no gatillo. Escribe en español, claro, frases cortas, sin adornos.
+
+La página es una guía PARA LA ACCIÓN. Por eso:
+- En cada idea, "clave" es el símbolo del activo (de la lista del paquete; "" si no es ninguno) y "plan" dice qué hacer con
+  los niveles del paquete (gatillo, stop y objetivo del plan técnico del activo), o por qué esperar. No inventes niveles.
+- "agenda_accion": una entrada por cada evento de impacto ALTO de las próximas 36 h y de las últimas 12 h (usa su id).
+  En 2-4 frases conecta el fundamental con el técnico. Di por qué importa el dato ahora (según los titulares) y qué
+  escenario de su guía tiene más sentido. Di si hay opción de entrada (con el gatillo de la guía) o por qué no entrar
+  (tendencia en contra, gatillo lejano, sin conexión entre dato y precio). Si el dato ya salió, di cómo reaccionó el
+  precio."""
 
 
 def paquete():
@@ -53,14 +70,23 @@ def paquete():
     p.append("\n## Calendario (24 h atrás → 7 días; hora UTC)")
     for e in ag.get("eventos", []):
         real = f" | real {e['actual']}" if e.get("actual") else ""
-        p.append(f"- {e['fecha_utc']} {e['moneda']} [{e['impacto']}] {e['nombre']} | previsión {e['previsto']} | "
+        p.append(f"- id {e['id']} · {e['fecha_utc']} {e['moneda']} [{e['impacto']}] {e['nombre']} | previsión {e['previsto']} | "
                  f"anterior {e['anterior']}{real}")
+        if e.get("guia"):
+            p.append(texto_evento(e))
     m = leer_json(WEB / "mercado.json", {})
-    p.append("\n## Mercado (Yahoo): activo | último | 1 d % | 5 d % | 1 mes % | vs media 200 d % | tend. diaria | tend. 4h")
+    p.append("\n## Mercado (Yahoo): activo [clave] | último | 1 d % | 5 d % | 1 mes % | vs media 200 d % | tend. diaria | tend. 4h")
     for a in m.get("activos", []):
         if not a.get("sin_datos"):
-            p.append(f"- {a['nombre']} | {a['ultimo']} | {a['ch_1d']} | {a['ch_5d']} | {a['ch_1m']} | {a['vs_ma200']} | "
+            p.append(f"- {a['nombre']} [{a['clave']}] | {a['ultimo']} | {a['ch_1d']} | {a['ch_5d']} | {a['ch_1m']} | {a['vs_ma200']} | "
                      f"{a['tend_diaria']} | {a['tend_4h']}")
+            pl = a.get("plan") or {}
+            for k in ("compra", "venta"):
+                x = pl.get(k)
+                if x:
+                    p.append(f"    plan {k}: gatillo cierre 4h {'sobre' if k == 'compra' else 'bajo'} {x['gatillo']} "
+                             f"({x['distancia_pct']:+}% del precio, {x['distancia_atr']} ATR 4h), stop {x['stop']} "
+                             f"({x['stop_es']}), objetivo {x['objetivo']} (2R) → {x['estado']}")
     b = leer_json(WEB / "bonos.json", {})
     for f in b.get("tabla", []):
         p.append(f"- Bono {f['nombre']}: {f['ultimo']} ({f['d1_pb']:+} pb 1 d, {f['d5_pb']:+} pb 1 sem) al {f['fecha']}")

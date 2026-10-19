@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bolsa-Radar</title>
-<meta name="description" content="Noticias, calendario, mercado, bonos, bot y tesis de analistas, actualizados durante todo el día.">
+<meta name="description" content="Revista de mercados para la acción: agenda con planes de entrada, tablero con gráficos, bot, ideas y titulares en español, actualizados todo el día.">
+<meta name="theme-color" content="#0d141b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bolsa-Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -22,48 +25,65 @@
     <div class="frescura" id="frescura" aria-live="polite">Cargando datos…</div>
     <button id="tema" class="boton-tema" type="button" aria-label="Cambiar entre modo claro y oscuro">◐</button>
   </div>
+  <nav class="indice" aria-label="Secciones">
+    <a href="#t-lectura">Lectura</a><a href="#t-agenda">Agenda</a><a href="#t-tablero">Tablero</a><a href="#t-bot">Bot</a>
+    <a href="#t-ideas">Ideas</a><a href="#t-titulares">Titulares</a><a href="#t-bonos">Bonos</a><a href="#t-analistas">Analistas</a>
+  </nav>
 </header>
 
 <main class="pagina">
   <section class="sesiones" aria-labelledby="t-sesiones">
     <div class="cab"><h2 id="t-sesiones">Sesiones de hoy <small>hora de Nueva York</small></h2><p class="nota" id="sesion-ahora"></p></div>
-    <div class="linea-sesiones" id="linea-sesiones" role="img" aria-label="Línea de 24 horas con las sesiones de Asia, Londres y Nueva York y las noticias de alto impacto"></div>
+    <div class="linea-sesiones" id="linea-sesiones" role="img" aria-label="Línea de 24 horas con las sesiones de Asia, Londres y Nueva York y las noticias de impacto"></div>
   </section>
 
   <section class="bloque lectura" aria-labelledby="t-lectura">
-    <div class="cab"><h2 id="t-lectura">Lectura del momento</h2><p class="nota" id="lectura-meta"></p></div>
+    <div class="cab"><h2 id="t-lectura">Lo esencial hoy</h2><p class="nota" id="lectura-meta"></p></div>
     <div class="lectura-grid">
       <ul class="esencial" id="esencial"></ul>
       <aside class="vigilar"><h3>A vigilar</h3><ul id="vigilar"></ul></aside>
     </div>
   </section>
 
+  <section class="bloque" aria-labelledby="t-agenda">
+    <div class="cab"><h2 id="t-agenda">Agenda para la acción</h2>
+      <p class="nota">Cada noticia con lo que harías según cómo salga el dato, cruzado con la tendencia del activo. Toca un activo para ver su gráfico.</p></div>
+    <div class="leyenda-niveles">
+      <span><b class="nivel entrar">Entrar</b> las tendencias diaria y de 4h acompañan</span>
+      <span><b class="nivel cautela">Cautela</b> solo una acompaña: esperar el gatillo</span>
+      <span><b class="nivel no">No entrar</b> va contra las dos, o el dato no sorprendió</span>
+    </div>
+    <div class="agenda" id="agenda"></div>
+    <details class="mas" id="agenda-mas-env"><summary>Resto de la semana</summary><div class="agenda" id="agenda-mas"></div></details>
+  </section>
+
   <section class="bloque" aria-labelledby="t-tablero">
-    <div class="cab"><h2 id="t-tablero">Tablero</h2><p class="nota">Último precio, variación y tendencia. Diaria: precio sobre/bajo su media de 200 días. 4h: Supertrend 10/3.</p></div>
+    <div class="cab"><h2 id="t-tablero">Tablero</h2>
+      <p class="nota">Toca un activo para ver su gráfico diario y de 4 horas, sus niveles y el plan de entrada.</p></div>
+    <div class="pestanas" role="tablist" id="grupos"></div>
     <div class="tablero" id="tablero"></div>
   </section>
 
   <div class="dos">
-    <section class="bloque" aria-labelledby="t-agenda">
-      <div class="cab"><h2 id="t-agenda">Agenda</h2><p class="nota">Impacto alto y medio · últimas 24 h y próximos 7 días</p></div>
-      <ol class="agenda" id="agenda"></ol>
-    </section>
     <section class="bloque" aria-labelledby="t-bot">
       <div class="cab"><h2 id="t-bot">Bot de tendencia</h2><p class="nota" id="bot-meta"></p></div>
       <div id="bot"></div>
     </section>
+    <section class="bloque" aria-labelledby="t-ideas">
+      <div class="cab"><h2 id="t-ideas">Ideas para discutir</h2><p class="nota">No son órdenes: cada una con su plan, lo que la apoya, lo que la contradice y qué la invalida.</p></div>
+      <div class="ideas" id="ideas"></div>
+    </section>
   </div>
 
   <section class="bloque" aria-labelledby="t-titulares">
-    <div class="cab"><h2 id="t-titulares">Titulares</h2><p class="nota" id="titulares-meta"></p></div>
+    <div class="cab"><h2 id="t-titulares">Titulares por tema</h2>
+      <div class="idioma" role="group" aria-label="Idioma de los titulares">
+        <button type="button" id="lang-es" aria-pressed="true">Español</button><button type="button" id="lang-en" aria-pressed="false">Original</button>
+      </div></div>
+    <p class="nota" id="titulares-meta"></p>
     <div class="actividad" id="actividad" aria-label="Titulares por hora en las últimas 24 horas"></div>
     <div class="pestanas" role="tablist" id="pestanas"></div>
     <div class="tema-panel" id="tema-panel" role="tabpanel"></div>
-  </section>
-
-  <section class="bloque" aria-labelledby="t-ideas">
-    <div class="cab"><h2 id="t-ideas">Ideas para discutir</h2><p class="nota">No son órdenes: cada una con lo que la apoya, lo que la contradice y qué la invalida.</p></div>
-    <div class="ideas" id="ideas"></div>
   </section>
 
   <div class="dos">
@@ -73,7 +93,7 @@
       <div class="tabla-env"><table class="tabla" id="bonos-tabla"></table></div>
     </section>
     <section class="bloque" aria-labelledby="t-valor">
-      <div class="cab"><h2 id="t-valor">Valor frente a 10 años</h2><p class="nota">Percentil del precio de hoy entre los cierres diarios de la última década (0 = lo más bajo).</p></div>
+      <div class="cab"><h2 id="t-valor">Valor frente a 10 años</h2><p class="nota">Dónde está el precio de hoy entre los cierres de la última década (0 = lo más bajo, 100 = lo más alto).</p></div>
       <div id="valor"></div>
       <h3 class="sub">Ratios</h3>
       <div id="ratios"></div>
@@ -104,9 +124,19 @@
 
   <footer class="pie">
     <div id="fuentes"></div>
-    <p>Noticias cada 15 min · mercado y calendario cada 30 min · lectura con IA cada mañana (8:15) · cierre diario a las 17:43 Bogotá. Datos de Yahoo Finance, Forex Factory, Tesoro de EE. UU., SEC y 27 fuentes de noticias. No es asesoría financiera.</p>
+    <p>Noticias cada 15 min · mercado, calendario y guías cada 30 min · lectura con IA cada mañana · cierre diario a las 17:43 Bogotá. Precios de Yahoo Finance (futuros continuos y divisas al contado: pueden diferir unos puntos de tu bróker). Los planes salen de reglas fijas sobre las velas (máximo/mínimo de 20 velas de 4h, Supertrend 10/3, media de 200 días); no son asesoría financiera.</p>
   </footer>
 </main>
+
+<dialog class="ficha" id="ficha" aria-labelledby="ficha-titulo">
+  <div class="ficha-in">
+    <header class="ficha-cab">
+      <div><h2 id="ficha-titulo"></h2><p class="nota" id="ficha-sub"></p></div>
+      <button type="button" class="cerrar" id="ficha-cerrar" aria-label="Cerrar">✕</button>
+    </header>
+    <div id="ficha-cuerpo"></div>
+  </div>
+</dialog>
 <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
 <script src="app.js"></script>
 </body>

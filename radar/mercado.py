@@ -18,6 +18,7 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+from . import guia as G
 from .comun import DATOS, UA, WEB, ahora_utc, guardar_json, iso
 
 ACTIVOS = [  # clave, nombre, ticker de Yahoo, grupo
@@ -26,12 +27,16 @@ ACTIVOS = [  # clave, nombre, ticker de Yahoo, grupo
     ("US500", "S&P 500", "^GSPC", "Índices"), ("USTEC", "Nasdaq 100", "^NDX", "Índices"),
     ("US30", "Dow Jones", "^DJI", "Índices"), ("DE40", "DAX", "^GDAXI", "Índices"),
     ("XTIUSD", "Petróleo WTI", "CL=F", "Energía"), ("XBRUSD", "Brent", "BZ=F", "Energía"),
+    ("JP225", "Nikkei 225", "^N225", "Índices"),
     ("EURUSD", "EUR/USD", "EURUSD=X", "Divisas"), ("USDJPY", "USD/JPY", "JPY=X", "Divisas"),
+    ("GBPUSD", "GBP/USD", "GBPUSD=X", "Divisas"), ("USDCAD", "USD/CAD", "CAD=X", "Divisas"),
+    ("AUDUSD", "AUD/USD", "AUDUSD=X", "Divisas"), ("NZDUSD", "NZD/USD", "NZDUSD=X", "Divisas"),
+    ("USDCHF", "USD/CHF", "CHF=X", "Divisas"),
     ("DXY", "Dólar (DXY)", "DX-Y.NYB", "Divisas"), ("VIX", "VIX", "^VIX", "Riesgo"),
     ("BONO10", "Bono 10 años", "^TNX", "Riesgo"),
 ]
-HISTORIA = [a[0] for a in ACTIVOS] + ["XPTUSD", "GASNAT", "US2000", "IBEX35", "JP225"]
-EXTRA = {"XPTUSD": "PL=F", "GASNAT": "NG=F", "US2000": "^RUT", "IBEX35": "^IBEX", "JP225": "^N225"}
+HISTORIA = [a[0] for a in ACTIVOS] + ["XPTUSD", "GASNAT", "US2000", "IBEX35"]
+EXTRA = {"XPTUSD": "PL=F", "GASNAT": "NG=F", "US2000": "^RUT", "IBEX35": "^IBEX"}
 TICKER = {a[0]: a[2] for a in ACTIVOS} | EXTRA
 RATIOS = [("XAUUSD", "XAGUSD", "Oro / plata", "alto = plata barata frente al oro"),
           ("XAUUSD", "COBRE", "Oro / cobre", "alto = miedo frente a crecimiento"),
@@ -85,17 +90,48 @@ def bajar(tickers, **kw):
     return out
 
 
-def tendencia_4h(h1):
-    """Velas de 4h cerradas a partir de velas de 1 h (UTC) → dirección del Supertrend 10/3 y su línea."""
+def r6(v):
+    return None if v is None or not np.isfinite(v) else float(f"{float(v):.6g}")
+
+
+def velas_4h(h1):
+    """Velas de 4h CERRADAS a partir de velas de 1 h (UTC), con el Supertrend 10/3 (línea y dirección)."""
     x = h1.copy()
     x.index = pd.to_datetime(x.index, utc=True)
-    v4 = x.resample("4h", origin="epoch").agg({"High": "max", "Low": "min", "Close": "last"}).dropna()
+    v4 = x.resample("4h", origin="epoch").agg({"Open": "first", "High": "max", "Low": "min", "Close": "last"}).dropna()
     if len(v4) and v4.index[-1] + pd.Timedelta(hours=4) > pd.Timestamp.now(tz="UTC"):
         v4 = v4.iloc[:-1]  # la última vela aún no cerró
     if len(v4) < 30:
-        return None, None
+        return None
     linea, d = supertrend(v4["High"].values, v4["Low"].values, v4["Close"].values)
-    return ("alcista" if d[-1] > 0 else "bajista"), float(linea[-1])
+    v4["st"], v4["st_dir"] = linea, d
+    v4["atr"] = atr(v4["High"].values, v4["Low"].values, v4["Close"].values)
+    return v4
+
+
+def niveles(c_dia, x_dia, v4):
+    """Niveles técnicos medibles para los planes de acción (nada inventado: todo sale de las velas).
+
+    Donchian 20 en 4h = máximo / mínimo de las 20 velas de 4h cerradas ANTERIORES a la última (como el bot P5);
+    Supertrend 10/3 de 4h; ATR de 4h y diario; máximo / mínimo de 20 días; media de 200 días."""
+    n = {}
+    if v4 is not None and len(v4) > 21:
+        prev = v4.iloc[-21:-1]
+        n |= {"donchian_alto": r6(prev["High"].max()), "donchian_bajo": r6(prev["Low"].min()),
+              "st_4h": r6(v4["st"].iloc[-1]), "st_dir": "alcista" if v4["st_dir"].iloc[-1] > 0 else "bajista",
+              "atr_4h": r6(v4["atr"].iloc[-1]), "cierre_4h": r6(v4["Close"].iloc[-1]),
+              "hora_4h": v4.index[-1].strftime("%Y-%m-%dT%H:%MZ")}
+        # desde cuándo dura la dirección actual del Supertrend
+        cambio = np.nonzero(np.diff(v4["st_dir"].values))[0]
+        if len(cambio):
+            n["st_desde"] = v4.index[cambio[-1] + 1].strftime("%Y-%m-%dT%H:%MZ")
+    if len(x_dia) > 21:
+        n |= {"max_20d": r6(x_dia["High"].iloc[-21:-1].max()), "min_20d": r6(x_dia["Low"].iloc[-21:-1].min()),
+              "atr_d": r6(atr(x_dia["High"].values.astype(float), x_dia["Low"].values.astype(float),
+                              c_dia.values)[-1])}
+    if len(c_dia) >= 200:
+        n["ma200"] = r6(c_dia.rolling(200).mean().iloc[-1])
+    return n
 
 
 def foto():
@@ -103,7 +139,7 @@ def foto():
     tks = [a[2] for a in ACTIVOS]
     dia = bajar(tks, period="2y", interval="1d")
     hora = bajar(tks, period="60d", interval="1h")
-    filas = []
+    filas, graficos = [], {}
     for clave, nombre, tk, grupo in ACTIVOS:
         x = dia.get(tk)
         if x is None or len(x) < 30:
@@ -113,19 +149,35 @@ def foto():
         u = float(c.iloc[-1])
         ma200 = float(c.rolling(200).mean().iloc[-1]) if len(c) >= 200 else None
         ch = lambda n: round((u / float(c.iloc[-1 - n]) - 1) * 100, 2) if len(c) > n else None  # noqa: E731
-        t4, linea4 = tendencia_4h(hora[tk]) if tk in hora else (None, None)
-        filas.append({
+        v4 = velas_4h(hora[tk]) if tk in hora else None
+        niv = niveles(c, x, v4)
+        fila = {
             "clave": clave, "nombre": nombre, "grupo": grupo, "ticker": tk, "ultimo": round(u, 5),
             "fecha": str(c.index[-1].date()), "ch_1d": ch(1), "ch_5d": ch(5), "ch_1m": ch(21),
             "vs_ma200": round((u / ma200 - 1) * 100, 2) if ma200 else None,
             "tend_diaria": ("alcista" if u > ma200 else "bajista") if ma200 else None,
-            "tend_4h": t4, "supertrend_4h": round(linea4, 5) if linea4 else None,
+            "tend_4h": niv.get("st_dir"), "supertrend_4h": niv.get("st_4h"),
             "max_52s": round(float(c.iloc[-252:].max()), 5), "min_52s": round(float(c.iloc[-252:].min()), 5),
-            "spark": [round(float(v), 5) for v in c.iloc[-90:]],
-        })
+            "spark": [round(float(v), 5) for v in c.iloc[-90:]], "niveles": niv,
+        }
+        fila["plan"] = G.plan_activo(fila)
+        filas.append(fila)
+        # velas para los gráficos de la página (6 meses diarios con media de 200 días; ~15 días de 4h; 72 h de 1h)
+        ma = c.rolling(200).mean()
+        d = x.iloc[-130:]
+        graficos[clave] = {
+            "d": [[f"{i:%Y-%m-%d}", r6(o), r6(h), r6(lo), r6(cc), r6(ma.loc[i])]
+                  for i, o, h, lo, cc in zip(d.index, d["Open"], d["High"], d["Low"], d["Close"])],
+            "h4": [] if v4 is None else [[f"{i:%Y-%m-%dT%H:%MZ}", r6(o), r6(h), r6(lo), r6(cc), r6(s), int(sd)]
+                                         for i, o, h, lo, cc, s, sd in zip(v4.index[-90:], *(v4[k].iloc[-90:] for k in
+                                                                       ("Open", "High", "Low", "Close", "st", "st_dir")))],
+            "h1": [] if tk not in hora else [[f"{pd.Timestamp(i).tz_convert('UTC'):%Y-%m-%dT%H:%MZ}", r6(v)]
+                                             for i, v in hora[tk]["Close"].iloc[-72:].items()],
+        }
     guardar_json(WEB / "mercado.json", {"generado": iso(ahora), "fuente": "Yahoo Finance", "activos": filas},
                  compacto=True)
-    print(f"web/mercado.json: {sum(not f.get('sin_datos') for f in filas)}/{len(filas)} activos")
+    guardar_json(WEB / "graficos.json", {"generado": iso(ahora), "activos": graficos}, compacto=True)
+    print(f"web/mercado.json: {sum(not f.get('sin_datos') for f in filas)}/{len(filas)} activos · web/graficos.json")
 
 
 # ------------------------------------------------------------------ historia diaria, bonos y valor relativo

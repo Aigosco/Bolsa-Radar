@@ -153,6 +153,35 @@ def recientes(horas=36):
     return salida
 
 
+TRAD = DATOS / "titulares" / "traduccion_es.json"
+GTX = "https://translate.googleapis.com/translate_a/single"
+
+
+def traducir(titulos):
+    """Traducción al español de los titulares con el traductor público de Google (sin clave). Caché por titular:
+    cada uno se traduce una sola vez. Si el servicio falla, el titular queda en inglés (la página lo muestra así)."""
+    cache = leer_json(TRAD, {}) or {}
+    faltan = [t for t in dict.fromkeys(titulos) if clave(t) not in cache]
+    for i in range(0, len(faltan), 40):
+        lote = [re.sub(r"\s+", " ", t).strip() for t in faltan[i:i + 40]]
+        try:
+            r = requests.post(GTX, params={"client": "gtx", "sl": "auto", "tl": "es", "dt": "t"},
+                              data={"q": "\n".join(lote)}, headers={"User-Agent": UA}, timeout=30)
+            r.raise_for_status()
+            lineas = "".join(x[0] for x in r.json()[0] if x and x[0]).split("\n")
+        except Exception as ex:  # noqa: BLE001
+            print(f"traducción: fallo ({ex}); quedan en inglés")
+            break
+        if len(lineas) != len(lote):
+            print(f"traducción: el lote volvió con {len(lineas)} líneas en vez de {len(lote)}; se omite")
+            continue
+        for t, es in zip(faltan[i:i + 40], lineas):
+            cache[clave(t)] = es.strip()
+    vivos = {clave(t) for t in titulos}
+    guardar_json(TRAD, {k: v for k, v in cache.items() if k in vivos}, compacto=True)
+    return {t: cache.get(clave(t)) for t in titulos}
+
+
 def web():
     ahora = ahora_utc()
     tit = recientes(36)
@@ -170,12 +199,17 @@ def web():
         temas.append({"tema": tema, "n": len(g), "medios": len({t["medio"] for t in g}),
                       "n_24h": sum(t["publicado"] >= iso(ahora - timedelta(hours=24)) for t in g),
                       "titulares": [{k: t[k] for k in ("titulo", "medio", "enlace", "publicado")} for t in g[:14]]})
+    es = traducir([t["titulo"] for g in temas for t in g["titulares"]] + [t["titulo"] for t in tit[:60]])
+    for g in temas:
+        for t in g["titulares"]:
+            t["titulo_es"] = es.get(t["titulo"])
     estado = leer_json(DATOS / "titulares" / "estado_feeds.json", {})
     guardar_json(WEB / "titulares.json", compacto=True, obj={
         "generado": iso(ahora), "total_36h": len(tit), "total_24h": len(ult24),
         "por_hora": [{"hora": h + ":00Z", "n": por_hora.get(h, 0)} for h in horas],
         "temas": sorted(temas, key=lambda x: -x["n_24h"]),
-        "ultimos": [{k: t[k] for k in ("titulo", "medio", "enlace", "publicado", "temas", "grande")} for t in tit[:60]],
+        "ultimos": [{k: t[k] for k in ("titulo", "medio", "enlace", "publicado", "temas", "grande")} | {"titulo_es": es.get(t["titulo"])}
+                    for t in tit[:60]],
         "feeds": estado.get("feeds", {}), "feeds_actualizado": estado.get("actualizado"),
     })
     print(f"web/titulares.json: {len(tit)} titulares (36 h), {len(temas)} temas")

@@ -32,12 +32,12 @@ jobs:
           python-version: "3.13"
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Calendario (Forex Factory)
-        continue-on-error: true
-        run: python -m radar.calendario
       - name: Mercado (Yahoo)
         run: |
           if [ "$DIARIO" = "true" ]; then python -m radar.mercado --diario; else python -m radar.mercado; fi
+      - name: Calendario (Forex Factory) con guía para la acción
+        continue-on-error: true
+        run: python -m radar.calendario
       - name: Tesis de analistas
         if: env.DIARIO == 'true'
         run: python -m radar.tesis

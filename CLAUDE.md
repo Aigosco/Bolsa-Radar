@@ -159,12 +159,11 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
 Último estado: 2026-10-19.
 - Funcionando: noticias, mercado, calendario, tesis (40 videos de Cava, 224 tesis), página, bot.json, lectura IA desde el PC,
   extracción automática de videos nuevos de Cava (probada: 11 tesis, 0 citas no literales, 30 s).
-- **Vigilar:** a las 06:22 UTC del 19-oct GitHub aún no había disparado NINGUNA ejecución programada (solo las manuales),
-  ni tras mover los cron a minutos poco concurridos. Mientras tanto, el respaldo del PC ("Bolsa-Radar respaldo nube",
-  cada 15 min) las lanza. Comprobar con `gh run list -R Aigosco/Bolsa-Radar --event schedule`. Si GitHub empieza a
-  dispararlas, el respaldo no hace nada (solo actúa si no hubo ejecución reciente). Con el PC apagado y sin cron de GitHub,
-  la nube no se actualiza: es el punto débil a resolver (posibles causas: retraso de GitHub en repos nuevos; si persiste
-  días, contactar soporte de GitHub o usar un disparador externo).
+- **Horarios de GitHub: funcionan desde el 19-oct 13:04 UTC.** Las primeras ~13 horas del repo nuevo no se disparó
+  ninguno. Llegan con retrasos irregulares, algo normal en GitHub. El respaldo del PC ("Bolsa-Radar respaldo nube", cada
+  15 min) solo lanza un flujo si no hubo ejecución reciente; con GitHub al día no hace nada. Comprobar con
+  `gh run list -R Aigosco/Bolsa-Radar --event schedule`. Si GitHub vuelve a dejar de dispararlos, la nube solo se
+  actualiza con el PC encendido (gracias al respaldo).
 - Pendiente del usuario: cargar saldo en la API (platform.claude.com → Facturación) y entonces descomentar el horario de
   `resumen.yml` y desactivar la tarea "Bolsa-Radar lectura IA"; decidir si transferir el repo a la cuenta nefranco93.
 - Ideas aparcadas: correo diario (sustituido por la página), n8n, filtro de riesgo electoral y VIX>20 en el laboratorio,

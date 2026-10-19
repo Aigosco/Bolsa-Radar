@@ -160,7 +160,7 @@ def git_push():
         return
     g("commit", "-m", f"datos del PC {datetime.now():%Y-%m-%d %H:%M}")
     for _ in range(3):
-        g("pull", "--rebase", "-X", "theirs")
+        g("pull", "--rebase", "--autostash", "-X", "theirs")
         r = g("push")
         if r.returncode == 0:
             print("push OK")

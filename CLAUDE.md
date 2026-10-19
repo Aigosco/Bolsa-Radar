@@ -49,7 +49,7 @@ En Bash usa `PYTHONIOENCODING=utf-8`; en `.bat` ya está puesto (la consola cp12
 | cada 30 min (:11 :41 UTC) | Nube | Calendario Forex Factory + foto de mercado (Yahoo) | `mercado.yml` → `radar/calendario.py`, `radar/mercado.py` |
 | 17:43 (22:43 UTC) | Nube | Cierre diario: historia de precios desde 2005, bonos del Tesoro, valor 10 años, **verificación de tesis** | `mercado.yml` (`--diario`) → `radar/mercado.py --diario`, `radar/tesis.py` |
 | 23:00 (víspera) | YouTube | Cava publica su video (6:00 de Madrid), lunes a viernes | — |
-| **7:30 L-V** | PC | Videos nuevos de Cava → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
+| **7:30–13:30 L-V, cada hora** | PC | Videos nuevos de Cava (reintenta si aún no hay subtítulos) → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
 | **8:10 diario** | PC | Lectura del día con IA (Claude Code, plan Pro) → `datos/web/resumen.json` | tarea "Bolsa-Radar lectura IA" → `local/lectura_ia_pc.bat` |
 | **cada hora (:05)** | PC | Estado del bot (MT5), tesis, radar de acciones, efecto F1 → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
 | **cada 15 min** | PC | Respaldo: si GitHub no corrió noticias en 20 min (o mercado en 40), los lanza con `gh workflow run` | tarea "Bolsa-Radar respaldo nube" → `local/respaldo_nube.bat` (log `%TEMP%\bolsa_radar_respaldo.log`) |

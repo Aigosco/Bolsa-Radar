@@ -29,9 +29,15 @@ def git(*a):
     return subprocess.run(["git", "-C", str(REPO), *a], capture_output=True, text=True)
 
 
-def main(push=True):
+def main(push=True, forzar=False):
     git("pull", "-q", "--rebase", "-X", "theirs")  # datos frescos de la nube
     ahora = datetime.now(timezone.utc)
+    previa = json.loads((WEB / "resumen.json").read_text(encoding="utf-8")) if (WEB / "resumen.json").exists() else {}
+    if not forzar and previa.get("generado") and "PC" in previa.get("modelo", ""):
+        dia = datetime.fromisoformat(previa["generado"].replace("Z", "+00:00")).astimezone().date()
+        if dia == datetime.now().date():
+            print(f"Ya hay lectura de hoy ({previa['generado']}); no se repite (usa --forzar para rehacerla).")
+            return 0
     txt = paquete()
     ruta = DATOS / "resumen" / f"paquete_{ahora:%Y-%m-%d_%H}.md"
     ruta.parent.mkdir(parents=True, exist_ok=True)
@@ -75,4 +81,6 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--sin-push", action="store_true")
-    sys.exit(main(push=not ap.parse_args().sin_push))
+    ap.add_argument("--forzar", action="store_true")
+    a = ap.parse_args()
+    sys.exit(main(push=not a.sin_push, forzar=a.forzar))

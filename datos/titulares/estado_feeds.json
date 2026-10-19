@@ -1,140 +1,140 @@
 {
- "actualizado": "2026-10-19T02:54:09Z",
+ "actualizado": "2026-10-19T03:06:53Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 20
+   "nuevos": 0
   },
   "bloomberg/economics": {
    "ok": true,
    "items": 6,
-   "nuevos": 6
+   "nuevos": 0
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 20
+   "nuevos": 0
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 15,
-   "nuevos": 15
+   "nuevos": 0
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 6,
-   "nuevos": 6
+   "nuevos": 0
   },
   "bloomberg/opinion": {
    "ok": true,
    "items": 4,
-   "nuevos": 4
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
    "items": 18,
-   "nuevos": 18
+   "nuevos": 1
   },
   "yahoo/plata": {
    "ok": true,
    "items": 17,
-   "nuevos": 14
+   "nuevos": 0
   },
   "yahoo/sp500": {
    "ok": true,
    "items": 20,
-   "nuevos": 20
+   "nuevos": 0
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 19,
-   "nuevos": 13
+   "nuevos": 0
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 18
+   "nuevos": 0
   },
   "yahoo/dolar": {
-   "ok": false,
-   "error": "HTTPSConnectionPool(host='feeds.finance.yahoo.com', port=443): Max retries exceeded with url: /rss/2.0/headline?s=DX-Y.N",
+   "ok": true,
+   "items": 14,
    "nuevos": 0
   },
   "cnbc/economia": {
    "ok": true,
    "items": 30,
-   "nuevos": 30
+   "nuevos": 0
   },
   "cnbc/mercados": {
    "ok": true,
    "items": 30,
-   "nuevos": 28
+   "nuevos": 0
   },
   "cnbc/top": {
    "ok": true,
-   "items": 26,
-   "nuevos": 21
+   "items": 27,
+   "nuevos": 1
   },
   "wsj/mercados": {
    "ok": true,
    "items": 60,
-   "nuevos": 58
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 10
+   "nuevos": 0
   },
   "ft/mercados": {
    "ok": true,
    "items": 25,
-   "nuevos": 25
+   "nuevos": 0
   },
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 10
+   "nuevos": 9
   },
   "fxstreet/noticias": {
-   "ok": true,
-   "items": 30,
-   "nuevos": 30
+   "ok": false,
+   "error": "403 Client Error: Forbidden for url: https://www.fxstreet.com/rss/news",
+   "nuevos": 0
   },
   "fed/comunicados": {
    "ok": true,
    "items": 20,
-   "nuevos": 20
+   "nuevos": 0
   },
   "fed/discursos": {
    "ok": true,
    "items": 15,
-   "nuevos": 15
+   "nuevos": 0
   },
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 100
+   "nuevos": 7
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 100
+   "nuevos": 7
   },
   "google/fed": {
    "ok": true,
-   "items": 54,
-   "nuevos": 54
+   "items": 53,
+   "nuevos": 1
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 97
+   "nuevos": 4
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 99
+   "nuevos": 6
   }
  }
 }

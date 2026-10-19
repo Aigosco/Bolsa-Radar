@@ -1,182 +1,210 @@
 {
  "lo_esencial": [
-  "Futuros de EE. UU. al alza por rebote de valores de IA (Reuters, WSJ, Yahoo). Viene tras una semana dura: Nasdaq 100 −5,49 % en 5 días y VIX +22 % en 5 días. Interpretación: es un rebote dentro de una semana débil, no un giro confirmado.",
-  "El petróleo baja por la exención de sanciones a Rusia (WSJ, Reuters): WTI −3,64 % (97,72) y Brent −1,47 % (108,25). Siguen vivos el bloqueo a Irán (Bloomberg) y los ataques hutíes (Bloomberg). Las tendencias diaria y de 4 h siguen siendo alcistas en ambos.",
-  "IPC de Canadá (12:30Z): la subyacente salió por debajo de lo previsto (mediana 1,9 % frente a 2,0 %; recortada 1,8 % frente a 1,9 %; m/m 0,1 % frente a 0,2 %). Bloomberg cita la general en 3,1 %, en ligera subida.",
-  "Fed en periodo de silencio. El mercado discute subidas, no recortes: «Warsh dice 'poco', el mercado entiende pausa» (Investing). Los rendimientos bajan (Yahoo, Reuters); el 10 años bajó 13 pb en la semana hasta el 16-oct (5,09 %).",
-  "Oro plano en 4.181,7, un 0,68 % por debajo del gatillo del bot (4.199,06). Diaria bajista, 4 h alcista. Bot: 0 posiciones.",
-  "Geopolítica: Putin propone una cumbre con Trump y Xi (WSJ) y el Kremlin la sitúa en China el mes próximo (Reuters). Francia: tensión política, caen la bolsa, los bonos y el euro (CNBC, Bloomberg)."
+  "Canadá: el IPC general subió a 3,1% interanual (Reuters, Bloomberg), pero todas las medidas subyacentes salieron por debajo de lo previsto. La m/m fue 0,1% frente a 0,2%. La mediana fue 1,9% frente a 2,0% y la recortada 1,8% frente a 1,9%. USD/CAD apenas reaccionó: -0,04% desde el dato.",
+  "Fed: el debate es sobre subidas, no sobre recortes. Los titulares dicen que bajan las apuestas por una subida inminente (Yahoo, Investing: «Warsh dice poco, el mercado oye pausa»). La Fed está en periodo de silencio. El bono a 10 años está en 5,09% (-13 pb en la semana, dato del 16-oct).",
+  "Petróleo: cae por la exención de sanciones a Rusia (WSJ). La Fed advierte de riesgos en Oriente Medio por ataques hutíes y la guerra con Irán. WTI -3,82% en 1 d y Brent -1,82%, pero ambos siguen en tendencia alcista diaria y 4h.",
+  "Tecnología: tras una semana dura (Nasdaq 100 -5,49% en 5 d), los titulares hablan de rebote en chips y en futuros antes de la apertura. La tabla aún muestra el Nasdaq -2,5% y el S&P -1,09% en 1 d. El VIX baja 8,35% en el día, pero sube 20% en 5 d.",
+  "Única señal técnica en estado 'posible' con ambas tendencias a favor: venta de USD/JPY con cierre 4h bajo 157,544. También están en 'posible' la compra del Dow, el DAX, el WTI, el Brent y el VIX.",
+  "Recordatorio F1: las noticias mueven en los primeros minutos y no deciden la tendencia del día. Úsalas como filtro de riesgo, no como gatillo."
  ],
  "temas": [
   {
-   "tema": "Fed, tasas y bonos",
-   "que_paso": "La Fed está en periodo de silencio (Yahoo). Investing titula «Warsh dice 'poco': el mercado entiende pausa». Reuters: la Fed ve el auge de la IA como fuente de presión inflacionaria. Datos al 16-oct: 2 años 4,74 %, 10 años 5,09 % (−13 pb en la semana), real a 10 años 2,74 % (−13 pb), pendiente 10–2 en 0,35.",
-   "coinciden": "Yahoo y Reuters coinciden en que hoy bajan los rendimientos. Varios medios hablan de que se aleja una subida inminente (Yahoo en oro y en bitcoin; Investing con Warsh).",
-   "discrepan": "FXStreet dice que las apuestas de subida limitan al oro. Yahoo dice que esas expectativas se moderan. Es la misma variable leída con distinto énfasis. Reuters y Dimon (WSJ) insisten en el riesgo de inflación.",
-   "efecto_posible": "Interpretación: si los rendimientos reales siguen bajando, ayudan al oro y a la tecnología. La datos de bonos son del viernes, así que conviene confirmarlos hoy. En la semana no hay datos de EE. UU. de alto impacto.",
+   "tema": "Fed y tasas en EE. UU.",
+   "que_paso": "La Fed está en periodo de silencio (Yahoo). Warsh habló poco y el mercado lo lee como pausa (Investing). Reuters dice que la Fed ve el auge de la IA como un factor más de inflación. Los rendimientos del Tesoro bajan (Yahoo).",
+   "coinciden": "La discusión es si la Fed sube tasas, no si las baja. Varios medios dicen que la expectativa de una subida inminente se ha reducido.",
+   "discrepan": "Hay lecturas distintas sobre el oro. FXStreet dice que las apuestas de subida frenan al oro bajo 4.200. Yahoo dice que el oro superó 4.200 en futuros porque esas apuestas se relajan. Es la misma variable leída con distinto peso.",
+   "efecto_posible": "Es una interpretación: si se consolida la pausa, bajarían los rendimientos y el dólar, y eso apoyaría la venta de USD/JPY, el oro y las cripto. Dato de soporte: el 10 años cae 13 pb en la semana. Si vuelven las apuestas de subida, ocurriría lo contrario.",
    "medios": [
     "Investing.com",
-    "Reuters",
     "Yahoo Finance",
+    "Reuters",
     "FXStreet",
-    "WSJ"
+    "Bloomberg"
    ]
   },
   {
-   "tema": "Inflación fuera de EE. UU. (Canadá, Alemania, Japón, Reino Unido)",
-   "que_paso": "Canadá: subyacente por debajo de lo previsto en todas sus medidas. Según Bloomberg, la general subió a 3,1 %. El Bundesbank ve riesgos de inflación al alza en Alemania. Ueda (BoJ) dice que la inflación subyacente está cerca del objetivo; el yen ronda 158. IPC del Reino Unido el miércoles: previsión 3,4 %, anterior 3,1 %.",
-   "coinciden": "Bloomberg y FXStreet señalan la energía como motor de la inflación general («Energy costs pull inflation higher»). Investing habla de riesgo de estanflación en EE. UU. por la energía.",
-   "discrepan": "En Canadá, la general sube y la subyacente cede. La lectura depende de cuál de las dos se mire.",
-   "efecto_posible": "Interpretación: una subyacente floja en Canadá quita presión al BoC y podría frenar la recuperación del CAD. FXStreet situaba el USD/CAD en mínimos de varias semanas, sobre 1,4100. El paquete no trae el precio del USD/CAD tras el dato.",
+   "tema": "IPC de Canadá (septiembre)",
+   "que_paso": "El IPC general sube a 3,1% interanual por la energía. El mensual (0,1%) y las medidas subyacentes (mediana 1,9%, recortada 1,8%, común 2,4%) salen por debajo de lo previsto. USD/CAD está en 1,40921 (-0,71% en 1 d) y apenas se movió con el dato (-0,04%).",
+   "coinciden": "Reuters y Bloomberg coinciden en el 3,1% general. Bloomberg y FXStreet destacan que el núcleo se modera.",
+   "discrepan": "Reuters titula con la subida del general. Bloomberg y FXStreet titulan con el núcleo más débil y el parón en la recuperación del CAD. Yahoo («leaky loonie») plantea que el tipo de cambio puede influir en el Banco de Canadá.",
+   "efecto_posible": "Es una interpretación: un núcleo más bajo da margen al Banco de Canadá y quita apoyo al CAD. El precio no lo ha confirmado: USD/CAD sigue a la baja en 4h.",
    "medios": [
+    "Reuters",
     "Bloomberg",
     "FXStreet",
-    "Investing.com",
     "Yahoo Finance"
    ]
   },
   {
-   "tema": "Petróleo y energía",
-   "que_paso": "El crudo cae desde máximos de 5 meses (Yahoo) por la exención de sanciones de Trump a Rusia, que alivia a India (Reuters, WSJ). En contra: los republicanos critican la exención (Bloomberg), las terminales de Irán siguen vacías por el bloqueo de EE. UU. (Bloomberg) y Riad restringe vuelos tras ataques hutíes (Bloomberg). Commerzbank espera que los precios altos cedan solo poco a poco.",
-   "coinciden": "Hay acuerdo en que la caída de hoy responde a la exención a Rusia.",
-   "discrepan": "WSJ pone peso en el riesgo de Oriente Medio. Yahoo habla de «$110 oil» como gráfico a vigilar. Un hecho de los precios: el WTI cae mucho más que el Brent (−3,64 % frente a −1,47 %).",
-   "efecto_posible": "Según el estudio F1, las noticias mueven en los primeros minutos pero no deciden la tendencia. Las tendencias diaria y de 4 h siguen alcistas. Un petróleo más bajo alivia la inflación y los rendimientos, y eso apoya a bolsa, oro y cripto.",
+   "tema": "Petróleo y geopolítica",
+   "que_paso": "El petróleo baja por la exención de sanciones a Rusia (WSJ), que además enfada a los republicanos (Bloomberg). Riyadh restringe vuelos tras ataques hutíes (Bloomberg) y el diésel sube por la guerra con Irán (Axios). En Ucrania: Zelensky dice que Trump lo presiona para ceder (NYT, Bloomberg). Putin propone una cumbre con Trump y Xi (WSJ) y el Kremlin dice que podría ser en China el mes próximo (Reuters).",
+   "coinciden": "El riesgo en Oriente Medio sigue presente. La noticia de Rusia (exención de sanciones y posible cumbre) es lo que presiona el precio hoy.",
+   "discrepan": "Commerzbank ve que los precios altos solo bajarán poco a poco. Yahoo menciona escenarios de «$110 oil». No hay consenso sobre si la caída de hoy es un cambio de tendencia o una pausa.",
+   "efecto_posible": "WTI (97,54) y Brent (107,86) siguen alcistas en diario y en 4h, con compras en 'posible'. Una caída de un día por un titular no cambia la tendencia, según F1. Más energía cara alimenta la inflación (Bundesbank, Investing: riesgo de estanflación).",
    "medios": [
-    "Reuters",
     "WSJ",
     "Bloomberg",
-    "Yahoo Finance",
-    "FXStreet",
-    "Investing.com",
-    "CNBC"
-   ]
-  },
-  {
-   "tema": "Bolsa: rebote de IA tras la venta",
-   "que_paso": "Los futuros suben con AMD, Nvidia y CoreWeave; Goldman mejora la recomendación de CoreWeave tras una caída del 25 %. Cleveland-Cliffs sube un 14 % por los aranceles. Cleveland Research rebaja a PayPal. Tabla de mercado: S&P −1,09 % en 1 día, Nasdaq 100 −2,5 % en 1 día y −5,49 % en 5 días, Dow −0,34 %, DAX −1,24 %.",
-   "coinciden": "Reuters, WSJ y Yahoo hablan de vuelta al riesgo; WSJ subraya que es «cautelosa».",
-   "discrepan": "Yahoo recoge llamadas a un «Black Monday» y una «chip rout». WSJ advierte de puntos débiles en los bonos ligados a la IA. El tono va de rebote a fragilidad.",
-   "efecto_posible": "Interpretación: el rebote en preapertura no basta para cambiar la tendencia de 4 h, hoy bajista en S&P y Nasdaq. Aviso: en la tabla, el VIX baja un 7 % mientras el S&P cae, lo que sugiere horas de cierre distintas. No conviene leer esas dos cifras juntas.",
-   "medios": [
-    "Reuters",
-    "WSJ",
-    "Yahoo Finance",
-    "Bloomberg",
-    "Investing.com",
-    "CNBC"
-   ]
-  },
-  {
-   "tema": "Geopolítica: Ucrania, Rusia, China",
-   "que_paso": "Putin propone una cumbre con Trump y Xi sobre Ucrania (WSJ, exclusiva). El Kremlin dice que podría celebrarse en China el mes próximo (Reuters). Zelensky acusa a Trump de empujar a Ucrania a rendirse (NYT). Rubio niega que EE. UU. haya pausado el intercambio de inteligencia (Reuters).",
-   "coinciden": "WSJ y Reuters confirman la idea de la cumbre a tres.",
-   "discrepan": "Lo que dice la parte ucraniana (NYT) choca con el tono de negociación que llega de Moscú. Que haya cumbre no significa que haya acuerdo.",
-   "efecto_posible": "Interpretación: avances hacia un acuerdo pesarían sobre el petróleo y quizá sobre el oro como refugio. Es contexto de riesgo, no un gatillo para operar.",
-   "medios": [
-    "WSJ",
     "Reuters",
     "The New York Times",
-    "Bloomberg",
-    "CNBC"
-   ]
-  },
-  {
-   "tema": "China",
-   "que_paso": "Las ventas minoristas superan lo previsto y el crecimiento sigue en ruta (Bloomberg). Tipos de referencia sin cambios por 17.º mes (Reuters). China planea un nuevo tipo de política que podría traer relajación (Bloomberg). Nuevos controles a la exportación de tuneladoras (Reuters). Tensión con Filipinas.",
-   "coinciden": "Tanto Reuters como Bloomberg recogen la pausa en tipos y las expectativas de relajación futura.",
-   "discrepan": "Bloomberg ve presión sobre el colchón energético en invierno por la menor producción de carbón.",
-   "efecto_posible": "Interpretación: es un apoyo moderado para metales industriales y para el AUD, que según FXStreet sube tras el PIB chino. El cobre muestra tendencia diaria alcista y de 4 h bajista.",
-   "medios": [
-    "Bloomberg",
-    "Reuters",
+    "Axios",
     "FXStreet",
-    "Investing.com Canada"
+    "Yahoo Finance"
    ]
   },
   {
-   "tema": "Francia: riesgo de deuda",
-   "que_paso": "La tensión social y la presión sobre el gobierno hunden a la bolsa, los bonos y el euro en París.",
-   "coinciden": "CNBC y Bloomberg describen la misma caída en bolsa y bonos.",
-   "discrepan": "CNBC menciona la caída del euro, pero en la tabla el EUR/USD está plano (+0,02 %).",
-   "efecto_posible": "Interpretación: es un riesgo localizado por ahora. El DAX cae un 1,24 % en el día. Habrá que vigilar los PMI franceses del viernes.",
+   "tema": "Bolsa: rebote tecnológico tras la venta masiva",
+   "que_paso": "Micron y otros chips rebotan (MarketWatch). Las acciones de infraestructura de IA suben 6-8% (Yahoo) y los futuros suben antes de la apertura (Yahoo, Bloomberg). Antes hubo temores de un 'Black Monday' y un flash crash en cripto. Las acciones de defensa caen por apuestas a una victoria demócrata (FT).",
+   "coinciden": "Después de una semana de fuertes caídas en chips, hoy hay rebote antes de la apertura.",
+   "discrepan": "Yahoo y la prensa cripto hablan de miedo a un 'Black Monday'. MarketWatch y Bloomberg hablan de recuperación. Todavía no está claro si es un rebote técnico o un giro.",
+   "efecto_posible": "El Nasdaq 100 (29.187) está bajo el gatillo de venta 29.409,6 y el S&P (7.659) bajo 7.669,66, con tendencia 4h bajista pero diaria alcista. Por eso están en 'cautela'. El Dow aguanta mejor: alcista en diario y en 4h.",
+   "medios": [
+    "MarketWatch",
+    "Yahoo Finance",
+    "Bloomberg",
+    "Financial Times",
+    "Investing.com"
+   ]
+  },
+  {
+   "tema": "Francia: tensión política y deuda",
+   "que_paso": "Las protestas en Francia aumentan el miedo a una crisis de deuda. Caen las acciones, los bonos y el euro en París (CNBC, Bloomberg).",
+   "coinciden": "Ambos medios describen caídas simultáneas en acciones y bonos franceses.",
+   "discrepan": "CNBC dice que también cae el euro. En la tabla, EUR/USD sube 0,12% en 1 d, así que el contagio al euro de momento es limitado.",
+   "efecto_posible": "Es un riesgo para los activos europeos: el DAX baja 1,38% en el día. Si la tensión pasa a los diferenciales de deuda, podría pesar sobre EUR/USD, que ya es bajista en diario.",
    "medios": [
     "CNBC",
     "Bloomberg"
    ]
   },
   {
+   "tema": "China: estímulo y crecimiento",
+   "que_paso": "China estudia hacer de la tasa a un día su principal tasa de política. Bloomberg dice que eso podría llevar a una flexibilización. Las ventas minoristas superan lo previsto y el crecimiento sigue en línea (Bloomberg). También hay controles a la exportación de tuneladoras (Reuters).",
+   "coinciden": "Reuters y Bloomberg informan del cambio de marco monetario.",
+   "discrepan": "Solo Bloomberg habla de una posible relajación. Reuters lo presenta como un estudio.",
+   "efecto_posible": "Apoyo a las divisas ligadas a China. AUD/USD sube 1,03% en 1 d (FXStreet lo atribuye al RBA y al PIB chino). Para el cobre no hay reacción clara: la tendencia 4h es bajista.",
+   "medios": [
+    "Reuters",
+    "Bloomberg",
+    "FXStreet"
+   ]
+  },
+  {
    "tema": "Cripto",
-   "que_paso": "El bitcoin ronda los 82.500 (+0,61 %). Hubo un flash crash en perpetuos de IA (33 M$) y temor a un «Black Monday» en redes. MARA ha movido 1.000 BTC a exchanges. Saylor habla de vuelta al mercado alcista.",
-   "coinciden": "Yahoo e Investing ligan el alivio a la caída del petróleo y a menos expectativas de subida de la Fed.",
-   "discrepan": "Los titulares alternan entre rebote («Crypto Rebounds») y miedo («Black Monday fears»).",
-   "efecto_posible": "Bot: el Supertrend de 4 h del BTC está bajista y giraría con un cierre sobre 82.936,11 (+0,25 %). Las entradas a exchanges de MARA son un posible lastre de oferta (interpretación).",
+   "que_paso": "Strategy compra 22 M$ en BTC y amplía la recompra de STRC. Strive llega a 36.818 BTC. Los ETF de ether pierden 320 M$, tercera semana de salidas. McGlone advierte sobre BTC. Hubo un flash crash previo.",
+   "coinciden": "Hay rebote moderado tras el susto: BTC +0,5% y ETH +0,48% en 1 d.",
+   "discrepan": "Las compras corporativas son alcistas. Las salidas de los ETF de ETH y la advertencia de McGlone son bajistas.",
+   "efecto_posible": "BTC (82.430) está cerca del gatillo de compra 83.056,5 y del giro del Supertrend del bot (82.936). La tendencia 4h sigue bajista, así que hace falta confirmación.",
    "medios": [
     "Yahoo Finance",
     "Investing.com",
-    "Bloomberg"
+    "FXStreet"
    ]
   }
  ],
  "ideas": [
   {
-   "activo": "Oro (XAUUSD)",
+   "activo": "USD/JPY",
+   "clave": "USDJPY",
    "horizonte": "corto",
-   "idea": "Vigilar la ruptura del máximo de 20 velas de 4 h en 4.199,06 (gatillo del bot, a +0,68 %). Comprar solo si confirma, no antes.",
-   "a_favor": "La tendencia de 4 h es alcista. Los rendimientos reales bajaron 13 pb en la semana. El petróleo cae y se modera la idea de una subida inminente de la Fed (Yahoo).",
-   "en_contra": "La tendencia diaria es bajista: −5,5 % en el mes y −7,89 % frente a la media de 200 días. FXStreet dice que las apuestas de subida limitan al oro. El marcador de analistas en oro va mayoritariamente en contra (12 de 21).",
-   "que_la_invalida": "Un cierre de 4 h por debajo de la línea central (4.136,22) o un repunte de los rendimientos reales."
+   "idea": "Venta de USD/JPY si confirma la ruptura. Es la única señal 'posible' con las tendencias diaria y 4h a favor (ambas bajistas).",
+   "plan": "Esperar un cierre 4h bajo 157,544 (a -0,47%, 2,3 ATR). Stop en 158,805 (Supertrend 4h) y objetivo 155,022 (2R). Sin ese cierre, no entrar.",
+   "a_favor": "Las tendencias diaria y 4h son bajistas. Los rendimientos del Tesoro bajan (Yahoo) y el 10 años cae 13 pb en la semana. El mercado oye 'pausa' de la Fed (Investing).",
+   "en_contra": "El gatillo está todavía a 2,3 ATR. El par sube 1,38% en el mes. FXStreet dice que el yen sigue frágil. Si vuelven las apuestas de subida de la Fed, el dólar se fortalece.",
+   "que_la_invalida": "Un cierre 4h sobre 158,805 (Supertrend) o una ruptura al alza de 158,95, el gatillo de compra."
   },
   {
-   "activo": "Nasdaq 100 (USTEC)",
+   "activo": "Petróleo WTI / Brent",
+   "clave": "XTIUSD",
    "horizonte": "corto",
-   "idea": "No perseguir el rebote de la IA en preapertura. Esperar a que se estabilice antes de pensar en compras.",
-   "a_favor": "El índice cae un 5,49 % en 5 días, la tendencia de 4 h es bajista y el VIX sube un 22 % en 5 días. Hay titulares de «chip rout» y «Black Monday», y WSJ ve puntos débiles en los bonos de IA. El gatillo de la Donchian de 30 velas queda lejos (31.034, a +4,81 %).",
-   "en_contra": "Reuters, WSJ y Yahoo informan de un rebote amplio en AMD, Nvidia y CoreWeave, con mejoras de recomendación. La tendencia diaria sigue alcista y el índice está un 5,23 % sobre su media de 200 días.",
-   "que_la_invalida": "Que el USTEC recupere y sostenga la línea central de 29.980,20 y que la tendencia de 4 h vuelva a alcista."
+   "idea": "Compra a favor de la tendencia alcista, aprovechando la caída de hoy por la exención de sanciones a Rusia, solo si el precio retoma los máximos.",
+   "plan": "WTI: cierre 4h sobre 99,34, stop 95,3343 y objetivo 107,351. Alternativa en Brent: cierre 4h sobre 110,0, stop 104,65 y objetivo 120,7. Hoy no hay gatillo: el precio está lejos tras caer 3,82%.",
+   "a_favor": "Las tendencias diaria y 4h son alcistas y la compra está en 'posible'. Hay riesgo en Oriente Medio (ataques hutíes, guerra con Irán). Commerzbank ve una bajada solo gradual. El WTI está 15,6% sobre su media de 200 días.",
+   "en_contra": "La exención de sanciones a Rusia y una posible cumbre Putin-Trump-Xi pueden aflojar la prima de riesgo. El precio cae desde máximos de 5 meses (Yahoo).",
+   "que_la_invalida": "Un cierre 4h del WTI bajo 95,33 (Supertrend). Una caída bajo 93,31 apuntaría a un cambio de tendencia."
   },
   {
-   "activo": "Petróleo (WTI/Brent)",
+   "activo": "Dow Jones",
+   "clave": "US30",
+   "horizonte": "corto",
+   "idea": "Compra del Dow, que resiste mejor que el Nasdaq en esta rotación.",
+   "plan": "Esperar un cierre 4h sobre 52.582,3 (+1,12%). Stop en 51.367,9 (Supertrend 4h) y objetivo 55.011,1 (2R).",
+   "a_favor": "Las tendencias diaria y 4h son alcistas y la compra está en 'posible'. Sube 0,67% en 5 d mientras el Nasdaq cae 5,49%. Los futuros rebotan antes de la apertura.",
+   "en_contra": "Las acciones de defensa caen por apuestas electorales (FT) y hay temor a un 'Black Monday'. El analista Cava espera caídas desde el 3 de noviembre. El VIX sube 20% en 5 d.",
+   "que_la_invalida": "Un cierre 4h bajo 51.367,9."
+  },
+  {
+   "activo": "Oro",
+   "clave": "XAUUSD",
    "horizonte": "mediano",
-   "idea": "Leer la caída de hoy como un retroceso por noticia dentro de una tendencia alcista, no como un cambio de tendencia.",
-   "a_favor": "Las tendencias diaria y de 4 h son alcistas en ambos. El Brent está un 20 % sobre su media de 200 días. Siguen el bloqueo a Irán y los ataques hutíes, y los republicanos presionan contra la exención. Commerzbank ve una bajada solo gradual. F1: las noticias mueven en los primeros minutos, no la tendencia.",
-   "en_contra": "La exención a Rusia alivia la oferta (Reuters). Una cumbre Trump-Putin-Xi podría reducir la prima de riesgo. El WTI pierde un 3,64 % en un día.",
-   "que_la_invalida": "Que la tendencia diaria gire a bajista o que la cumbre avance de forma concreta hacia un acuerdo sobre Ucrania."
+   "idea": "El oro está en un punto de decisión: la tendencia diaria es bajista y la de 4h alcista. Solo compraría si rompe por arriba.",
+   "plan": "Esperar. La compra exige un cierre 4h sobre 4.220,4, con stop en 4.124,69 y objetivo 4.411,82. Antes, el bot necesita superar 4.199,06 (Donchian). Venta solo bajo 4.095,0, que está lejos (3,4 ATR).",
+   "a_favor": "La tendencia 4h es alcista y se relajan las apuestas de subida de la Fed (Yahoo). El tipo real a 10 años baja 13 pb en la semana. El analista Cava recomienda oro a largo plazo.",
+   "en_contra": "La tendencia diaria es bajista: -5,53% en el mes y -7,92% bajo su media de 200 días. FXStreet dice que las apuestas de subida limitan el alza. El marcador de las tesis de oro va 7 a favor y 12 en contra.",
+   "que_la_invalida": "Un cierre 4h bajo 4.124,69 anula la compra. Bajo 4.095 se activaría la venta."
   },
   {
    "activo": "USD/CAD",
+   "clave": "USDCAD",
    "horizonte": "corto",
-   "idea": "Una subyacente de Canadá peor de lo previsto podría frenar la recuperación del CAD.",
-   "a_favor": "Las cuatro medidas subyacentes y el dato m/m salieron por debajo de lo previsto. Eso reduce la presión sobre el BoC. FXStreet situaba el par en mínimos de varias semanas.",
-   "en_contra": "La general sube a 3,1 % (Bloomberg). Un crudo más caro a medio plazo apoya al CAD. El paquete no tiene el precio del par tras el dato.",
-   "que_la_invalida": "Que el USD/CAD siga marcando mínimos tras el dato, sobre todo si pierde 1,4100 (nivel citado por FXStreet)."
+   "idea": "No operar USD/CAD por el IPC: el dato y el precio apuntan en direcciones opuestas.",
+   "plan": "Esperar. La compra 'dato peor' (sobre 1,42999) está a 7,1 ATR. La venta bajo 1,4084 está a solo 0,3 ATR, pero va contra el dato y contra la tendencia diaria alcista.",
+   "a_favor": "Para la venta: la tendencia 4h es bajista y el par cae 1,17% en 5 d. Para la compra: el núcleo débil del IPC da margen al Banco de Canadá.",
+   "en_contra": "No hay coherencia. El fundamental favorece al USD, pero el precio sigue bajando. La reacción al dato fue nula (-0,04%).",
+   "que_la_invalida": "Un cierre 4h bajo 1,4084 con continuidad daría paso a la venta técnica (stop 1,4171, objetivo 1,391). Hay que asumir que va contra el dato."
   },
   {
-   "activo": "Bitcoin (BTCUSD)",
+   "activo": "Nasdaq 100 / S&P 500",
+   "clave": "USTEC",
    "horizonte": "corto",
-   "idea": "Esperar el giro del Supertrend de 4 h (cierre sobre 82.936,11) antes de dar por bueno el rebote.",
-   "a_favor": "Está muy cerca (+0,25 %). El petróleo baja, se alejan las subidas de la Fed y la tendencia diaria es alcista (+13,71 % sobre su media de 200 días).",
-   "en_contra": "La tendencia de 4 h es bajista. MARA ha enviado 1.000 BTC a exchanges, hubo un flash crash en perpetuos y hay temor a un «Black Monday». El precio cae un 1,17 % en el mes.",
-   "que_la_invalida": "Que no consiga cerrar sobre 82.936 y pierda los 80.000 que menciona Yahoo."
+   "idea": "No vender en pleno rebote. El precio está bajo los gatillos de venta, pero la tendencia diaria sigue alcista.",
+   "plan": "Cautela. Venta del Nasdaq solo con cierre 4h bajo 29.409,6, con stop 30.209,6 y objetivo 27.809,6. El S&P tiene el gatillo en 7.669,66, con stop 7.805,58 y objetivo 7.397,82. Si el rebote de los futuros devuelve el precio sobre esos niveles, no hay venta.",
+   "a_favor": "La tendencia 4h es bajista. El Nasdaq cae 5,49% en 5 d y el VIX sube 20% en 5 d. El analista Cava espera caídas desde el 3 de noviembre.",
+   "en_contra": "La tendencia diaria es alcista. Hay rebote de chips e IA antes de la apertura (MarketWatch, Yahoo) y llegan resultados empresariales (Bloomberg).",
+   "que_la_invalida": "Un cierre 4h sobre el Supertrend (Nasdaq 30.209,6, S&P 7.805,58)."
+  },
+  {
+   "activo": "NZD/USD",
+   "clave": "NZDUSD",
+   "horizonte": "corto",
+   "idea": "La compra está casi en el gatillo, pero el IPC de Nueva Zelanda sale el 21-oct a las 21:45 UTC.",
+   "plan": "Cierre 4h sobre 0,567666 (a +0,05%). Stop en 0,561985 y objetivo 0,579028. Mejor esperar al IPC trimestral (previsión 0,8%, anterior 1,5%) o entrar con tamaño reducido.",
+   "a_favor": "La tendencia 4h es alcista y el par encadena subidas (FXStreet). Un dólar más blando ayuda.",
+   "en_contra": "La tendencia diaria es bajista y está 2,82% bajo su media de 200 días. El IPC de NZ previsto cae con fuerza frente al anterior.",
+   "que_la_invalida": "Un cierre 4h bajo 0,561985."
   }
  ],
- "analistas": "Solo hay un analista: cava. Su historial es flojo en las llamadas de corto plazo sobre la bolsa de EE. UU.: en US500 lleva 2 cumplidas y 8 fallidas, con 11 tesis en contra frente a 4 a favor. La subida del S&P hasta la expiración del 16-oct falló. Sus subidas de corto plazo antes de las legislativas de medio mandato van en contra (OEX, Russell 2000, bolsas de EE. UU.). Le van a favor la bajada del rendimiento a 10 años (los datos lo apoyan: −13 pb en la semana), la subida del VIX (+22 % en 5 días) y la caída del diésel. Su núcleo bajista es una caída de las bolsas desde el 3-nov, con un 20 % en el S&P. Está pendiente y aún no se puede evaluar. En oro, sus recomendaciones de largo plazo son de convicción, no de timing: en el marcador de XAUUSD hay 12 tesis en contra y 7 a favor. Que la Fed suba en diciembre no es verificable con estos datos. Conclusión: úsalo como marco de riesgo para noviembre, no como señal de entrada.",
- "vigilar": [
-  "Bot: oro sobre 4.199,06 (Donchian 20 de 4 h), plata con cierre de 4 h sobre 57,96, BTC con cierre de 4 h sobre 82.936,11.",
-  "Apertura de Wall Street: si el rebote de la IA se sostiene o se desvanece. El Nasdaq 100 viene de −5,49 % en 5 días.",
-  "Exención de sanciones a Rusia: presión republicana para revertirla (Bloomberg). Efecto sobre el WTI y el Brent.",
-  "Cumbre Putin-Trump-Xi propuesta para el mes próximo en China (WSJ, Reuters).",
-  "Francia: bonos y euro si la tensión política continúa. PMI francés flash el viernes 23-oct a las 07:15Z.",
-  "Mar 20-oct 06:00Z: salarios del Reino Unido (previsión 3,8 %).",
-  "Mié 21-oct 06:00Z: IPC del Reino Unido (previsión 3,4 %, anterior 3,1 %). 13:00Z: Bailey (BoE). 21:45Z: IPC de Nueva Zelanda q/q (previsión 0,8 %).",
-  "Jue 22-oct 12:30Z: peticiones de subsidio en EE. UU. (previsión 200K).",
-  "Vie 23-oct 13:45Z: PMI flash de EE. UU. (manufacturero, previsión 55,5 frente a 57,0). 14:00Z: expectativas de inflación de la Universidad de Michigan (anterior 4,7 %).",
-  "Recordatorio F1: los datos de EE. UU. de esta semana son de impacto medio. Las noticias mueven en los primeros minutos; tómalas como filtro de riesgo, no como gatillo."
+ "agenda_accion": [
+  {
+   "evento_id": 149171,
+   "lectura": "El IPC mensual de Canadá salió en 0,1% frente al 0,2% previsto: peor para el CAD. Los titulares destacan que el general sube a 3,1% por la energía, pero que el núcleo se modera. El escenario de la guía es 'dato peor', es decir, compra de USD/CAD sobre 1,42999. Ese gatillo está a 7,1 ATR, lejísimos. El precio no reaccionó (-0,04%) y sigue bajando en 4h, así que no hay entrada."
+  },
+  {
+   "evento_id": 149172,
+   "lectura": "La mediana salió en 1,9% frente a 2,0%: el núcleo es más blando y eso da margen al Banco de Canadá. Encaja con el escenario 'dato peor' (USD/CAD al alza), pero el precio no lo acompaña. El par sigue en 1,409, cerca del gatillo de venta 1,4084. No entrar: el gatillo de compra está muy lejos y el de venta va contra el dato."
+  },
+  {
+   "evento_id": 149173,
+   "lectura": "La recortada salió en 1,8% frente a 1,9%, la tercera medida subyacente bajo lo previsto, con un mensaje coherente de inflación de fondo moderándose. La reacción fue casi nula (-0,04%), como anticipa F1: la noticia no decide la tendencia. No hay conexión entre el dato y el precio, así que hay que esperar. Solo un cierre 4h bajo 1,4084 activaría la venta técnica (stop 1,4171, objetivo 1,391), y sería contra el fundamental."
+  }
  ],
- "generado": "2026-10-19T12:42:40Z",
+ "analistas": "El paquete solo trae tesis de Cava. Su visión: comprar oro y el S&P a largo plazo, posible subida de las bolsas hasta las elecciones de medio mandato y caída desde el 3 de noviembre (habla de un 20% en el S&P). Su marcador es flojo en el corto plazo. En el S&P 500 tiene 27 tesis: 2 cumplidas, 8 fallidas y 11 en contra. Las tesis alcistas de corto plazo en bolsas de EE. UU., Russell, Nasdaq y Broadcom van en contra. En el oro va 7 a favor y 12 en contra, con 1 cumplida y 1 fallida. Le van a favor la subida del VIX, la bajada del rendimiento del 10 años y la caída del diésel a corto plazo. Cumplió la de Oracle hacia 140-145. Úsalo como contexto: su visión bajista de mediano plazo aún no ha empezado (comienza el 3-nov).",
+ "vigilar": [
+  "USD/JPY: cierre 4h bajo 157,544 (venta en 'posible'). Invalida sobre 158,805.",
+  "USD/CAD: cierre 4h bajo 1,4084, a solo 0,06%. Iría contra el IPC débil.",
+  "Oro: 4.199,06 (gatillo del bot) y 4.220,4 (compra). Bajo 4.124,69 se anula.",
+  "Nasdaq 100 en 29.409,6 y S&P en 7.669,66: si el rebote de la apertura los recupera, se desactiva la venta.",
+  "WTI 99,34 y Brent 110,0 para la compra. El WTI pierde la tendencia bajo 95,33.",
+  "VIX: 22,31 es el gatillo de compra (en 'posible'). Bono 10 años: venta bajo 5,037.",
+  "Francia: contagio de la tensión en la deuda a EUR/USD y al DAX.",
+  "Ucrania y Rusia: posible cumbre Putin-Trump-Xi y exención de sanciones, con impacto en el petróleo.",
+  "21-oct 06:00 UTC: IPC del Reino Unido (alto, previsión 3,4% frente a 3,1%). GBP/USD compra sobre 1,3371.",
+  "21-oct 21:45 UTC: IPC de Nueva Zelanda (alto). NZD/USD está a +0,05% del gatillo de compra."
+ ],
+ "generado": "2026-10-19T13:29:21Z",
  "modelo": "claude-opus-5-5 (Claude Code en el PC, plan Pro)",
- "paquete": "paquete_2026-10-19_12.md",
+ "paquete": "paquete_2026-10-19_13.md",
  "tokens": {
-  "entrada": 24620,
-  "salida": 9148
+  "entrada": 37731,
+  "salida": 10712
  }
 }

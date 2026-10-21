@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-10-21T18:08:33Z",
+ "actualizado": "2026-10-21T18:37:49Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/economics": {
    "ok": true,
@@ -14,12 +14,12 @@
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 3
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 3
   },
   "bloomberg/industries": {
    "ok": true,
@@ -28,7 +28,7 @@
   },
   "bloomberg/opinion": {
    "ok": true,
-   "items": 18,
+   "items": 17,
    "nuevos": 0
   },
   "yahoo/oro": {
@@ -44,7 +44,7 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 19,
-   "nuevos": 0
+   "nuevos": 8
   },
   "yahoo/nasdaq": {
    "ok": true,
@@ -54,7 +54,7 @@
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 3
   },
   "yahoo/dolar": {
    "ok": true,
@@ -74,12 +74,12 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 0
+   "nuevos": 1
   },
   "wsj/mercados": {
    "ok": true,
    "items": 61,
-   "nuevos": 0
+   "nuevos": 1
   },
   "marketwatch/top": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 10
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 1
+   "nuevos": 3
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 0
+   "nuevos": 5
   },
   "google/fed": {
    "ok": true,
-   "items": 48,
-   "nuevos": 4
+   "items": 47,
+   "nuevos": 2
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 5
+   "nuevos": 13
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 0
+   "nuevos": 6
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 0
+   "nuevos": 2
   }
  }
 }

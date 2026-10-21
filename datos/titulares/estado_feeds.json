@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-10-21T18:37:49Z",
+ "actualizado": "2026-10-21T19:07:26Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 4
   },
   "bloomberg/economics": {
    "ok": true,
@@ -14,22 +14,22 @@
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 2
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 2
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/opinion": {
    "ok": true,
    "items": 17,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/oro": {
    "ok": true,
@@ -44,22 +44,22 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 19,
-   "nuevos": 8
+   "nuevos": 7
   },
   "yahoo/nasdaq": {
    "ok": true,
-   "items": 17,
+   "items": 18,
    "nuevos": 0
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 4
   },
   "yahoo/dolar": {
    "ok": true,
    "items": 16,
-   "nuevos": 0
+   "nuevos": 1
   },
   "cnbc/economia": {
    "ok": true,
@@ -74,12 +74,12 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 1
+   "nuevos": 2
   },
   "wsj/mercados": {
    "ok": true,
    "items": 61,
-   "nuevos": 1
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
@@ -89,7 +89,7 @@
   "ft/mercados": {
    "ok": true,
    "items": 25,
-   "nuevos": 0
+   "nuevos": 2
   },
   "investing/noticias": {
    "ok": true,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 3
+   "nuevos": 0
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 5
+   "nuevos": 7
   },
   "google/fed": {
    "ok": true,
-   "items": 47,
-   "nuevos": 2
+   "items": 46,
+   "nuevos": 1
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 13
+   "nuevos": 6
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 6
+   "nuevos": 46
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 1
   }
  }
 }

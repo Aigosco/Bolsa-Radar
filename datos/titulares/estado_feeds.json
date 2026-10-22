@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-22T21:07:32Z",
+ "actualizado": "2026-10-22T21:37:25Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
@@ -14,27 +14,27 @@
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 1
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 1
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 2
   },
   "bloomberg/opinion": {
    "ok": true,
-   "items": 18,
-   "nuevos": 0
+   "items": 19,
+   "nuevos": 1
   },
   "yahoo/oro": {
    "ok": true,
-   "items": 15,
-   "nuevos": 0
+   "items": 14,
+   "nuevos": 2
   },
   "yahoo/plata": {
    "ok": true,
@@ -44,11 +44,11 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 17,
-   "nuevos": 5
+   "nuevos": 7
   },
   "yahoo/nasdaq": {
    "ok": true,
-   "items": 17,
+   "items": 18,
    "nuevos": 4
   },
   "yahoo/bitcoin": {
@@ -58,8 +58,8 @@
   },
   "yahoo/dolar": {
    "ok": true,
-   "items": 16,
-   "nuevos": 1
+   "items": 15,
+   "nuevos": 0
   },
   "cnbc/economia": {
    "ok": true,
@@ -74,7 +74,7 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 2
+   "nuevos": 0
   },
   "wsj/mercados": {
    "ok": true,
@@ -84,7 +84,7 @@
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 1
+   "nuevos": 2
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 8
+   "nuevos": 10
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -119,27 +119,27 @@
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 6
+   "nuevos": 1
   },
   "google/fed": {
    "ok": true,
-   "items": 55,
-   "nuevos": 5
+   "items": 29,
+   "nuevos": 1
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 9
+   "nuevos": 10
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 21
+   "nuevos": 12
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 0
   }
  }
 }

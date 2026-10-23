@@ -1,20 +1,20 @@
 {
- "actualizado": "2026-10-23T06:52:29Z",
+ "actualizado": "2026-10-23T07:22:30Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 7
+   "nuevos": 2
   },
   "bloomberg/economics": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/technology": {
    "ok": true,
@@ -33,8 +33,8 @@
   },
   "yahoo/oro": {
    "ok": true,
-   "items": 15,
-   "nuevos": 0
+   "items": 16,
+   "nuevos": 1
   },
   "yahoo/plata": {
    "ok": true,
@@ -54,7 +54,7 @@
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/dolar": {
    "ok": true,
@@ -89,12 +89,12 @@
   "ft/mercados": {
    "ok": true,
    "items": 25,
-   "nuevos": 2
+   "nuevos": 0
   },
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 9
+   "nuevos": 10
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -102,8 +102,8 @@
    "nuevos": 0
   },
   "fed/comunicados": {
-   "ok": true,
-   "items": 20,
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml",
    "nuevos": 0
   },
   "fed/discursos": {
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 4
+   "nuevos": 6
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 6
+   "nuevos": 9
   },
   "google/fed": {
    "ok": true,
-   "items": 53,
-   "nuevos": 2
+   "items": 52,
+   "nuevos": 4
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 5
+   "nuevos": 3
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 8
+   "nuevos": 15
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 4
+   "nuevos": 5
   }
  }
 }

@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-10-23T11:30:50Z",
+ "actualizado": "2026-10-23T11:52:26Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 5
   },
   "bloomberg/economics": {
    "ok": true,
@@ -14,27 +14,27 @@
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 3
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/opinion": {
    "ok": true,
-   "items": 17,
-   "nuevos": 0
+   "items": 16,
+   "nuevos": 1
   },
   "yahoo/oro": {
    "ok": true,
-   "items": 19,
-   "nuevos": 0
+   "items": 20,
+   "nuevos": 3
   },
   "yahoo/plata": {
    "ok": true,
@@ -43,12 +43,12 @@
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 17,
+   "items": 16,
    "nuevos": 2
   },
   "yahoo/nasdaq": {
    "ok": true,
-   "items": 18,
+   "items": 17,
    "nuevos": 0
   },
   "yahoo/bitcoin": {
@@ -59,7 +59,7 @@
   "yahoo/dolar": {
    "ok": true,
    "items": 16,
-   "nuevos": 0
+   "nuevos": 2
   },
   "cnbc/economia": {
    "ok": true,
@@ -84,7 +84,7 @@
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 1
+   "nuevos": 0
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 8
+   "nuevos": 9
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 0
+   "nuevos": 1
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 3
   },
   "google/fed": {
    "ok": true,
    "items": 47,
-   "nuevos": 0
+   "nuevos": 2
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 6
+   "nuevos": 10
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 19
+   "nuevos": 12
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 1
+   "nuevos": 2
   }
  }
 }

@@ -1,25 +1,25 @@
 {
- "actualizado": "2026-10-23T12:22:30Z",
+ "actualizado": "2026-10-23T12:52:32Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 5
+   "nuevos": 2
   },
   "bloomberg/economics": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 2
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 1
   },
   "bloomberg/industries": {
    "ok": true,
@@ -28,8 +28,8 @@
   },
   "bloomberg/opinion": {
    "ok": true,
-   "items": 16,
-   "nuevos": 1
+   "items": 14,
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
@@ -43,18 +43,18 @@
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 16,
-   "nuevos": 7
+   "items": 18,
+   "nuevos": 6
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 17,
-   "nuevos": 1
+   "nuevos": 2
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/dolar": {
    "ok": true,
@@ -74,27 +74,27 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 3
+   "nuevos": 2
   },
   "wsj/mercados": {
    "ok": true,
    "items": 61,
-   "nuevos": 1
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 2
   },
   "ft/mercados": {
    "ok": true,
    "items": 25,
-   "nuevos": 2
+   "nuevos": 0
   },
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 8
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -112,34 +112,34 @@
    "nuevos": 0
   },
   "google/reuters": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 3
+   "ok": false,
+   "error": "429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://news.google.com/rss/sea",
+   "nuevos": 0
   },
   "google/oro": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 5
+   "ok": false,
+   "error": "429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://news.google.com/rss/sea",
+   "nuevos": 0
   },
   "google/fed": {
-   "ok": true,
-   "items": 51,
-   "nuevos": 1
+   "ok": false,
+   "error": "429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://news.google.com/rss/sea",
+   "nuevos": 0
   },
   "google/geopolitica": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 10
+   "ok": false,
+   "error": "429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://news.google.com/rss/sea",
+   "nuevos": 0
   },
   "google/investing": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 14
+   "ok": false,
+   "error": "429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://news.google.com/rss/sea",
+   "nuevos": 0
   },
   "google/fxstreet": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 4
+   "ok": false,
+   "error": "429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://news.google.com/rss/sea",
+   "nuevos": 0
   }
  }
 }

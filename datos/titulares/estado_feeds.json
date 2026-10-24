@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-10-24T22:45:21Z",
+ "actualizado": "2026-10-24T23:07:29Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "bloomberg/economics": {
    "ok": true,
@@ -13,12 +13,12 @@
   },
   "bloomberg/politics": {
    "ok": true,
-   "items": 19,
-   "nuevos": 0
+   "items": 20,
+   "nuevos": 1
   },
   "bloomberg/technology": {
    "ok": true,
-   "items": 11,
+   "items": 9,
    "nuevos": 0
   },
   "bloomberg/industries": {
@@ -44,7 +44,7 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/nasdaq": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 1
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -112,33 +112,33 @@
    "nuevos": 0
   },
   "google/reuters": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 9
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:reuters.com+markets+when:1d&hl=",
+   "nuevos": 0
   },
   "google/oro": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 2
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=gold+price+when:1d&hl=en-US&gl=US&ce",
+   "nuevos": 0
   },
   "google/fed": {
-   "ok": true,
-   "items": 31,
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=federal+reserve+when:1d&hl=en-US&gl=",
    "nuevos": 0
   },
   "google/geopolitica": {
-   "ok": true,
-   "items": 100,
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=war+OR+sanctions+OR+geopolitical+whe",
    "nuevos": 0
   },
   "google/investing": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 42
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:investing.com+when:1d&hl=en-US&",
+   "nuevos": 0
   },
   "google/fxstreet": {
-   "ok": true,
-   "items": 6,
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:fxstreet.com+when:1d&hl=en-US&g",
    "nuevos": 0
   }
  }

@@ -1,30 +1,30 @@
 {
- "actualizado": "2026-10-24T18:04:11Z",
+ "actualizado": "2026-10-24T20:43:41Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 5
+   "nuevos": 0
   },
   "bloomberg/economics": {
    "ok": true,
-   "items": 6,
+   "items": 5,
    "nuevos": 0
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 1
   },
   "bloomberg/technology": {
    "ok": true,
-   "items": 20,
-   "nuevos": 1
+   "items": 18,
+   "nuevos": 0
   },
   "bloomberg/industries": {
    "ok": true,
-   "items": 13,
-   "nuevos": 1
+   "items": 8,
+   "nuevos": 0
   },
   "bloomberg/opinion": {
    "ok": true,
@@ -44,17 +44,17 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 20,
-   "nuevos": 6
+   "nuevos": 0
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 19,
-   "nuevos": 0
+   "nuevos": 2
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 5
+   "nuevos": 1
   },
   "yahoo/dolar": {
    "ok": true,
@@ -74,17 +74,17 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 4
+   "nuevos": 2
   },
   "wsj/mercados": {
    "ok": true,
    "items": 60,
-   "nuevos": 1
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 1
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 5
+   "nuevos": 3
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 33
+   "nuevos": 25
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 12
+   "nuevos": 30
   },
   "google/fed": {
    "ok": true,
-   "items": 33,
-   "nuevos": 5
+   "items": 34,
+   "nuevos": 7
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 35
+   "nuevos": 24
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 38
+   "nuevos": 27
   },
   "google/fxstreet": {
    "ok": true,
-   "items": 16,
-   "nuevos": 1
+   "items": 7,
+   "nuevos": 0
   }
  }
 }

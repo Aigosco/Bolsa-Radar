@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-10-24T23:07:29Z",
+ "actualizado": "2026-10-24T23:37:24Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "bloomberg/economics": {
    "ok": true,
@@ -13,8 +13,8 @@
   },
   "bloomberg/politics": {
    "ok": true,
-   "items": 20,
-   "nuevos": 1
+   "items": 18,
+   "nuevos": 0
   },
   "bloomberg/technology": {
    "ok": true,
@@ -23,7 +23,7 @@
   },
   "bloomberg/industries": {
    "ok": true,
-   "items": 3,
+   "items": 2,
    "nuevos": 0
   },
   "bloomberg/opinion": {
@@ -44,7 +44,7 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/nasdaq": {
    "ok": true,
@@ -54,7 +54,7 @@
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 2
   },
   "yahoo/dolar": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 1
+   "nuevos": 0
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -102,8 +102,8 @@
    "nuevos": 0
   },
   "fed/comunicados": {
-   "ok": true,
-   "items": 20,
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml",
    "nuevos": 0
   },
   "fed/discursos": {
@@ -112,33 +112,33 @@
    "nuevos": 0
   },
   "google/reuters": {
-   "ok": false,
-   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:reuters.com+markets+when:1d&hl=",
-   "nuevos": 0
+   "ok": true,
+   "items": 100,
+   "nuevos": 11
   },
   "google/oro": {
-   "ok": false,
-   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=gold+price+when:1d&hl=en-US&gl=US&ce",
-   "nuevos": 0
+   "ok": true,
+   "items": 100,
+   "nuevos": 3
   },
   "google/fed": {
-   "ok": false,
-   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=federal+reserve+when:1d&hl=en-US&gl=",
-   "nuevos": 0
+   "ok": true,
+   "items": 29,
+   "nuevos": 1
   },
   "google/geopolitica": {
-   "ok": false,
-   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=war+OR+sanctions+OR+geopolitical+whe",
-   "nuevos": 0
+   "ok": true,
+   "items": 100,
+   "nuevos": 6
   },
   "google/investing": {
-   "ok": false,
-   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:investing.com+when:1d&hl=en-US&",
-   "nuevos": 0
+   "ok": true,
+   "items": 100,
+   "nuevos": 9
   },
   "google/fxstreet": {
-   "ok": false,
-   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:fxstreet.com+when:1d&hl=en-US&g",
+   "ok": true,
+   "items": 3,
    "nuevos": 0
   }
  }

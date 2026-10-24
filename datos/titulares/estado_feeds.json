@@ -1,25 +1,25 @@
 {
- "actualizado": "2026-10-24T11:32:08Z",
+ "actualizado": "2026-10-24T14:51:38Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 5
+   "nuevos": 12
   },
   "bloomberg/economics": {
    "ok": true,
-   "items": 14,
-   "nuevos": 2
+   "items": 7,
+   "nuevos": 0
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 7
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 3
   },
   "bloomberg/industries": {
    "ok": true,
@@ -28,13 +28,13 @@
   },
   "bloomberg/opinion": {
    "ok": true,
-   "items": 4,
-   "nuevos": 0
+   "items": 5,
+   "nuevos": 3
   },
   "yahoo/oro": {
    "ok": true,
-   "items": 17,
-   "nuevos": 1
+   "items": 18,
+   "nuevos": 3
   },
   "yahoo/plata": {
    "ok": true,
@@ -44,17 +44,17 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 20,
-   "nuevos": 8
+   "nuevos": 7
   },
   "yahoo/nasdaq": {
    "ok": true,
-   "items": 18,
+   "items": 19,
    "nuevos": 1
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 5
   },
   "yahoo/dolar": {
    "ok": true,
@@ -74,12 +74,12 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 4
+   "nuevos": 7
   },
   "wsj/mercados": {
    "ok": true,
    "items": 60,
-   "nuevos": 1
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
@@ -89,12 +89,12 @@
   "ft/mercados": {
    "ok": true,
    "items": 25,
-   "nuevos": 1
+   "nuevos": 0
   },
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 10
+   "nuevos": 9
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 29
+   "nuevos": 24
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 28
+   "nuevos": 26
   },
   "google/fed": {
    "ok": true,
-   "items": 44,
-   "nuevos": 11
+   "items": 25,
+   "nuevos": 4
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 40
+   "nuevos": 37
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 48
+   "nuevos": 27
   },
   "google/fxstreet": {
    "ok": true,
-   "items": 67,
-   "nuevos": 13
+   "items": 33,
+   "nuevos": 1
   }
  }
 }

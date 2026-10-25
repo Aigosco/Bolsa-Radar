@@ -1,0 +1,24 @@
+{
+ "resumen": "Es un video de finanzas personales en el que Pablo Gil usa la metáfora de la actualización de software pendiente para proponer hábitos que construyen patrimonio. Los hábitos son: ahorrar de forma automática al principio de mes (\"primero pagas a tu yo del futuro\"), apuntar todos los gastos para saber en qué se va el dinero, y fijar objetivos concretos con un número, una fecha y una condición en distintos plazos. También recomienda invertir en uno mismo aprendiendo una habilidad cada vez, proteger la atención trabajando en bloques de 90 minutos sin notificaciones y dejar de gastar por compararse con los demás. Su conclusión es que la diferencia no está en saber, sino en convertir lo que se sabe en hábitos: hay que elegir una sola mejora, trabajarla hasta que salga sola y después pasar a la siguiente. No hay ningún análisis ni previsión sobre activos o mercados. El video no lleva patrocinio de terceros, pero el autor promociona sus propios productos: un encuentro presencial en Madrid el 17 de octubre (\"Invertir en el mañana\"), su newsletter gratuita y su curso \"Finanzas personales para la vida real\".",
+ "temas": [
+  "finanzas personales",
+  "hábitos de ahorro",
+  "ahorro automático",
+  "control de gastos",
+  "objetivos financieros",
+  "formación e inversión en uno mismo",
+  "gestión de la atención",
+  "consumo por comparación social"
+ ],
+ "tesis": [],
+ "video_id": "Db7MJw53M8E",
+ "origen": "claude-code automático (claude-opus-5-5, plan Pro)",
+ "fecha_extraccion": "2026-10-25",
+ "comprobacion_citas": {
+  "tesis": 0,
+  "fragmentos_no_literales": []
+ },
+ "titulo": "Los 6 HÁBITOS FINANCIEROS que construyen patrimonio",
+ "canal": "Pablo Gil Trader",
+ "fecha": "2026-08-23"
+}

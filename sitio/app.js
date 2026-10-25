@@ -484,7 +484,7 @@ function pintarFicha(clave) {
     <h3 class="sub">4 horas · últimas 90 velas</h3><div class="graf-velas" id="g-4h">${g ? "" : `<p class="vacio">Cargando gráfico…</p>`}</div>
     ${eventos.length ? `<h3 class="sub">Noticias que lo mueven</h3><ul class="ficha-lista">${eventos.map((ev) => { const e = ev[0], dt = new Date(e.t * 1000); return `<li><span class="num">${fechaCorta(dt, "America/Bogota")} ${hora(dt, "America/Bogota")}</span> ${esc(e.moneda)} · ${esc(ev.map((x) => x.nombre).join(", "))} ${etiquetaProb(e.guia.veredicto.nivel)}</li>`; }).join("")}</ul>` : ""}
     ${senal ? `<h3 class="sub">Bot</h3><p>${esc(senal.estrategia)}: ${esc(senal.distancia)}</p>` : ""}
-    ${tes.length ? `<h3 class="sub">Lo que dice Cava</h3><div class="tesis-lista corta">${tes.map((x) => `<div class="tes"><div class="fila"><span>${esc(TIPOS[x.tipo] || x.tipo)} ${esc(x.direccion)} ${esc(x.horizonte)}</span><span class="estado ${estadoClase(x.estado)}">${esc(x.estado)}</span></div><q>${esc(x.cita)}</q><span class="nota">${esc(x.fecha_video)} · <a href="https://youtu.be/${esc(x.video_id)}?t=${minutoSeg(x.minuto)}" target="_blank" rel="noopener">${esc(x.minuto)}</a></span></div>`).join("")}</div>` : ""}`;
+    ${tes.length ? `<h3 class="sub">Lo que dicen los analistas</h3><div class="tesis-lista corta">${tes.map((x) => `<div class="tes"><div class="fila"><span>${esc(TIPOS[x.tipo] || x.tipo)} ${esc(x.direccion)} ${esc(x.horizonte)}</span><span class="estado ${estadoClase(x.estado)}">${esc(x.estado)}</span></div><q>${esc(x.cita)}</q><span class="nota">${esc(AUTORES[x.autor] || x.autor || "")} · ${esc(x.fecha_video)} · <a href="https://youtu.be/${esc(x.video_id)}?t=${minutoSeg(x.minuto)}" target="_blank" rel="noopener">${esc(x.minuto)}</a></span></div>`).join("")}</div>` : ""}`;
   if (!g) return;
   const n = a.niveles || {}, pl = a.plan || {};
   velas($("g-diario"), g.d, {
@@ -565,6 +565,7 @@ function valor() {
 }
 
 /* ---------- analistas ---------- */
+const AUTORES = { cava: "José Luis Cava", pablogil: "Pablo Gil", dalio: "Ray Dalio" };
 function estadoClase(e) {
   return e.startsWith("cumplida") ? "cumplida" : e.startsWith("fallida") ? "fallida" : e === "en curso (a favor)" ? "favor" : e === "en curso (en contra)" ? "contra" : "";
 }
@@ -572,7 +573,7 @@ function analistas() {
   const t = D.tesis;
   if (!t) return;
   const T = t.totales;
-  $("analistas-meta").textContent = `José Luis Cava · ${T.videos} videos · ${T.tesis} tesis con cita y minuto · verificadas contra precios ${haceTxt(t.generado)}`;
+  $("analistas-meta").textContent = `${[...new Set((t.recientes || []).map((x) => AUTORES[x.autor] || x.autor).filter(Boolean))].join(", ") || "José Luis Cava"} · ${T.videos} videos · ${T.tesis} tesis con cita y minuto · verificadas contra precios ${haceTxt(t.generado)}`;
   const mx = Math.max(...t.marcador.map((m) => m.tesis));
   $("marcador").innerHTML = `<div class="totales"><div class="total"><div class="v">${T.cumplidas}</div><span class="etq">cumplidas</span></div>
       <div class="total"><div class="v">${T.fallidas}</div><span class="etq">fallidas</span></div><div class="total"><div class="v">${T.en_curso}</div><span class="etq">en curso</span></div>
@@ -587,7 +588,7 @@ function analistas() {
     + (t.condicionales.length ? `<li><span class="f">disparador</span><span>${t.condicionales.length} tesis condicionales esperan su disparador (p. ej. ${esc(t.condicionales[0].condicion)}).</span></li>` : "");
   $("tesis-recientes").innerHTML = t.recientes.slice(0, 30).map((x) => `<div class="tes"><div class="fila"><span><b>${esc(x.activo)}</b> · ${esc(TIPOS[x.tipo] || x.tipo)} ${esc(x.direccion)} ${esc(x.horizonte)}${x.nivel != null ? ` · nivel ${fmt(x.nivel, decimales(x.nivel))}` : ""}</span>
       <span class="estado ${estadoClase(x.estado)}">${esc(x.estado)}</span></div><q>${esc(x.cita)}</q>
-      <span class="nota">${esc(x.fecha_video)} · <a href="https://youtu.be/${esc(x.video_id)}?t=${minutoSeg(x.minuto)}" target="_blank" rel="noopener">${esc(x.minuto)}</a>${x.ret_hoy != null ? ` · desde el video ${pct(x.ret_hoy * 100, 1)}` : ""}${x.condicion ? ` · ${esc(x.condicion)}` : ""}</span></div>`).join("");
+      <span class="nota">${esc(AUTORES[x.autor] || x.autor || "")} · ${esc(x.fecha_video)} · <a href="https://youtu.be/${esc(x.video_id)}?t=${minutoSeg(x.minuto)}" target="_blank" rel="noopener">${esc(x.minuto)}</a>${x.ret_hoy != null ? ` · desde el video ${pct(x.ret_hoy * 100, 1)}` : ""}${x.condicion ? ` · ${esc(x.condicion)}` : ""}</span></div>`).join("");
 }
 function minutoSeg(m) { return String(m || "0").split(":").reduce((a, x) => a * 60 + (+x || 0), 0); }
 

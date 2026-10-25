@@ -1,0 +1,73 @@
+{
+ "resumen": "Pablo Gil advierte de que la combinación de inteligencia artificial y ciberseguridad puede ser uno de los grandes riesgos de los próximos años. Pone dos casos de la semana como ejemplo: unos fallos graves en PHP que llevaban más de una década ocultos y se descubrieron con modelos de IA de Google y OpenAI, y unos certificados de la empresa india eMudhra generados con claves muy débiles, cuyas acciones llegaron a caer un 20 % en una sola sesión. También menciona ataques baratos hechos con agentes de IA (unos 50 dólares por empresa comprometida). Según él, la IA abarata la ciberdelincuencia, y la carrera entre EE. UU. y China y entre las tecnológicas hace muy difícil frenar hasta que ocurra un incidente grave. En los mercados, su tesis es que la bolsa está muy concentrada en empresas ligadas a la IA. Si un accidente serio obligara a regular o a ir más despacio, las expectativas de beneficios y las valoraciones tendrían que revisarse, y podría haber correcciones muy significativas que se extenderían a todos los índices, aunque la revolución de la IA no fracase. Cierra con consejos básicos de ciberseguridad personal y dice expresamente que no da recomendaciones de inversión. No está patrocinado, pero promociona su directo gratuito del 9 de noviembre.",
+ "temas": [
+  "inteligencia artificial",
+  "ciberseguridad",
+  "vulnerabilidades PHP",
+  "eMudhra certificados",
+  "concentración bursátil",
+  "valoraciones tecnológicas",
+  "regulación de la IA",
+  "carrera EE. UU.-China"
+ ],
+ "tesis": [
+  {
+   "tipo": "diagnostico",
+   "activo": "Nasdaq 100 / S&P 500 (concentración en empresas de IA)",
+   "simbolo": "USTEC",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "Uno de los grandes riesgos que ve actualmente las bolsas es la enorme concentración que se ha producido en un grupo relativamente pequeño de compañías vinculadas directa o indirectamente al desarrollo de la inteligencia artificial.",
+   "minuto": "15:47",
+   "conviccion": "alta"
+  },
+  {
+   "tipo": "prediccion",
+   "activo": "acciones ligadas a la IA y bolsa de EE. UU.",
+   "simbolo": "USTEC",
+   "direccion": "baja",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "Que un incidente grave de ciberseguridad lleve a controles más estrictos o a frenar el desarrollo de la IA, y que el mercado revise sus expectativas de beneficios",
+   "activa_desde_ya": false,
+   "cita": "cualquier [resoplido] pequeño cambio importante en esas expectativas puede provocar correcciones muy significativas, [...] Y si eso ocurre en un mercado donde un pequeño grupo de empresas tiene un peso extraordinariamente grande en los principales índices, las consecuencias podrían extenderse al conjunto de las bolsas.",
+   "minuto": "20:50",
+   "conviccion": "media"
+  },
+  {
+   "tipo": "diagnostico",
+   "activo": "eMudhra (acciones)",
+   "simbolo": "EMUDHRA.NS",
+   "direccion": "",
+   "horizonte": "",
+   "nivel": null,
+   "magnitud_pct": null,
+   "fecha_desde": "",
+   "fecha_limite": "",
+   "condicion": "",
+   "activa_desde_ya": true,
+   "cita": "Las acciones de [eMudhra] llegaron a caer alrededor de un 20% en una sola sesión.",
+   "minuto": "09:57",
+   "conviccion": "alta"
+  }
+ ],
+ "video_id": "YiTb7V4yQ1w",
+ "origen": "claude-code automático (claude-opus-5-5, plan Pro)",
+ "fecha_extraccion": "2026-10-25",
+ "comprobacion_citas": {
+  "tesis": 3,
+  "fragmentos_no_literales": []
+ },
+ "titulo": "La IA acaba de cambiar las reglas del juego: ¿está nuestro dinero en peligro?",
+ "canal": "Pablo Gil Trader",
+ "fecha": "2026-10-22"
+}

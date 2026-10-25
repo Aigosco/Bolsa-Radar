@@ -1,0 +1,22 @@
+{
+ "resumen": "Es un video de finanzas personales, no de mercados. Pablo Gil explica cómo hacer un presupuesto desde cero con el ejemplo de Carla, de 36 años, que cobra 2.200 € netos al mes. Los pasos que propone son: partir del ingreso neto real (si los ingresos varían, usar la media de 6 meses o el peor mes), registrar todos los gastos durante un mes sin cambiar nada y aplicar la regla 50/30/20 (necesidades, deseos, ahorro e inversión) como guía orientativa, no como ley. Después recomienda el presupuesto de base cero, automatizar las transferencias de ahorro el mismo día de cobro (\"primero ahorrar, después gastar\") y revisar el presupuesto cada mes entre 20 y 30 minutos. Su conclusión es que un presupuesto sirve para recuperar el control del dinero y tomar decisiones conscientes. En el ejemplo, a los tres meses Carla ya tiene 600 € en su fondo de emergencia. El video incluye autopromoción de un evento presencial en Madrid el 17 de octubre (\"Invertir en el mañana\") y de su curso \"Finanzas Personales para la vida real\". No hay patrocinio de terceros. No hace predicciones sobre ningún activo.",
+ "temas": [
+  "finanzas personales",
+  "presupuesto",
+  "regla 50/30/20",
+  "presupuesto de base cero",
+  "ahorro automatizado",
+  "fondo de emergencia"
+ ],
+ "tesis": [],
+ "video_id": "IAu4wZv7qWg",
+ "origen": "claude-code automático (claude-opus-5-5, plan Pro)",
+ "fecha_extraccion": "2026-10-25",
+ "comprobacion_citas": {
+  "tesis": 0,
+  "fragmentos_no_literales": []
+ },
+ "titulo": "¿Cómo REPARTIR TU SUELDO para ahorrar más cada mes?",
+ "canal": "Pablo Gil Trader",
+ "fecha": "2026-08-30"
+}

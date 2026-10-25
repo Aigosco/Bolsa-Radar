@@ -1,4 +1,5 @@
-"""Videos nuevos de José Luis Cava → transcripción → tesis (Claude Code en el PC) → GitHub.
+"""Videos nuevos de los analistas seguidos (José Luis Cava, Pablo Gil) → transcripción → tesis (Claude Code en el PC)
+→ GitHub. Los canales están en CANALES; añadir uno nuevo = una línea más.
 
 Corre EN EL PC (YouTube bloquea a los servidores de GitHub). De lunes a viernes, cada hora de 7:30 a 16:30 Bogotá: Cava
 publica entre las 5:00 y las 8:40 Bogotá y YouTube tarda un rato en generar los subtítulos automáticos, así que se
@@ -37,8 +38,10 @@ from fundamental import analistas as A  # noqa: E402
 from fundamental import audio as AU  # noqa: E402
 from fundamental import youtube as Y  # noqa: E402
 
-CANAL = "https://www.youtube.com/@JoseLuisCavatv/videos"
-AUTOR = "cava"
+CANALES = {  # autor (carpeta fuentes/<autor>) → canal. Pablo Gil publica ~1 video por semana (desde 2026-10-25)
+    "cava": "https://www.youtube.com/@JoseLuisCavatv/videos",
+    "pablogil": "https://www.youtube.com/@PabloGilTrader/videos",
+}
 CLAUDE = shutil.which("claude") or str(Path.home() / ".local" / "bin" / "claude.exe")
 NO_HERRAMIENTAS = "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Agent,Task,NotebookEdit"
 EXTRA = """
@@ -53,9 +56,9 @@ Además:
   usando la fecha de publicación del video."""
 
 
-def ultimos(n):
+def ultimos(n, canal):
     r = subprocess.run([sys.executable, "-m", "yt_dlp", "--flat-playlist", "--playlist-end", str(n),
-                        "--print", "%(id)s|%(title)s", CANAL], capture_output=True, text=True, encoding="utf-8",
+                        "--print", "%(id)s|%(title)s", canal], capture_output=True, text=True, encoding="utf-8",
                        timeout=180)
     if "not a bot" in (r.stderr or ""):
         raise RuntimeError("YouTube pide confirmar que no eres un bot: se detiene sin insistir")
@@ -110,12 +113,22 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ultimos", type=int, default=5)
     ap.add_argument("--video")
+    ap.add_argument("--autor", choices=list(CANALES), help="solo este analista (por defecto, todos)")
     ap.add_argument("--sin-push", action="store_true")
     a = ap.parse_args()
     nuevos = 0
-    lista = [[a.video, ""]] if a.video else ultimos(a.ultimos)
-    for vid, titulo in lista:
-        carpeta = TRADING / "fuentes" / AUTOR / vid
+    autores = [a.autor] if a.autor else list(CANALES)
+    if a.video and len(autores) != 1:
+        raise SystemExit("--video necesita --autor")
+    lista = []
+    for autor in autores:
+        try:
+            lista += [(autor, vid, t) for vid, t in ([[a.video, ""]] if a.video else ultimos(a.ultimos, CANALES[autor]))]
+        except RuntimeError as ex:
+            print(f"{autor}: {ex}")
+            break
+    for autor, vid, titulo in lista:
+        carpeta = TRADING / "fuentes" / autor / vid
         if (carpeta / "tesis.json").exists():
             continue
         if not (carpeta / "transcripcion.txt").exists():
@@ -144,9 +157,9 @@ def main():
             print(f"{vid}: fallo en la extracción ({ex})")
     print(f"videos nuevos analizados: {nuevos}")
     if nuevos:
-        A.importar(AUTOR)          # base local del proyecto Trading (para la revista y el Excel)
+        A.importar()               # base local del proyecto Trading (para la revista y el Excel); todos los autores
         A.verificar()
-        A.informe(AUTOR)
+        A.informe()
         import publicar_desde_pc as P
         P.tesis()
         if not a.sin_push:

@@ -122,6 +122,26 @@ def radar():
     print("radar.json")
 
 
+def cerebro():
+    """Base de la revista: las 4 cajas, el material de estudio, las fuentes y la bitácora viva (carpeta cerebro/ del
+    proyecto Trading) → datos/web/estudio.json; y los indicadores del ciclo de la deuda (FRED) → datos/web/ciclo.json.
+    Son síntesis propias y datos públicos: nada de la cuenta ni del portafolio personal, ni texto de libros."""
+    py = TRADING / ".venv" / "Scripts" / "python.exe"
+    entorno = {**os.environ, "PYTHONIOENCODING": "utf-8"}
+    ciclo = TRADING / "cerebro" / "datos" / "ciclo_hoy.json"
+    viejo = not ciclo.exists() or datetime.now().timestamp() - ciclo.stat().st_mtime > 20 * 3600
+    pasos = ([["-m", "fundamental.ciclo_deuda"]] if viejo else []) + [
+        ["-m", "fundamental.cerebro_datos"], ["-m", "fundamental.bitacora"],
+        ["cerebro/web/generar_web.py", "--json", str(REPO / "datos" / "web" / "estudio.json")]]
+    for p in pasos:
+        r = subprocess.run([str(py), *p], cwd=TRADING, env=entorno, capture_output=True, text=True, encoding="utf-8")
+        if r.returncode:
+            print(f"cerebro {' '.join(p)}: fallo {r.stderr[-200:]}")
+    d = json.loads(ciclo.read_text(encoding="utf-8"))
+    guardar_json(REPO / "datos" / "web" / "ciclo.json", d, compacto=True)
+    print("estudio.json + ciclo.json")
+
+
 def historico():
     """Titulares capturados en el PC (base local) → archivos diarios del repo, sin duplicar."""
     cx = sqlite3.connect(TRADING / "datos_mercado" / "fundamental.sqlite")
@@ -174,7 +194,7 @@ if __name__ == "__main__":
     ap.add_argument("--historico", action="store_true")
     ap.add_argument("--sin-push", action="store_true")
     a = ap.parse_args()
-    for paso in ([historico] if a.historico else []) + [tesis, f1, radar, bot]:
+    for paso in ([historico] if a.historico else []) + [tesis, f1, radar, bot, cerebro]:
         try:
             paso()
         except Exception as ex:  # noqa: BLE001

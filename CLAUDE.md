@@ -102,7 +102,15 @@ datos/            todo lo publicado (ver sección 5)
   `datos/f1_efecto.json`, `datos/resumen/paquete_*.md` (lo que vio la IA, para auditar).
 - `datos/web/*.json`: lo que lee la página (resumen, mercado, agenda, titulares, bot, bonos, valor, tesis, radar; graficos.json
   se baja solo al abrir la ficha de un activo).
-- **La página es la revista diaria para la acción** (el PDF del proyecto Trading quedó como respaldo). Orden: lo esencial →
+- **La página es la revista del equipo que une TODO (decisión del usuario, 2026-10-26).** La base son las 4 cajas del
+  portafolio y el material de estudio; después, las oportunidades de cada caja. Orden: portada → **4 cajas** (tarjetas con
+  "ver oportunidades" y "estudiar") → **ciclo de la deuda** (caja 4, `web/ciclo.json`: FRED, reglas de Dalio y Pablo Gil)
+  → **material de estudio** (`web/estudio.json`: lecciones, cajas en detalle, fuentes, bitácora viva; viene de
+  `cerebro/` del proyecto Trading, repo `inversion-lab/trading`, vía `local/publicar_desde_pc.py` → `cerebro()`) →
+  piso "cajas 1 y 2": sesiones, lo esencial, agenda, tablero, bot, ideas → piso "caja 3": radar S&P, bonos, valor →
+  expertos (analistas) → contexto (titulares). Cada sección lleva su chip de caja. Para cambiar una lección se edita el
+  `.md` en `cerebro/` (Trading) y se publica desde el PC; no se toca la página.
+- (Antes) **La página era la revista diaria para la acción** (el PDF del proyecto Trading quedó como respaldo). Orden: lo esencial →
   agenda para la acción (noticias agrupadas por hora y moneda, con veredicto y escenarios) → tablero (tocar un activo abre su
   ficha: cómo va, tendencias explicadas, planes de compra/venta, gráfico diario y de 4h, noticias, bot, tesis de Cava) → bot e
   ideas (enlazan a la ficha) → titulares por tema en español u original → bonos, valor, analistas, radar.

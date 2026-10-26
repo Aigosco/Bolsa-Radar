@@ -7,7 +7,7 @@ const REPO = "Aigosco/Bolsa-Radar";
 const BASE = location.hostname.endsWith("github.io")
   ? `https://raw.githubusercontent.com/${REPO}/main/datos/web/`
   : "../datos/web/";
-const ARCHIVOS = ["resumen", "mercado", "agenda", "titulares", "bot", "bonos", "valor", "tesis", "radar"];
+const ARCHIVOS = ["resumen", "mercado", "agenda", "titulares", "bot", "bonos", "valor", "tesis", "radar", "ciclo", "estudio"];
 const D = {};
 let temaSel = null, radarSel = 0, grupoSel = "Principales", fichaAbierta = null;
 let idioma = "es";
@@ -83,8 +83,94 @@ async function graficos() {
 }
 function seguro(fn) { try { fn(); } catch (e) { console.error(fn.name, e); } }
 function pintar() {
-  [frescura, sesiones, lectura, agenda, tablero, bot, ideas, titulares, bonos, valor, analistas, radar, pie].forEach(seguro);
+  [cajas, ciclo, estudio, frescura, sesiones, lectura, agenda, tablero, bot, ideas, titulares, bonos, valor, analistas, radar, pie].forEach(seguro);
 }
+
+/* ---------- base de la revista: las 4 cajas, el ciclo de la deuda y el material de estudio ----------
+   Vienen del "cerebro" del proyecto Trading (repo inversion-lab/trading): estudio.json (lecciones, cajas en detalle,
+   fuentes y bitácora viva, ya en HTML) y ciclo.json (indicadores de FRED). */
+const CAJAS = [
+  { n: 4, nombre: "Largo plazo", horizonte: "años a décadas", estado: "borrador", para: "Proteger y hacer crecer el patrimonio a través de cualquier ciclo: reparto por riesgo (All Seasons), dinero duro 5–15 % y diversificación por país y moneda.",
+    ver: [["#t-ciclo", "Ciclo de la deuda"], ["#t-valor", "Valor 10 años"], ["#t-bonos", "Bonos"]], estudiar: "a-caja4-largo", leccion: ["a-03-ciclo-largo-6-etapas", "Ciclo largo"] },
+  { n: 3, nombre: "Mediano plazo", horizonte: "meses a 1–2 años", estado: "borrador", para: "Empresas baratas frente a sus propios 10 años, con calidad y tendencia; divisas y materias primas según el régimen de bonos.",
+    ver: [["#t-radar", "Radar S&P 500"], ["#t-valor", "Valor 10 años"], ["#t-ideas", "Ideas"]], estudiar: "a-caja3-mediano", leccion: ["a-04-dinero-y-moneda-de-reserva", "Dinero y monedas"] },
+  { n: 2, nombre: "Corto plazo / swing", horizonte: "días a semanas", estado: "en demo", para: "Seguir tendencias con reglas fijas y automáticas: bot de 4 horas en oro, plata y bitcoin; agenda de noticias con plan.",
+    ver: [["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"], ["#t-bot", "Bot"]], estudiar: "a-caja2-corto-swing", leccion: ["a-02-ciclo-corto", "Ciclo corto"] },
+  { n: 1, nombre: "Scalping / intradía", horizonte: "minutos a horas", estado: "en estudio", para: "Operaciones muy cortas con reglas técnicas, sobre todo en oro (estrategia KAMA, solo simulada por ahora).",
+    ver: [["#t-tablero", "Tablero"], ["#t-agenda", "Agenda"]], estudiar: "a-caja1-scalping", leccion: ["a-08-como-invertir-segun-el-ciclo", "Cómo invertir"] },
+];
+function cajas() {
+  $("cajas").innerHTML = CAJAS.map((c) => `<article class="caja">
+      <div class="fila"><span class="caja-n">Caja ${c.n}</span><span class="estado-caja ${c.estado.replace(/\s/g, "-")}">${esc(c.estado)}</span></div>
+      <h3>${esc(c.nombre)}</h3><span class="nota">${esc(c.horizonte)}</span>
+      <p>${esc(c.para)}</p>
+      <div class="acciones"><span class="etq">Ver oportunidades</span>${c.ver.map(([h, t]) => `<a href="${h}">${esc(t)}</a>`).join("")}</div>
+      <div class="acciones"><span class="etq">Estudiar</span><a href="#${c.estudiar}">La caja en detalle</a><a href="#${c.leccion[0]}">${esc(c.leccion[1])}</a></div>
+    </article>`).join("");
+}
+
+const CICLO = [
+  ["GFDEGDQ188S", 1], ["intereses_sobre_ingresos", 1], ["FYFSGDA188S", 1], ["DGS10", 2], ["DFII10", 2],
+  ["tipo_real_efectivo", 2], ["financiera_sobre_real", 2], ["WFRBST01134", 1],
+];
+function fichaCiclo(k, dec) {
+  const x = D.ciclo.indicadores[k];
+  if (!x || x.valor == null) return `<div class="indicador"><b>${esc(x?.nombre || k)}</b><span class="vacio">sin datos</span></div>`;
+  const u = x.unidad === "%" ? " %" : x.unidad === "veces" ? " veces" : x.unidad === "puntos" ? " pts" : "";
+  const fuente = String(x.fuente).startsWith("http") ? `<a href="${esc(x.fuente)}" target="_blank" rel="noopener">fuente</a>` : esc(x.fuente);
+  return `<div class="indicador"><span class="etq">${esc(x.uso)}</span><b>${esc(x.nombre)}</b>
+    <span class="v num">${fmt(x.valor, dec)}${u}</span>
+    <span class="nota">al ${esc(x.fecha)} · hace 5 años ${fmt(x.hace_5, dec)}${u} · hace 10 años ${fmt(x.hace_10, dec)}${u} · ${fuente}</span></div>`;
+}
+function ciclo() {
+  const c = D.ciclo;
+  if (!c) return;
+  const I = c.indicadores;
+  $("ciclo-meta").textContent = `Datos públicos de la Reserva Federal de San Luis (FRED), actualizados el ${c.actualizado}. Las reglas son de Dalio y Pablo Gil; el color es nuestra lectura de cada regla.`;
+  const tm = I.tipo_medio_deuda?.valor, cn = I.crecimiento_nominal?.valor, b10 = I.DGS10?.valor;
+  const ref = I.tipo_real_efectivo?.valor, br = I.DFII10?.valor;
+  const reglas = [
+    ["Bola de nieve de la deuda (Pablo Gil)", tm != null && cn != null ? (tm > cn ? "rojo" : b10 > tm ? "ambar" : "verde") : null,
+      tm != null && cn != null ? `La deuda paga de media ${fmt(tm, 2)} % y la economía crece ${fmt(cn, 1)} % nominal.${b10 > tm ? ` Pero el bono nuevo paga ${fmt(b10, 2)} %, más que la media: cada refinanciación sube el tipo medio.` : ""}` : "sin datos"],
+    ["Efectivo frente a la inflación (Dalio)", ref != null ? (ref < 0 ? "rojo" : "verde") : null,
+      ref != null ? `Tipo de la Fed menos inflación: ${fmt(ref, 2)} puntos. Negativo = el efectivo pierde poder de compra.` : "sin datos"],
+    ["Bono a 10 años real (Dalio)", br != null ? (br < 0 ? "rojo" : "verde") : null,
+      br != null ? `Paga ${fmt(br, 2)} % por encima de la inflación esperada. Negativo = el bono largo no compensa ("bomba de relojería").` : "sin datos"],
+  ];
+  const TXT = { rojo: "alarma encendida", ambar: "a medio camino", verde: "apagada" };
+  const bonos = [["IRLTLT01GBM156N", "Reino Unido"], ["IRLTLT01FRM156N", "Francia"], ["IRLTLT01DEM156N", "Alemania"], ["IRLTLT01JPM156N", "Japón"], ["DGS10", "EE. UU."]];
+  $("ciclo").innerHTML = `<div class="reglas">${reglas.map(([t, e, d]) => `<div class="regla"><div class="fila"><b>${esc(t)}</b>${e ? `<span class="pastilla ${e}">${TXT[e]}</span>` : ""}</div><p>${esc(d)}</p></div>`).join("")}</div>
+    <div class="indicadores">${CICLO.map(([k, d]) => fichaCiclo(k, d)).join("")}
+      <div class="indicador"><span class="etq">Cambio de régimen en bonos (Pablo Gil)</span><b>Bono a 10 años en el mundo</b>
+      <div class="bonos-mundo">${bonos.map(([k, n]) => I[k]?.valor != null ? `<span>${n}</span><span class="num">${fmt(I[k].valor, 2)} %</span><span class="nota num">${fmt(I[k].hace_5, 2)} % hace 5 años</span>` : "").join("")}</div></div>
+    </div>
+    <p class="nota">Todas las alarmas del modelo, explicadas: <a href="#a-07-donde-estamos-hoy">lección 07 · Dónde estamos hoy</a>.</p>`;
+}
+
+let estudioSec = 0, estudioArt = null;
+function estudio() {
+  const e = D.estudio;
+  if (!e) return;
+  $("estudio-meta").textContent = `Síntesis propias del libro de Dalio, su entrevista de 2026, Robbins, Pablo Gil y Cava, unidas a los datos de hoy · ${e.secciones.reduce((a, s) => a + s.articulos.length, 0)} textos · actualizado ${e.generado}`;
+  const sec = e.secciones[estudioSec];
+  if (!estudioArt || !sec.articulos.some((a) => a.id === estudioArt)) estudioArt = sec.articulos[0].id;
+  $("estudio-pestanas").innerHTML = e.secciones.map((s, i) => `<button class="pestana" type="button" role="tab" aria-selected="${i === estudioSec}" data-i="${i}">${esc(s.nombre)}<span class="c">${s.articulos.length}</span></button>`).join("");
+  $("estudio-pestanas").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => { estudioSec = +b.dataset.i; estudioArt = null; estudio(); }));
+  $("estudio-lista").innerHTML = sec.articulos.map((a) => `<a href="#${a.id}"${a.id === estudioArt ? ' aria-current="true"' : ""}>${esc(a.titulo)}</a>`).join("");
+  $("estudio-texto").innerHTML = sec.articulos.find((a) => a.id === estudioArt).html;
+}
+function abrirLeccion(id) {
+  const e = D.estudio;
+  const i = e ? e.secciones.findIndex((s) => s.articulos.some((a) => a.id === id)) : -1;
+  if (i < 0) return false;
+  estudioSec = i; estudioArt = id; estudio();
+  $("t-estudio").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  return true;
+}
+document.addEventListener("click", (ev) => {
+  const a = ev.target.closest('a[href^="#a-"]');
+  if (a && abrirLeccion(a.getAttribute("href").slice(1))) ev.preventDefault();
+});
 
 /* ---------- barra superior ---------- */
 function relojes() {

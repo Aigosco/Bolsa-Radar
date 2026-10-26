@@ -1,25 +1,25 @@
 {
- "actualizado": "2026-10-26T13:52:29Z",
+ "actualizado": "2026-10-26T14:22:34Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 1
   },
   "bloomberg/economics": {
    "ok": true,
-   "items": 16,
-   "nuevos": 0
+   "items": 17,
+   "nuevos": 1
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 0
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "bloomberg/industries": {
    "ok": true,
@@ -33,33 +33,33 @@
   },
   "yahoo/oro": {
    "ok": true,
-   "items": 17,
-   "nuevos": 0
+   "items": 18,
+   "nuevos": 2
   },
   "yahoo/plata": {
    "ok": true,
    "items": 17,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 18,
-   "nuevos": 4
+   "items": 17,
+   "nuevos": 8
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 2
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 1
   },
   "yahoo/dolar": {
    "ok": true,
    "items": 16,
-   "nuevos": 0
+   "nuevos": 1
   },
   "cnbc/economia": {
    "ok": true,
@@ -74,17 +74,17 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 0
+   "nuevos": 2
   },
   "wsj/mercados": {
    "ok": true,
    "items": 61,
-   "nuevos": 1
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 3
+   "nuevos": 0
   },
   "ft/mercados": {
    "ok": true,
@@ -93,7 +93,7 @@
   },
   "investing/noticias": {
    "ok": false,
-   "error": "HTTPSConnectionPool(host='www.investing.com', port=443): Read timed out. (read timeout=30)",
+   "error": "502 Server Error: Bad Gateway for url: https://www.investing.com/rss/news.rss",
    "nuevos": 0
   },
   "fxstreet/noticias": {
@@ -119,27 +119,27 @@
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 6
+   "nuevos": 5
   },
   "google/fed": {
    "ok": true,
    "items": 100,
-   "nuevos": 12
+   "nuevos": 9
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 9
+   "nuevos": 5
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 8
+   "nuevos": 45
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 4
+   "nuevos": 3
   }
  }
 }

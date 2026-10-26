@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-26T19:07:34Z",
+ "actualizado": "2026-10-26T19:37:27Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
@@ -14,12 +14,12 @@
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 2
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 0
   },
   "bloomberg/industries": {
    "ok": true,
@@ -29,12 +29,12 @@
   "bloomberg/opinion": {
    "ok": true,
    "items": 17,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
    "items": 17,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/plata": {
    "ok": true,
@@ -43,18 +43,18 @@
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 18,
-   "nuevos": 3
+   "items": 17,
+   "nuevos": 4
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 19,
-   "nuevos": 0
+   "nuevos": 2
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 2
   },
   "yahoo/dolar": {
    "ok": true,
@@ -74,7 +74,7 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 3
+   "nuevos": 0
   },
   "wsj/mercados": {
    "ok": true,
@@ -84,7 +84,7 @@
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 1
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 9
+   "nuevos": 7
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 4
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 1
   },
   "google/fed": {
    "ok": true,
-   "items": 65,
-   "nuevos": 5
+   "items": 100,
+   "nuevos": 3
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 10
+   "nuevos": 9
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 5
+   "nuevos": 4
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 4
   }
  }
 }

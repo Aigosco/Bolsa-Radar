@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-26T21:56:07Z",
+ "actualizado": "2026-10-26T22:22:34Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
@@ -8,7 +8,7 @@
   },
   "bloomberg/economics": {
    "ok": true,
-   "items": 17,
+   "items": 16,
    "nuevos": 0
   },
   "bloomberg/politics": {
@@ -19,7 +19,7 @@
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 3
   },
   "bloomberg/industries": {
    "ok": true,
@@ -29,11 +29,11 @@
   "bloomberg/opinion": {
    "ok": true,
    "items": 16,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
-   "items": 15,
+   "items": 16,
    "nuevos": 1
   },
   "yahoo/plata": {
@@ -43,18 +43,18 @@
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 17,
-   "nuevos": 3
+   "items": 20,
+   "nuevos": 9
   },
   "yahoo/nasdaq": {
    "ok": true,
-   "items": 15,
-   "nuevos": 1
+   "items": 18,
+   "nuevos": 3
   },
   "yahoo/bitcoin": {
    "ok": true,
-   "items": 18,
-   "nuevos": 1
+   "items": 17,
+   "nuevos": 2
   },
   "yahoo/dolar": {
    "ok": true,
@@ -79,12 +79,12 @@
   "wsj/mercados": {
    "ok": true,
    "items": 61,
-   "nuevos": 2
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 3
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 6
+   "nuevos": 10
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,27 +114,27 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 1
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 0
   },
   "google/fed": {
-   "ok": true,
-   "items": 73,
-   "nuevos": 2
-  },
-  "google/geopolitica": {
    "ok": true,
    "items": 100,
    "nuevos": 3
   },
+  "google/geopolitica": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 10
+  },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 4
   },
   "google/fxstreet": {
    "ok": true,

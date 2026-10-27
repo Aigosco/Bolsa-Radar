@@ -1,25 +1,25 @@
 {
- "actualizado": "2026-10-27T18:24:17Z",
+ "actualizado": "2026-10-27T18:52:32Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "bloomberg/economics": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 3
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 3
   },
   "bloomberg/industries": {
    "ok": true,
@@ -28,8 +28,8 @@
   },
   "bloomberg/opinion": {
    "ok": true,
-   "items": 20,
-   "nuevos": 2
+   "items": 19,
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
@@ -43,8 +43,8 @@
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 20,
-   "nuevos": 4
+   "items": 18,
+   "nuevos": 5
   },
   "yahoo/nasdaq": {
    "ok": true,
@@ -54,12 +54,12 @@
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/dolar": {
    "ok": true,
    "items": 13,
-   "nuevos": 1
+   "nuevos": 0
   },
   "cnbc/economia": {
    "ok": true,
@@ -74,7 +74,7 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 3
+   "nuevos": 1
   },
   "wsj/mercados": {
    "ok": true,
@@ -84,7 +84,7 @@
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 1
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 7
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -114,22 +114,22 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 1
+   "nuevos": 4
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 3
+   "nuevos": 1
   },
   "google/fed": {
    "ok": true,
-   "items": 100,
-   "nuevos": 6
+   "items": 56,
+   "nuevos": 4
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 4
+   "nuevos": 11
   },
   "google/investing": {
    "ok": true,
@@ -139,7 +139,7 @@
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 2
+   "nuevos": 4
   }
  }
 }

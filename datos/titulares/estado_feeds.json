@@ -1,65 +1,65 @@
 {
- "actualizado": "2026-10-27T15:37:45Z",
+ "actualizado": "2026-10-27T16:07:37Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 13
+   "nuevos": 5
   },
   "bloomberg/economics": {
    "ok": true,
-   "items": 20,
-   "nuevos": 5
+   "items": 19,
+   "nuevos": 0
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 12
+   "nuevos": 3
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 8
+   "nuevos": 1
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 0
   },
   "bloomberg/opinion": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
    "items": 17,
-   "nuevos": 12
+   "nuevos": 0
   },
   "yahoo/plata": {
    "ok": true,
    "items": 16,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 18,
-   "nuevos": 15
+   "items": 19,
+   "nuevos": 3
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 15,
-   "nuevos": 13
+   "nuevos": 0
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 12
+   "nuevos": 0
   },
   "yahoo/dolar": {
    "ok": true,
    "items": 12,
-   "nuevos": 2
+   "nuevos": 1
   },
   "cnbc/economia": {
    "ok": true,
@@ -74,22 +74,22 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 4
+   "nuevos": 1
   },
   "wsj/mercados": {
    "ok": true,
    "items": 61,
-   "nuevos": 4
+   "nuevos": 0
   },
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 4
+   "nuevos": 0
   },
   "ft/mercados": {
    "ok": true,
    "items": 25,
-   "nuevos": 3
+   "nuevos": 0
   },
   "investing/noticias": {
    "ok": true,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 31
+   "nuevos": 5
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 22
+   "nuevos": 2
   },
   "google/fed": {
    "ok": true,
-   "items": 63,
-   "nuevos": 15
+   "items": 64,
+   "nuevos": 4
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 59
+   "nuevos": 26
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 66
+   "nuevos": 52
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 22
+   "nuevos": 0
   }
  }
 }

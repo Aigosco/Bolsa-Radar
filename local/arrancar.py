@@ -63,6 +63,9 @@ def mt5():
     return False
 
 
+BOT_ACTIVO = False  # bots en pausa desde 2026-10-27 (pedido del usuario)
+
+
 def bot():
     r = ps("Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | ? { $_.CommandLine -match 'vivo.tendencia' } "
            "| Select -Expand ProcessId")
@@ -100,10 +103,13 @@ def main():
     except Exception as e:  # noqa: BLE001
         print("fallo:", e)
     paso(2, "Bot de tendencia (demo)")
-    try:
-        bot()
-    except Exception as e:  # noqa: BLE001
-        print("fallo:", e)
+    if BOT_ACTIVO:
+        try:
+            bot()
+        except Exception as e:  # noqa: BLE001
+            print("fallo:", e)
+    else:
+        print("Bot en pausa por decisión del usuario (2026-10-27): no se arranca. Para reactivarlo: BOT_ACTIVO = True.")
     paso(3, "Repo al día")
     corre("git", "pull", "-q", "--rebase", "--autostash", "-X", "theirs")
     paso(4, "Nube: noticias, mercado y cierre diario")

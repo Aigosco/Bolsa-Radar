@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-10-27T18:52:32Z",
+ "actualizado": "2026-10-27T19:22:33Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 7
   },
   "bloomberg/economics": {
    "ok": true,
@@ -14,22 +14,22 @@
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 1
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 0
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "bloomberg/opinion": {
    "ok": true,
    "items": 19,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/oro": {
    "ok": true,
@@ -44,12 +44,12 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 18,
-   "nuevos": 5
+   "nuevos": 4
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 15,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/bitcoin": {
    "ok": true,
@@ -74,7 +74,7 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 1
+   "nuevos": 3
   },
   "wsj/mercados": {
    "ok": true,
@@ -84,7 +84,7 @@
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 1
+   "nuevos": 0
   },
   "ft/mercados": {
    "ok": true,
@@ -102,8 +102,8 @@
    "nuevos": 0
   },
   "fed/comunicados": {
-   "ok": true,
-   "items": 20,
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml",
    "nuevos": 0
   },
   "fed/discursos": {
@@ -119,27 +119,27 @@
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 1
-  },
-  "google/fed": {
-   "ok": true,
-   "items": 56,
    "nuevos": 4
   },
-  "google/geopolitica": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 11
-  },
-  "google/investing": {
+  "google/fed": {
    "ok": true,
    "items": 100,
    "nuevos": 5
   },
+  "google/geopolitica": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 7
+  },
+  "google/investing": {
+   "ok": true,
+   "items": 100,
+   "nuevos": 6
+  },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 4
+   "nuevos": 0
   }
  }
 }

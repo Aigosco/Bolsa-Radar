@@ -7,7 +7,7 @@ const REPO = "Aigosco/Bolsa-Radar";
 const BASE = location.hostname.endsWith("github.io")
   ? `https://raw.githubusercontent.com/${REPO}/main/datos/web/`
   : "../datos/web/";
-const ARCHIVOS = ["resumen", "mercado", "agenda", "titulares", "bot", "bonos", "valor", "tesis", "radar", "ciclo", "estudio"];
+const ARCHIVOS = ["resumen", "mercado", "agenda", "titulares", "bonos", "valor", "tesis", "radar", "ciclo", "estudio"];
 const D = {};
 let temaSel = null, radarSel = 0, grupoSel = "Principales", fichaAbierta = null;
 let idioma = "es";
@@ -83,7 +83,7 @@ async function graficos() {
 }
 function seguro(fn) { try { fn(); } catch (e) { console.error(fn.name, e); } }
 function pintar() {
-  [cajas, ciclo, estudio, frescura, sesiones, lectura, agenda, tablero, bot, ideas, titulares, bonos, valor, analistas, radar, pie].forEach(seguro);
+  [cajas, ciclo, estudio, frescura, sesiones, lectura, agenda, tablero, supervisado, ideas, titulares, bonos, valor, analistas, radar, pie].forEach(seguro);
 }
 
 /* ---------- base de la revista: las 4 cajas, el ciclo de la deuda y el material de estudio ----------
@@ -94,10 +94,10 @@ const CAJAS = [
     ver: [["#t-ciclo", "Ciclo de la deuda"], ["#t-valor", "Valor 10 años"], ["#t-bonos", "Bonos"]], estudiar: "a-caja4-largo", leccion: ["a-03-ciclo-largo-6-etapas", "Ciclo largo"] },
   { n: 3, nombre: "Mediano plazo", horizonte: "meses a 1–2 años", estado: "borrador", para: "Empresas baratas frente a sus propios 10 años, con calidad y tendencia; divisas y materias primas según el régimen de bonos.",
     ver: [["#t-radar", "Radar S&P 500"], ["#t-valor", "Valor 10 años"], ["#t-ideas", "Ideas"]], estudiar: "a-caja3-mediano", leccion: ["a-04-dinero-y-moneda-de-reserva", "Dinero y monedas"] },
-  { n: 2, nombre: "Corto plazo / swing", horizonte: "días a semanas", estado: "en demo", para: "Seguir tendencias con reglas fijas y automáticas: bot de 4 horas en oro, plata y bitcoin; agenda de noticias con plan.",
-    ver: [["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"], ["#t-bot", "Bot"]], estudiar: "a-caja2-corto-swing", leccion: ["a-02-ciclo-corto", "Ciclo corto"] },
-  { n: 1, nombre: "Scalping / intradía", horizonte: "minutos a horas", estado: "en estudio", para: "Operaciones muy cortas con reglas técnicas, sobre todo en oro (estrategia KAMA, solo simulada por ahora).",
-    ver: [["#t-tablero", "Tablero"], ["#t-agenda", "Agenda"]], estudiar: "a-caja1-scalping", leccion: ["a-08-como-invertir-segun-el-ciclo", "Cómo invertir"] },
+  { n: 2, nombre: "Corto plazo / swing", horizonte: "días a semanas", estado: "por definir", para: "Los bots se retiraron el 28-oct-2026. Por ahora, contexto: agenda de noticias, tablero y tesis de corto plazo de los analistas.",
+    ver: [["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"], ["#t-ideas", "Ideas"]], estudiar: "a-caja2-corto-swing", leccion: ["a-02-ciclo-corto", "Ciclo corto"] },
+  { n: 1, nombre: "Scalp e intradía supervisado", horizonte: "minutos a horas", estado: "en formación", para: "Operativa diaria guiada en vivo por el profesor del curso Tu Primer Trade (Exness + ETR Edge), con riesgo fijo por operación.",
+    ver: [["#t-supervisado", "Cómo se opera"], ["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"]], estudiar: "a-caja1-scalping", leccion: ["a-08-como-invertir-segun-el-ciclo", "Cómo invertir"] },
 ];
 function cajas() {
   $("cajas").innerHTML = CAJAS.map((c) => `<article class="caja">
@@ -373,27 +373,39 @@ function tablero() {
     </button>`).join("");
 }
 
-/* ---------- bot ---------- */
-function bot() {
-  const b = D.bot;
-  if (!b) { $("bot").innerHTML = `<p class="vacio">El PC aún no publicó el estado del bot.</p>`; return; }
-  $("bot-meta").textContent = `Demo · ${fmt(b.riesgo_por_operacion_pct, 1)} % por operación · ${haceTxt(b.generado)}`;
-  const pos = (b.posiciones || []).map((p) => `<div class="senal"><div class="fila"><button type="button" class="enlace-activo grande" data-clave="${esc(p.simbolo)}">${esc(p.simbolo)} ›</button>
-      <span class="chip acento">${esc(p.tipo)} · ${p.R == null ? "–" : (p.R > 0 ? "+" : "") + fmt(p.R) + " R"}</span></div>
-      <div class="dist">entrada ${precio(p.entrada)} · stop ${precio(p.stop)} · ${esc(p.estrategia || "")}</div></div>`).join("");
-  const sen = (b.senales || []).map((s) => {
-    const m = /([+-]?\d+[.,]\d+)%\)?\s*(?:·|$)/.exec(s.distancia) || /falta \+?(\d+[.,]\d+)%/.exec(s.distancia);
-    const falta = m ? Math.abs(parseFloat(m[1].replace(",", "."))) : null;
-    const lleno = falta == null ? 0 : Math.max(4, 100 - Math.min(falta, 10) * 10);
-    const cand = /candidata/.test(s.estrategia);
-    const conFicha = !!activo(s.simbolo);
-    return `<div class="senal"><div class="fila">${conFicha ? `<button type="button" class="enlace-activo grande" data-clave="${esc(s.simbolo)}">${esc(s.simbolo)} ›</button>` : `<span class="sim">${esc(s.simbolo)}</span>`}
-      <span class="chip ${cand ? "" : "acento"}">${cand ? "candidata, sin bot" : "en el bot"}</span></div>
-      <div class="dist">${esc(s.estrategia)} · cierre 4h ${esc(s.cierre_4h)}</div><div class="dist">${esc(s.distancia)}</div>
-      ${falta != null ? `<div class="medidor" title="Cercanía a la señal (lleno = a punto)"><span style="width:${lleno}%"></span></div>` : ""}</div>`;
-  }).join("");
-  $("bot").innerHTML = (pos ? `<h3 class="sub">Posiciones abiertas</h3>${pos}` : `<p class="nota">Sin posiciones abiertas.</p>`) +
-    `<h3 class="sub">Distancia a la señal de compra</h3>${sen}`;
+/* ---------- caja 1: trading supervisado (curso Tu Primer Trade) ---------- */
+const OPERATIVAS = [["Nueva York", 8, 15], ["Asia", 19, 45]];  // hora de Bogotá (UTC−5, sin horario de verano)
+function proximaOperativa() {
+  const ahora = Date.now();
+  const bog = new Date(ahora - 5 * 3600 * 1000);  // reloj de Bogotá leído con getUTC*
+  let mejor = null;
+  for (let d = 0; d < 8 && !mejor; d++) {
+    for (const [nombre, h, m] of OPERATIVAS) {
+      const t = Date.UTC(bog.getUTCFullYear(), bog.getUTCMonth(), bog.getUTCDate() + d, h + 5, m);
+      const dia = new Date(t - 5 * 3600 * 1000).getUTCDay();
+      if (t > ahora && dia >= 1 && dia <= 5 && (!mejor || t < mejor.t)) mejor = { nombre, t };
+    }
+  }
+  return mejor;
+}
+function supervisado() {
+  const p = proximaOperativa();
+  const falta = p ? Math.round((p.t - Date.now()) / 60000) : null;
+  $("supervisado-meta").textContent = "Curso Tu Primer Trade · El Trader Rolo · broker Exness · plataforma ETR Edge";
+  const reglas = [["Riesgo por operación", "1,72 %", "del capital inicial del periodo"], ["Objetivo (TP)", "+4 %", "automático"],
+    ["Protección", "+2,5 → +1,8 %", "al llegar a +2,5 % el SL sube a +1,8 %"], ["Apalancamiento", "1:200", "norma de la comunidad"]];
+  $("supervisado").innerHTML = `
+    <p>Los bots se retiraron. El scalp y el intradía se operan <b>en vivo, guiados por el profesor</b>; cada uno ejecuta en su propia cuenta y la plataforma fija el riesgo.</p>
+    ${p ? `<div class="senal"><div class="fila"><span class="sim">Próxima operativa: ${esc(p.nombre)}</span><span class="chip acento">${falta < 60 ? `en ${falta} min` : `en ${Math.floor(falta / 60)} h ${falta % 60} min`}</span></div>
+      <div class="dist">Zoom de lunes a viernes: Nueva York 8:15 a. m. · Asia 7:45 p. m. (hora de Bogotá). Se entra desde ETR Edge → Comunidad.</div></div>` : ""}
+    <h3 class="sub">Reglas que impone ETR Edge</h3>
+    <div class="indicadores">${reglas.map(([n, v, d]) => `<div class="indicador"><b>${esc(n)}</b><span class="v num">${esc(v)}</span><span class="nota">${esc(d)}</span></div>`).join("")}</div>
+    <h3 class="sub">Cada operación</h3>
+    <ol class="ficha-lista"><li>Antes del Zoom: revisar la agenda de noticias y el tablero de esta página.</li>
+      <li>Solo entradas que el profesor valide o que cumplan lo enseñado.</li>
+      <li>Marcar <b>dónde se invalida</b> la operación (el stop): ETR calcula el lote y el TP.</li>
+      <li>Al cerrar, completar el journal.</li></ol>
+    <p class="nota">Lo que decide el resultado: con el plan puro (riesgo 1,72 contra 4) basta acertar el 30 %; si casi todas las ganadoras se cierran en la protección (+1,8 %), hace falta cerca del 49 %. Lo medimos en el journal. Detalle y paso a paso en <code>curso_tu_primer_trade/</code> del repo del equipo. Material de estudio, no recomendación de inversión.</p>`;
 }
 
 /* ---------- ideas ---------- */
@@ -553,7 +565,6 @@ function pintarFicha(clave) {
   $("ficha-sub").innerHTML = `<span class="${clase(a.ch_1d)}">${pct(a.ch_1d)} hoy</span> · ${esc(a.grupo)} · Yahoo ${esc(a.ticker)} · ${haceTxt(D.mercado?.generado)}`;
   const esc_ = Math.max(1, ...[a.ch_1d, a.ch_5d, a.ch_1m].map((v) => Math.abs(v || 0)));
   const eventos = gruposAgenda().filter((g) => g[0].t >= Date.now() / 1000 - 12 * 3600 && g[0].guia.activos.some((x) => x.clave === clave)).slice(0, 4);
-  const senal = (D.bot?.senales || []).find((s) => s.simbolo === clave);
   const tes = (D.tesis?.recientes || []).filter((x) => x.simbolo === clave).slice(0, 4);
   const g = D.graficos?.activos?.[clave];
   $("ficha-cuerpo").innerHTML = `
@@ -569,7 +580,6 @@ function pintarFicha(clave) {
     <h3 class="sub">Diario · 6 meses</h3><div class="graf-velas" id="g-diario">${g ? "" : `<p class="vacio">Cargando gráfico…</p>`}</div>
     <h3 class="sub">4 horas · últimas 90 velas</h3><div class="graf-velas" id="g-4h">${g ? "" : `<p class="vacio">Cargando gráfico…</p>`}</div>
     ${eventos.length ? `<h3 class="sub">Noticias que lo mueven</h3><ul class="ficha-lista">${eventos.map((ev) => { const e = ev[0], dt = new Date(e.t * 1000); return `<li><span class="num">${fechaCorta(dt, "America/Bogota")} ${hora(dt, "America/Bogota")}</span> ${esc(e.moneda)} · ${esc(ev.map((x) => x.nombre).join(", "))} ${etiquetaProb(e.guia.veredicto.nivel)}</li>`; }).join("")}</ul>` : ""}
-    ${senal ? `<h3 class="sub">Bot</h3><p>${esc(senal.estrategia)}: ${esc(senal.distancia)}</p>` : ""}
     ${tes.length ? `<h3 class="sub">Lo que dicen los analistas</h3><div class="tesis-lista corta">${tes.map((x) => `<div class="tes"><div class="fila"><span>${esc(TIPOS[x.tipo] || x.tipo)} ${esc(x.direccion)} ${esc(x.horizonte)}</span><span class="estado ${estadoClase(x.estado)}">${esc(x.estado)}</span></div><q>${esc(x.cita)}</q><span class="nota">${esc(AUTORES[x.autor] || x.autor || "")} · ${esc(x.fecha_video)} · <a href="https://youtu.be/${esc(x.video_id)}?t=${minutoSeg(x.minuto)}" target="_blank" rel="noopener">${esc(x.minuto)}</a></span></div>`).join("")}</div>` : ""}`;
   if (!g) return;
   const n = a.niveles || {}, pl = a.plan || {};

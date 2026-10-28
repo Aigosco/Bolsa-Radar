@@ -7,7 +7,7 @@ terminar un cambio relevante, actualiza la sección "Estado y pendientes" de aba
 Un sistema de información de mercados que trabaja **entre el PC del usuario y la nube (GitHub)**:
 - **La nube** (GitHub Actions, repo público `Aigosco/Bolsa-Radar`) recoge noticias, calendario económico, precios, bonos y
   verifica las tesis de analistas, todo el día, aunque el PC esté apagado.
-- **El PC** hace lo que la nube no puede: MetaTrader 5 (bot de trading en demo), YouTube (bloquea a los servidores de
+- **El PC** hace lo que la nube no puede: MetaTrader 5 (solo datos; los bots se retiraron el 2026-10-28), YouTube (bloquea a los servidores de
   GitHub) y, mientras la API de Anthropic no tenga saldo, la lectura con IA (Claude Code con el plan Pro del usuario).
 - **La página** https://aigosco.github.io/Bolsa-Radar/ (GitHub Pages) lo muestra todo y se actualiza sola: lee los JSON de
   `datos/web/` directamente de `raw.githubusercontent.com`, así que no hace falta republicarla para que cambien los datos.
@@ -19,9 +19,8 @@ futuro es transferirlo a la cuenta de nefranco93 (si se hace: cambiar `REPO` en 
 ## 0. Orden de arranque: "ejecutar bolsa"
 Cuando el usuario encienda el PC y diga **"ejecutar bolsa"** (o "arranca todo", o `/ejecutar-bolsa`), se usa la skill
 personal `C:\Users\franc\.claude\skills\ejecutar-bolsa\SKILL.md`. Esa skill corre `local/arrancar.py`, que hace esto:
-1. abre MT5 (`C:\Program Files\MetaTrader 5 IC Markets Global\terminal64.exe`) y espera a que conecte; avisa si "Algo Trading"
-   está apagado;
-2. arranca el bot (`Trading\iniciar_bot_tendencia.bat`, en su ventana) si no corre;
+1. abre MT5 (`C:\Program Files\MetaTrader 5 IC Markets Global\terminal64.exe`) y espera a que conecte (solo datos para la revista);
+2. recuerda la caja 1: sin bots desde el 2026-10-28 (trading supervisado en vivo con ETR Edge, ver `Trading/curso_tu_primer_trade/`);
 3. ejecuta `git pull`;
 4. lanza noticias y mercado en la nube (con cierre diario si falta) y espera a que terminen;
 5. revisa los videos nuevos de Cava;
@@ -51,13 +50,13 @@ En Bash usa `PYTHONIOENCODING=utf-8`; en `.bat` ya está puesto (la consola cp12
 | 5:00–8:40 | YouTube | Cava publica su video (03:00–06:40 hora del Pacífico, medido en 12 videos), L-V; los subtítulos automáticos tardan un rato más en aparecer | — |
 | **7:30–16:30 L-V, cada hora** | PC | Videos nuevos de los analistas de `CANALES` (Cava, y Pablo Gil desde 2026-10-25) (reintenta cada hora mientras no haya subtítulos) → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
 | **8:10 diario** | PC | Lectura del día con IA (Claude Code, plan Pro) → `datos/web/resumen.json` | tarea "Bolsa-Radar lectura IA" → `local/lectura_ia_pc.bat` |
-| **cada hora (:05)** | PC | Estado del bot (MT5), tesis, radar de acciones, efecto F1 → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
+| **cada hora (:05)** | PC | Tesis, radar de acciones, efecto F1 → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
 | **cada 15 min** | PC | Respaldo: si GitHub no corrió noticias en 20 min (o mercado en 40), los lanza con `gh workflow run` | tarea "Bolsa-Radar respaldo nube" → `local/respaldo_nube.bat` (log `%TEMP%\bolsa_radar_respaldo.log`) |
 | al cambiar `sitio/` | Nube | Publica la página | `pagina.yml` |
 | (en pausa) 8:15 | Nube | Lectura con IA vía API | `resumen.yml` — horario comentado hasta que la API tenga saldo |
 
 Los cron de GitHub son aproximados (pueden retrasarse minutos). Las tareas del PC solo corren con la sesión de Windows
-abierta ("Solo interactivo") y necesitan MT5 abierto para la parte del bot. Logs del PC: `%TEMP%\bolsa_radar_cava.log`,
+abierta ("Solo interactivo"). Logs del PC: `%TEMP%\bolsa_radar_cava.log`,
 `%TEMP%\bolsa_radar_lectura.log`, `%TEMP%\bolsa_radar_publicar.log`.
 
 ## 4. Código
@@ -85,7 +84,7 @@ radar/            (corre en la nube y en el PC)
                   `agenda_accion` por evento de alto impacto e ideas con `clave` y `plan`); llama a la API (ia.py)
   ia.py           cliente de Claude (Opus 5.5, salida JSON con esquema, fallbacks "default"; admite ANTHROPIC_WORKSPACE_ID)
 local/            (solo en el PC)
-  publicar_desde_pc.py   bot.json (sin datos de cuenta), tesis, radar.json, f1_efecto.json; --historico; git push
+  publicar_desde_pc.py   tesis, radar.json, f1_efecto.json, estudio.json, ciclo.json; --historico; git push (sin bot desde 2026-10-28)
   cava_diario.py         últimos 5 videos de cada canal de CANALES (cava, pablogil; --autor X para uno) → transcripción (fundamental/youtube.py del proyecto local) → tesis con
                          `claude -p --json-schema` (reglas de fundamental/analistas.py) → comprueba citas → publica
   lectura_ia_pc.py       misma lectura que resumen.py pero con `claude -p --json-schema` (plan Pro)
@@ -126,7 +125,7 @@ datos/            todo lo publicado (ver sección 5)
    miden hasta su disparador.
 4. **Lectura con IA:** una vez al día por la mañana (no tres). Solo con el paquete de datos; las ideas son para discutir.
 5. **YouTube:** nunca listar el canal entero (provocó un bloqueo de IP el 2026-10-17); solo los últimos 3–5 videos.
-6. El bot de trading está en **demo** y no se cambian sus parámetros durante la prueba (ver CLAUDE.md del proyecto Trading).
+6. No hay bots desde el 2026-10-28: la caja 1 es trading supervisado (curso Tu Primer Trade, Exness + ETR Edge). No crear bots que operen sin que el usuario lo pida.
 
 ## 7. Cómo operar (comandos frecuentes)
 Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
@@ -150,7 +149,7 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
   workspace Default ya está en el secreto `ANTHROPIC_API_KEY`, pero la cuenta no tiene saldo ("credit balance is too low").
 - **Heredocs en Git Bash** pueden estropear caracteres no ASCII (·, ó) y las barras invertidas: para editar código con tildes
   usa la herramienta de edición, no `sed`/heredoc.
-- Yahoo da futuros continuos (oro GC=F) que difieren unos dólares del contado del bróker; los niveles del bot salen de MT5.
+- Yahoo da futuros continuos (oro GC=F) que difieren unos dólares del contado del bróker.
 - **Videos de Cava sin texto.** Hay tres vías y `cava_diario.py` aplica las dos primeras solo:
   1. **Subtítulos de YouTube.** Tardan horas en aparecer después de publicar.
   2. **Audio + Whisper**: `fundamental/audio.py`, faster-whisper `large-v3-turbo` en CPU, unos 8 min por video. Ver
@@ -170,7 +169,7 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
 
 ## 9. Estado y pendientes (actualizar al cerrar cada sesión)
 Último estado: 2026-10-19.
-- Funcionando: noticias, mercado, calendario, tesis (40 videos de Cava, 224 tesis), página, bot.json, lectura IA desde el PC,
+- Funcionando: noticias, mercado, calendario, tesis (40 videos de Cava, 224 tesis), página, lectura IA desde el PC,
   extracción automática de videos nuevos de Cava (probada: 11 tesis, 0 citas no literales, 30 s).
 - **Horarios de GitHub: funcionan desde el 19-oct 13:04 UTC.** Las primeras ~13 horas del repo nuevo no se disparó
   ninguno. Llegan con retrasos irregulares, algo normal en GitHub. El respaldo del PC ("Bolsa-Radar respaldo nube", cada

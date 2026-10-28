@@ -2,12 +2,12 @@
 
 Pasos, en orden; cada uno informa y, si falla, los demás siguen:
   1. Abre MetaTrader 5 si no está abierto y espera a que conecte.
-  2. Arranca el bot de tendencia (iniciar_bot_tendencia.bat, en su propia ventana) si no está corriendo.
+  2. Recuerda la caja 1: sin bots desde el 2026-10-28 (trading supervisado con ETR Edge).
   3. Trae lo último del repo (git pull).
   4. Pone al día la nube: lanza noticias y mercado (con cierre diario si falta el de ayer) y espera a que terminen.
   5. Videos nuevos de Cava (lunes a viernes; recupera los que falten).
   6. Lectura del día con IA, si aún no hay una de hoy.
-  7. Publica desde el PC: estado del bot, tesis, radar.
+  7. Publica desde el PC: tesis, radar y cerebro.
   8. Resumen del estado.
 
   python local/arrancar.py
@@ -55,28 +55,11 @@ def mt5():
                             "print('OK' if a else 'NO', 'algo' if ok and m.terminal_info().trade_allowed else 'sin-algo');"
                             "m.shutdown()"], capture_output=True, text=True)
         if r.stdout.startswith("OK"):
-            print("MT5 conectado." + ("" if "algo" in r.stdout and "sin-algo" not in r.stdout else
-                                      " AVISO: el botón 'Algo Trading' está APAGADO: actívalo en MT5 o el bot no podrá operar."))
+            print("MT5 conectado (solo datos para la revista; no hay bots).")
             return True
         time.sleep(5)
-    print("AVISO: MT5 no respondió en 2 minutos (¿sesión del bróker?). El bot no operará hasta que conecte.")
+    print("AVISO: MT5 no respondió en 2 minutos (¿sesión del bróker?). La revista local saldrá sin datos de MT5.")
     return False
-
-
-BOT_ACTIVO = False  # bots en pausa desde 2026-10-27 (pedido del usuario)
-
-
-def bot():
-    r = ps("Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | ? { $_.CommandLine -match 'vivo.tendencia' } "
-           "| Select -Expand ProcessId")
-    if r.stdout.strip():
-        print(f"El bot ya estaba corriendo (proceso {r.stdout.split()[0]}).")
-        return
-    subprocess.Popen(["cmd", "/c", "start", "Bot tendencia", str(TRADING / "iniciar_bot_tendencia.bat")], cwd=TRADING)
-    time.sleep(20)
-    log = (TRADING / "registros" / "vivo_tendencia.log").read_text(encoding="utf-8", errors="replace").splitlines()
-    print("Bot arrancado en su propia ventana. Últimas líneas del log:")
-    print("\n".join(log[-4:]))
 
 
 def nube():
@@ -102,14 +85,8 @@ def main():
         mt5()
     except Exception as e:  # noqa: BLE001
         print("fallo:", e)
-    paso(2, "Bot de tendencia (demo)")
-    if BOT_ACTIVO:
-        try:
-            bot()
-        except Exception as e:  # noqa: BLE001
-            print("fallo:", e)
-    else:
-        print("Bot en pausa por decisión del usuario (2026-10-27): no se arranca. Para reactivarlo: BOT_ACTIVO = True.")
+    paso(2, "Caja 1")
+    print("Sin bots desde el 2026-10-28: scalp e intradía en vivo con el profesor (ETR Edge). Zoom NY 8:15 a. m. y Asia 7:45 p. m. (Bogotá).")
     paso(3, "Repo al día")
     corre("git", "pull", "-q", "--rebase", "--autostash", "-X", "theirs")
     paso(4, "Nube: noticias, mercado y cierre diario")
@@ -127,7 +104,7 @@ def main():
         print(f"Ya hay lectura de hoy ({res['generado']}); no se repite.")
     else:
         corre(PY, "local/lectura_ia_pc.py", timeout=1800)
-    paso(7, "Publicar desde el PC (bot, tesis, radar)")
+    paso(7, "Publicar desde el PC (tesis, radar, cerebro)")
     corre(PY, "local/publicar_desde_pc.py", timeout=600)
     paso(8, "Estado")
     corre("gh", "run", "list", "-R", GH_REPO, "--limit", "5")

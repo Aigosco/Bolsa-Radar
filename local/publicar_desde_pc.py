@@ -2,8 +2,6 @@
 
   - datos/tesis/<autor>/<id>.json   tesis de analistas (sin transcripciones: tienen derechos de autor)
   - datos/f1_efecto.json            efecto histórico de las noticias USD (estudio F1, velas de 5 min de MT5)
-  - datos/web/bot.json              estado del bot de tendencia SIN datos de la cuenta (ni número, ni balance, ni USD):
-                                    solo símbolos, niveles, R y distancia a la señal
   - datos/web/radar.json            radar de valor del S&P 500 (las listas principales)
   - datos/titulares/AAAA/MM/DD.jsonl  (solo con --historico) titulares ya capturados en el PC, para no perderlos
 
@@ -59,44 +57,6 @@ def f1():
                            "p90_1h": round(float(mm["p90_|mov|_1h_%"].iloc[0]), 3) if len(mm) else None}
     guardar_json(REPO / "datos" / "f1_efecto.json", out)
     print("f1_efecto.json")
-
-
-def bot():
-    """Lee MT5 en el PC con las mismas funciones del bot y publica solo niveles y R (nada de la cuenta)."""
-    sys.path.insert(0, str(TRADING))
-    import MetaTrader5 as mt5
-    from bot import datos
-    from vivo import tendencia as T
-    from fundamental import revista as R
-    if not mt5.initialize():
-        print("bot: MT5 no disponible; no se publica")
-        return
-    est = json.loads((TRADING / "registros" / "vivo_tendencia_estado.json").read_text(encoding="utf-8"))
-    pos = []
-    for p in (mt5.positions_get() or []):
-        if p.magic != T.MAGIC:
-            continue
-        reg = est.get("posiciones", {}).get(str(p.identifier)) or est.get("posiciones", {}).get(str(p.ticket)) or {}
-        r1 = (p.price_open - (reg.get("sl0") or p.sl)) or None
-        pos.append({"simbolo": p.symbol, "tipo": "compra" if p.type == 0 else "venta", "entrada": p.price_open,
-                    "stop": p.sl, "precio": p.price_current, "estrategia": reg.get("estrategia"),
-                    "desde": reg.get("hora_entrada"),
-                    "R": round((p.price_current - p.price_open) / r1, 2) if r1 else None})
-    senales = [{"simbolo": a, "estrategia": b, "cierre_4h": c, "distancia": d}
-               for a, b, c, d in R.cerca_de_senal((mt5, None)) + R.cerca_de_senal((mt5, None), candidatas=True)]
-    cerradas = []
-    ops = TRADING / "registros" / "vivo_tendencia_operaciones.csv"
-    if ops.exists():
-        import pandas as pd
-        c = pd.read_csv(ops)
-        cerradas = [{"simbolo": r.simbolo, "entrada": r.hora_entrada, "salida": r.hora_salida, "motivo": r.motivo,
-                     "R": r.R} for r in c.tail(20).itertuples()]
-    guardar_json(REPO / "datos" / "web" / "bot.json", {
-        "generado": iso(datetime.now(timezone.utc)), "version": T.VERSION, "modo": "demo",
-        "estrategias": {s: v[0] for s, v in T.ESTRATEGIAS.items()}, "riesgo_por_operacion_pct": T.RIESGO * 100,
-        "posiciones": pos, "senales": senales, "cerradas_R": cerradas,
-        "nota": "Precios de MT5 (contado del bróker); sin datos de la cuenta."}, compacto=True)
-    print(f"bot.json: {len(pos)} posiciones, {len(senales)} activos vigilados")
 
 
 def radar():
@@ -194,7 +154,7 @@ if __name__ == "__main__":
     ap.add_argument("--historico", action="store_true")
     ap.add_argument("--sin-push", action="store_true")
     a = ap.parse_args()
-    for paso in ([historico] if a.historico else []) + [tesis, f1, radar, bot, cerebro]:
+    for paso in ([historico] if a.historico else []) + [tesis, f1, radar, cerebro]:
         try:
             paso()
         except Exception as ex:  # noqa: BLE001

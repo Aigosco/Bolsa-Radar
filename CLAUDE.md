@@ -102,7 +102,7 @@ datos/            todo lo publicado (ver sección 5)
 - `datos/web/*.json`: lo que lee la página (resumen, mercado, agenda, titulares, bot, bonos, valor, tesis, radar; graficos.json
   se baja solo al abrir la ficha de un activo).
 - **La página es la revista del equipo que une TODO (decisión del usuario, 2026-10-26).** La base son las 3 cajas del
-  portafolio y el material de estudio; después, las oportunidades de cada caja. Orden: portada → **3 cajas** (desde 2026-10-28: 1 intradía supervisado, 2 mediano, 3 largo; tarjetas con
+  portafolio y el material de estudio; después, las oportunidades de cada caja. Orden: portada → **3 cajas** (desde 2026-10-28: 1 intradía · corto plazo, 2 mediano, 3 largo; tarjetas con
   "ver oportunidades" y "estudiar") → **ciclo de la deuda** (caja 3, `web/ciclo.json`: FRED, reglas de Dalio y Pablo Gil)
   → **material de estudio** (`web/estudio.json`: lecciones, cajas en detalle, fuentes, bitácora viva; viene de
   `cerebro/` del proyecto Trading, repo `inversion-lab/trading`, vía `local/publicar_desde_pc.py` → `cerebro()`) →

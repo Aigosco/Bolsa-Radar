@@ -94,7 +94,7 @@ const CAJAS = [
     ver: [["#t-ciclo", "Ciclo de la deuda"], ["#t-valor", "Valor 10 años"], ["#t-bonos", "Bonos"]], estudiar: "a-caja3-largo", leccion: ["a-03-ciclo-largo-6-etapas", "Ciclo largo"] },
   { n: 2, nombre: "Mediano plazo", horizonte: "meses a 1–2 años", estado: "borrador", para: "Empresas baratas frente a sus propios 10 años, con calidad y tendencia; divisas y materias primas según el régimen de bonos.",
     ver: [["#t-radar", "Radar S&P 500"], ["#t-valor", "Valor 10 años"], ["#t-ideas", "Ideas"]], estudiar: "a-caja2-mediano", leccion: ["a-04-dinero-y-moneda-de-reserva", "Dinero y monedas"] },
-  { n: 1, nombre: "Intradía supervisado", horizonte: "minutos a horas · scalp + intradía", estado: "en formación", para: "Operativa diaria guiada en vivo por el profesor del curso Tu Primer Trade (Exness + ETR Edge), con riesgo fijo. Scalp e intradía son la misma operativa: cada operación se etiqueta por su duración (scalp, menos de 1 h; intradía, horas) para medir cuál rinde más.",
+  { n: 1, nombre: "Intradía · corto plazo", horizonte: "minutos a horas · scalp + intradía", estado: "en formación", para: "Operativa diaria guiada en vivo por el profesor del curso Tu Primer Trade (Exness + ETR Edge), con riesgo fijo. Scalp e intradía son la misma operativa: cada operación se etiqueta por su duración (scalp, menos de 1 h; intradía, horas) para medir cuál rinde más.",
     ver: [["#t-supervisado", "Cómo se opera"], ["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"]], estudiar: "a-caja1-intradia", leccion: ["a-08-como-invertir-segun-el-ciclo", "Cómo invertir"] },
 ];
 function cajas() {

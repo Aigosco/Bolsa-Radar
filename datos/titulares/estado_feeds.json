@@ -1,15 +1,15 @@
 {
- "actualizado": "2026-10-28T18:22:33Z",
+ "actualizado": "2026-10-28T18:52:33Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 4
+   "nuevos": 3
   },
   "bloomberg/economics": {
    "ok": true,
    "items": 20,
-   "nuevos": 3
+   "nuevos": 2
   },
   "bloomberg/politics": {
    "ok": true,
@@ -29,12 +29,12 @@
   "bloomberg/opinion": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 0
   },
   "yahoo/oro": {
    "ok": true,
    "items": 17,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/plata": {
    "ok": true,
@@ -43,23 +43,23 @@
   },
   "yahoo/sp500": {
    "ok": true,
-   "items": 20,
-   "nuevos": 7
+   "items": 18,
+   "nuevos": 6
   },
   "yahoo/nasdaq": {
    "ok": true,
-   "items": 17,
+   "items": 18,
    "nuevos": 0
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 20,
-   "nuevos": 5
+   "nuevos": 4
   },
   "yahoo/dolar": {
    "ok": true,
-   "items": 17,
-   "nuevos": 2
+   "items": 18,
+   "nuevos": 1
   },
   "cnbc/economia": {
    "ok": true,
@@ -84,7 +84,7 @@
   "marketwatch/top": {
    "ok": true,
    "items": 10,
-   "nuevos": 0
+   "nuevos": 1
   },
   "ft/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 7
+   "nuevos": 10
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -104,7 +104,7 @@
   "fed/comunicados": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 0
   },
   "fed/discursos": {
    "ok": true,
@@ -114,32 +114,32 @@
   "google/reuters": {
    "ok": true,
    "items": 100,
-   "nuevos": 16
+   "nuevos": 7
   },
   "google/oro": {
    "ok": true,
    "items": 100,
-   "nuevos": 5
+   "nuevos": 3
   },
   "google/fed": {
    "ok": true,
-   "items": 100,
-   "nuevos": 41
+   "items": 82,
+   "nuevos": 36
   },
   "google/geopolitica": {
    "ok": true,
    "items": 100,
-   "nuevos": 17
+   "nuevos": 30
   },
   "google/investing": {
    "ok": true,
    "items": 100,
-   "nuevos": 4
+   "nuevos": 18
   },
   "google/fxstreet": {
    "ok": true,
    "items": 100,
-   "nuevos": 5
+   "nuevos": 1
   }
  }
 }

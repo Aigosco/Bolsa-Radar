@@ -86,18 +86,16 @@ function pintar() {
   [cajas, ciclo, estudio, frescura, sesiones, lectura, agenda, tablero, supervisado, ideas, titulares, bonos, valor, analistas, radar, pie].forEach(seguro);
 }
 
-/* ---------- base de la revista: las 4 cajas, el ciclo de la deuda y el material de estudio ----------
+/* ---------- base de la revista: las 3 cajas, el ciclo de la deuda y el material de estudio ----------
    Vienen del "cerebro" del proyecto Trading (repo inversion-lab/trading): estudio.json (lecciones, cajas en detalle,
    fuentes y bitácora viva, ya en HTML) y ciclo.json (indicadores de FRED). */
 const CAJAS = [
-  { n: 4, nombre: "Largo plazo", horizonte: "años a décadas", estado: "borrador", para: "Proteger y hacer crecer el patrimonio a través de cualquier ciclo: reparto por riesgo (All Seasons), dinero duro 5–15 % y diversificación por país y moneda.",
-    ver: [["#t-ciclo", "Ciclo de la deuda"], ["#t-valor", "Valor 10 años"], ["#t-bonos", "Bonos"]], estudiar: "a-caja4-largo", leccion: ["a-03-ciclo-largo-6-etapas", "Ciclo largo"] },
-  { n: 3, nombre: "Mediano plazo", horizonte: "meses a 1–2 años", estado: "borrador", para: "Empresas baratas frente a sus propios 10 años, con calidad y tendencia; divisas y materias primas según el régimen de bonos.",
-    ver: [["#t-radar", "Radar S&P 500"], ["#t-valor", "Valor 10 años"], ["#t-ideas", "Ideas"]], estudiar: "a-caja3-mediano", leccion: ["a-04-dinero-y-moneda-de-reserva", "Dinero y monedas"] },
-  { n: 2, nombre: "Corto plazo / swing", horizonte: "días a semanas", estado: "por definir", para: "Los bots se retiraron el 28-oct-2026. Por ahora, contexto: agenda de noticias, tablero y tesis de corto plazo de los analistas.",
-    ver: [["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"], ["#t-ideas", "Ideas"]], estudiar: "a-caja2-corto-swing", leccion: ["a-02-ciclo-corto", "Ciclo corto"] },
-  { n: 1, nombre: "Scalp e intradía supervisado", horizonte: "minutos a horas", estado: "en formación", para: "Operativa diaria guiada en vivo por el profesor del curso Tu Primer Trade (Exness + ETR Edge), con riesgo fijo por operación.",
-    ver: [["#t-supervisado", "Cómo se opera"], ["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"]], estudiar: "a-caja1-scalping", leccion: ["a-08-como-invertir-segun-el-ciclo", "Cómo invertir"] },
+  { n: 3, nombre: "Largo plazo", horizonte: "años a décadas", estado: "borrador", para: "Proteger y hacer crecer el patrimonio a través de cualquier ciclo: reparto por riesgo (All Seasons), dinero duro 5–15 % y diversificación por país y moneda.",
+    ver: [["#t-ciclo", "Ciclo de la deuda"], ["#t-valor", "Valor 10 años"], ["#t-bonos", "Bonos"]], estudiar: "a-caja3-largo", leccion: ["a-03-ciclo-largo-6-etapas", "Ciclo largo"] },
+  { n: 2, nombre: "Mediano plazo", horizonte: "meses a 1–2 años", estado: "borrador", para: "Empresas baratas frente a sus propios 10 años, con calidad y tendencia; divisas y materias primas según el régimen de bonos.",
+    ver: [["#t-radar", "Radar S&P 500"], ["#t-valor", "Valor 10 años"], ["#t-ideas", "Ideas"]], estudiar: "a-caja2-mediano", leccion: ["a-04-dinero-y-moneda-de-reserva", "Dinero y monedas"] },
+  { n: 1, nombre: "Intradía supervisado", horizonte: "minutos a horas · scalp + intradía", estado: "en formación", para: "Operativa diaria guiada en vivo por el profesor del curso Tu Primer Trade (Exness + ETR Edge), con riesgo fijo. Scalp e intradía son la misma operativa: cada operación se etiqueta por su duración (scalp, menos de 1 h; intradía, horas) para medir cuál rinde más.",
+    ver: [["#t-supervisado", "Cómo se opera"], ["#t-agenda", "Agenda"], ["#t-tablero", "Tablero"]], estudiar: "a-caja1-intradia", leccion: ["a-08-como-invertir-segun-el-ciclo", "Cómo invertir"] },
 ];
 function cajas() {
   $("cajas").innerHTML = CAJAS.map((c) => `<article class="caja">
@@ -404,7 +402,7 @@ function supervisado() {
     <ol class="ficha-lista"><li>Antes del Zoom: revisar la agenda de noticias y el tablero de esta página.</li>
       <li>Solo entradas que el profesor valide o que cumplan lo enseñado.</li>
       <li>Marcar <b>dónde se invalida</b> la operación (el stop): ETR calcula el lote y el TP.</li>
-      <li>Al cerrar, completar el journal.</li></ol>
+      <li>Al cerrar, completar el journal y etiquetar la operación: <b>scalp</b> (menos de 1 h) o <b>intradía</b> (horas).</li></ol>
     <p class="nota">Lo que decide el resultado: con el plan puro (riesgo 1,72 contra 4) basta acertar el 30 %; si casi todas las ganadoras se cierran en la protección (+1,8 %), hace falta cerca del 49 %. Lo medimos en el journal. Detalle y paso a paso en <code>curso_tu_primer_trade/</code> del repo del equipo. Material de estudio, no recomendación de inversión.</p>`;
 }
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bolsa-Radar</title>
-<meta name="description" content="Revista del equipo: las 4 cajas del portafolio, material de estudio sobre la deuda y los ciclos, y las oportunidades de cada caja con datos del día.">
+<meta name="description" content="Revista del equipo: las 3 cajas del portafolio, material de estudio sobre la deuda y los ciclos, y las oportunidades de cada caja con datos del día.">
 <meta name="theme-color" content="#0d141b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Bolsa-Radar">
@@ -26,7 +26,7 @@
     <button id="tema" class="boton-tema" type="button" aria-label="Cambiar entre modo claro y oscuro">◐</button>
   </div>
   <nav class="indice" aria-label="Secciones">
-    <a href="#t-cajas">4 cajas</a><a href="#t-ciclo">Ciclo</a><a href="#t-estudio">Estudio</a>
+    <a href="#t-cajas">3 cajas</a><a href="#t-ciclo">Ciclo</a><a href="#t-estudio">Estudio</a>
     <a href="#t-lectura">Hoy</a><a href="#t-agenda">Agenda</a><a href="#t-tablero">Tablero</a><a href="#t-supervisado">Supervisado</a>
     <a href="#t-radar">Radar S&amp;P</a><a href="#t-valor">Valor</a><a href="#t-analistas">Expertos</a><a href="#t-titulares">Titulares</a>
   </nav>
@@ -35,17 +35,17 @@
 <main class="pagina">
   <header class="portada">
     <span class="etq">Revista del equipo · Eduardo y Javier</span>
-    <h1>Todo en un lugar: las 4 cajas, lo que estudiamos y lo que el mercado ofrece hoy</h1>
+    <h1>Todo en un lugar: las 3 cajas, lo que estudiamos y lo que el mercado ofrece hoy</h1>
     <p class="nota">Primero la base: cómo repartimos el dinero por horizonte y por qué (los ciclos de la deuda de Dalio y lo que dicen los expertos). Después, las oportunidades de cada caja con los datos del día. Material de estudio y de discusión, no asesoría financiera.</p>
   </header>
 
   <section class="bloque" aria-labelledby="t-cajas">
-    <div class="cab"><h2 id="t-cajas">Las 4 cajas del portafolio</h2><p class="nota">Definiciones y porcentajes finales: decisión del equipo. Toca "Ver oportunidades" o "Estudiar" en cada caja.</p></div>
+    <div class="cab"><h2 id="t-cajas">Las 3 cajas del portafolio</h2><p class="nota">Definiciones y porcentajes finales: decisión del equipo. Toca "Ver oportunidades" o "Estudiar" en cada caja.</p></div>
     <div class="cajas" id="cajas"></div>
   </section>
 
   <section class="bloque" aria-labelledby="t-ciclo">
-    <div class="cab"><h2 id="t-ciclo"><span class="caja-chip">Caja 4</span>Dónde estamos en el ciclo de la deuda</h2><p class="nota" id="ciclo-meta"></p></div>
+    <div class="cab"><h2 id="t-ciclo"><span class="caja-chip">Caja 3</span>Dónde estamos en el ciclo de la deuda</h2><p class="nota" id="ciclo-meta"></p></div>
     <div class="ciclo" id="ciclo"></div>
   </section>
 
@@ -58,20 +58,20 @@
     </div>
   </section>
 
-  <h2 class="piso" id="p-hoy">Oportunidades de hoy · cajas 1 y 2 (corto plazo)</h2>
+  <h2 class="piso" id="p-hoy">Oportunidades de hoy · caja 1 (intradía supervisado)</h2>
   <section class="sesiones" aria-labelledby="t-sesiones">
     <div class="cab"><h2 id="t-sesiones">Sesiones de hoy <small>hora de Nueva York</small></h2><p class="nota" id="sesion-ahora"></p></div>
     <div class="linea-sesiones" id="linea-sesiones" role="img" aria-label="Línea de 24 horas con las sesiones de Asia, Londres y Nueva York y las noticias de impacto"></div>
   </section>
   <section class="bloque lectura" aria-labelledby="t-lectura">
-    <div class="cab"><h2 id="t-lectura"><span class="caja-chip">Caja 2</span>Lo esencial hoy</h2><p class="nota" id="lectura-meta"></p></div>
+    <div class="cab"><h2 id="t-lectura"><span class="caja-chip">Caja 1</span>Lo esencial hoy</h2><p class="nota" id="lectura-meta"></p></div>
     <div class="lectura-grid">
       <ul class="esencial" id="esencial"></ul>
       <aside class="vigilar"><h3>A vigilar</h3><ul id="vigilar"></ul></aside>
     </div>
   </section>
   <section class="bloque" aria-labelledby="t-agenda">
-    <div class="cab"><h2 id="t-agenda"><span class="caja-chip">Cajas 1-2</span>Agenda para la acción</h2>
+    <div class="cab"><h2 id="t-agenda"><span class="caja-chip">Caja 1</span>Agenda para la acción</h2>
       <p class="nota">Cada noticia con lo que harías según cómo salga el dato, cruzado con la tendencia del activo. Toca un activo para ver su gráfico.</p></div>
     <div class="leyenda-niveles">
       <span><b class="nivel alta">Alta probabilidad</b> compra con las dos tendencias a favor en oro, plata, BTC, ETH o USD/JPY: ganó en el laboratorio 2020-2026</span>
@@ -82,7 +82,7 @@
     <details class="mas" id="agenda-mas-env"><summary>Resto de la semana</summary><div class="agenda" id="agenda-mas"></div></details>
   </section>
   <section class="bloque" aria-labelledby="t-tablero">
-    <div class="cab"><h2 id="t-tablero"><span class="caja-chip">Cajas 1-2</span>Tablero</h2>
+    <div class="cab"><h2 id="t-tablero"><span class="caja-chip">Caja 1</span>Tablero</h2>
       <p class="nota">Toca un activo para ver su gráfico diario y de 4 horas, sus niveles y el plan de entrada.</p></div>
     <div class="pestanas" role="tablist" id="grupos"></div>
     <div class="tablero" id="tablero"></div>
@@ -93,24 +93,24 @@
       <div id="supervisado"></div>
     </section>
     <section class="bloque" aria-labelledby="t-ideas">
-      <div class="cab"><h2 id="t-ideas"><span class="caja-chip">Cajas 2-3</span>Ideas para discutir</h2><p class="nota">No son órdenes: cada una con su plan, lo que la apoya, lo que la contradice y qué la invalida.</p></div>
+      <div class="cab"><h2 id="t-ideas"><span class="caja-chip">Cajas 1-2</span>Ideas para discutir</h2><p class="nota">No son órdenes: cada una con su plan, lo que la apoya, lo que la contradice y qué la invalida.</p></div>
       <div class="ideas" id="ideas"></div>
     </section>
   </div>
-  <h2 class="piso" id="p-mediano">Oportunidades · caja 3 (mediano plazo)</h2>
+  <h2 class="piso" id="p-mediano">Oportunidades · caja 2 (mediano plazo)</h2>
   <section class="bloque" aria-labelledby="t-radar">
-    <div class="cab"><h2 id="t-radar"><span class="caja-chip">Caja 3</span>Radar de acciones del S&amp;P 500</h2><p class="nota" id="radar-meta"></p></div>
+    <div class="cab"><h2 id="t-radar"><span class="caja-chip">Caja 2</span>Radar de acciones del S&amp;P 500</h2><p class="nota" id="radar-meta"></p></div>
     <div class="pestanas" role="tablist" id="radar-pestanas"></div>
     <div class="tabla-env"><table class="tabla" id="radar-tabla"></table></div>
   </section>
   <div class="dos">
     <section class="bloque" aria-labelledby="t-bonos">
-      <div class="cab"><h2 id="t-bonos"><span class="caja-chip">Cajas 3-4</span>Bonos de EE. UU.</h2><p class="nota" id="bonos-meta"></p></div>
+      <div class="cab"><h2 id="t-bonos"><span class="caja-chip">Cajas 2-3</span>Bonos de EE. UU.</h2><p class="nota" id="bonos-meta"></p></div>
       <div id="bonos-graf" class="graf"></div>
       <div class="tabla-env"><table class="tabla" id="bonos-tabla"></table></div>
     </section>
     <section class="bloque" aria-labelledby="t-valor">
-      <div class="cab"><h2 id="t-valor"><span class="caja-chip">Cajas 3-4</span>Valor frente a 10 años</h2><p class="nota">Dónde está el precio de hoy entre los cierres de la última década (0 = lo más bajo, 100 = lo más alto).</p></div>
+      <div class="cab"><h2 id="t-valor"><span class="caja-chip">Cajas 2-3</span>Valor frente a 10 años</h2><p class="nota">Dónde está el precio de hoy entre los cierres de la última década (0 = lo más bajo, 100 = lo más alto).</p></div>
       <div id="valor"></div>
       <h3 class="sub">Ratios</h3>
       <div id="ratios"></div>

@@ -1,40 +1,40 @@
 {
- "actualizado": "2026-10-29T03:22:27Z",
+ "actualizado": "2026-10-29T05:36:50Z",
  "feeds": {
   "bloomberg/markets": {
    "ok": true,
    "items": 20,
-   "nuevos": 2
+   "nuevos": 5
   },
   "bloomberg/economics": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 2
   },
   "bloomberg/politics": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 5
   },
   "bloomberg/technology": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 5
   },
   "bloomberg/industries": {
    "ok": true,
    "items": 20,
-   "nuevos": 1
+   "nuevos": 6
   },
   "bloomberg/opinion": {
    "ok": true,
    "items": 20,
-   "nuevos": 0
+   "nuevos": 2
   },
   "yahoo/oro": {
    "ok": true,
    "items": 17,
-   "nuevos": 0
+   "nuevos": 1
   },
   "yahoo/plata": {
    "ok": true,
@@ -44,22 +44,22 @@
   "yahoo/sp500": {
    "ok": true,
    "items": 19,
-   "nuevos": 2
+   "nuevos": 0
   },
   "yahoo/nasdaq": {
    "ok": true,
    "items": 18,
-   "nuevos": 1
+   "nuevos": 2
   },
   "yahoo/bitcoin": {
    "ok": true,
    "items": 19,
-   "nuevos": 1
+   "nuevos": 0
   },
   "yahoo/dolar": {
    "ok": true,
    "items": 14,
-   "nuevos": 0
+   "nuevos": 2
   },
   "cnbc/economia": {
    "ok": true,
@@ -74,7 +74,7 @@
   "cnbc/top": {
    "ok": true,
    "items": 30,
-   "nuevos": 0
+   "nuevos": 4
   },
   "wsj/mercados": {
    "ok": true,
@@ -94,7 +94,7 @@
   "investing/noticias": {
    "ok": true,
    "items": 10,
-   "nuevos": 1
+   "nuevos": 8
   },
   "fxstreet/noticias": {
    "ok": false,
@@ -112,34 +112,34 @@
    "nuevos": 0
   },
   "google/reuters": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 3
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:reuters.com+markets+when:1d&hl=",
+   "nuevos": 0
   },
   "google/oro": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 5
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=gold+price+when:1d&hl=en-US&gl=US&ce",
+   "nuevos": 0
   },
   "google/fed": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 2
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=federal+reserve+when:1d&hl=en-US&gl=",
+   "nuevos": 0
   },
   "google/geopolitica": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 6
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=war+OR+sanctions+OR+geopolitical+whe",
+   "nuevos": 0
   },
   "google/investing": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 6
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:investing.com+when:1d&hl=en-US&",
+   "nuevos": 0
   },
   "google/fxstreet": {
-   "ok": true,
-   "items": 100,
-   "nuevos": 1
+   "ok": false,
+   "error": "503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:fxstreet.com+when:1d&hl=en-US&g",
+   "nuevos": 0
   }
  }
 }

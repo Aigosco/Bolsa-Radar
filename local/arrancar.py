@@ -23,7 +23,7 @@ REPO = Path(__file__).resolve().parent.parent
 TRADING = Path(r"C:\Users\franc\OneDrive\Desktop\Proyectos Python\Trading")
 PY = TRADING / ".venv" / "Scripts" / "python.exe"
 MT5 = Path(r"C:\Program Files\MetaTrader 5 IC Markets Global\terminal64.exe")
-GH_REPO = "Aigosco/Bolsa-Radar"
+GH_REPO = "inversion-lab/Bolsa-Radar"
 HOY_CO = datetime.now().strftime("%Y-%m-%d")   # el PC está en hora de Bogotá
 
 
@@ -108,7 +108,7 @@ def main():
     corre(PY, "local/publicar_desde_pc.py", timeout=600)
     paso(8, "Estado")
     corre("gh", "run", "list", "-R", GH_REPO, "--limit", "5")
-    print("\nPágina: https://aigosco.github.io/Bolsa-Radar/")
+    print("\nPágina: https://inversion-lab.github.io/Bolsa-Radar/")
     print("Tareas de Windows activas: videos de Cava (L-V cada hora 7:30-16:30), lectura IA (8:10), publicar (cada hora), respaldo nube (15 min).")
 
 

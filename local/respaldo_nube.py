@@ -12,7 +12,7 @@ import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 
-GH_REPO = "Aigosco/Bolsa-Radar"
+GH_REPO = "inversion-lab/Bolsa-Radar"
 
 
 def ultima(flujo):

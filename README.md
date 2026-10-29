@@ -25,6 +25,6 @@ cubre 7–12 h; Google News ~1 día. Leer cada hora perdería la mayoría de Inv
 - `datos/titulares/…jsonl`: un titular por línea con `publicado` (del medio) y `capturado` (cuando lo leímos). Para
   backtesting usar `capturado`: es la hora en que la información estuvo disponible.
 - `datos/precios/*.csv`, `datos/tesoro.csv`, `datos/calendario/AAAA-MM.json`.
-- Lectura directa: `https://raw.githubusercontent.com/Aigosco/Bolsa-Radar/main/datos/…`
+- Lectura directa: `https://raw.githubusercontent.com/inversion-lab/Bolsa-Radar/main/datos/…`
 
 No es asesoría financiera.

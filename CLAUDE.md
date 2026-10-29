@@ -5,11 +5,11 @@ terminar un cambio relevante, actualiza la sección "Estado y pendientes" de aba
 
 ## 1. Qué es
 Un sistema de información de mercados que trabaja **entre el PC del usuario y la nube (GitHub)**:
-- **La nube** (GitHub Actions, repo público `Aigosco/Bolsa-Radar`) recoge noticias, calendario económico, precios, bonos y
+- **La nube** (GitHub Actions, repo `inversion-lab/Bolsa-Radar`, de la organización de Javier desde 2026-10-29) recoge noticias, calendario económico, precios, bonos y
   verifica las tesis de analistas, todo el día, aunque el PC esté apagado.
 - **El PC** hace lo que la nube no puede: MetaTrader 5 (solo datos; los bots se retiraron el 2026-10-28), YouTube (bloquea a los servidores de
   GitHub) y, mientras la API de Anthropic no tenga saldo, la lectura con IA (Claude Code con el plan Pro del usuario).
-- **La página** https://aigosco.github.io/Bolsa-Radar/ (GitHub Pages) lo muestra todo y se actualiza sola: lee los JSON de
+- **La página** https://inversion-lab.github.io/Bolsa-Radar/ (GitHub Pages) lo muestra todo y se actualiza sola: lee los JSON de
   `datos/web/` directamente de `raw.githubusercontent.com`, así que no hace falta republicarla para que cambien los datos.
 
 Usuario: trader/inversor en Colombia (hora de Bogotá, UTC−5). Sigue oro, plata, BTC, índices de EE. UU. y al analista
@@ -37,7 +37,7 @@ El usuario también puede hacer doble clic en `local\arrancar.bat`. Al terminar,
 | Proyecto local de trading (bot, laboratorio, bases grandes, transcripciones) | `C:\Users\franc\OneDrive\Desktop\Proyectos Python\Trading` — tiene su propio `CLAUDE.md` |
 | Python a usar en el PC | `C:\Users\franc\OneDrive\Desktop\Proyectos Python\Trading\.venv\Scripts\python.exe` (Python 3.13, tiene yfinance, pandas, yt-dlp, MetaTrader5, anthropic) |
 | Claude Code (para llamadas sin ventana) | `C:\Users\franc\.local\bin\claude.exe` |
-| GitHub | https://github.com/Aigosco/Bolsa-Radar · Actions: /actions · Secretos: /settings/secrets/actions |
+| GitHub | https://github.com/inversion-lab/Bolsa-Radar · Actions: /actions · Secretos: /settings/secrets/actions |
 
 En Bash usa `PYTHONIOENCODING=utf-8`; en `.bat` ya está puesto (la consola cp1252 rompe los `print` con acentos).
 
@@ -114,7 +114,7 @@ datos/            todo lo publicado (ver sección 5)
   ficha: cómo va, tendencias explicadas, planes de compra/venta, gráfico diario y de 4h, noticias, bot, tesis de Cava) → bot e
   ideas (enlazan a la ficha) → titulares por tema en español u original → bonos, valor, analistas, radar.
   Pedidos del usuario (2026-10-19): todo debe ser una guía para la acción; letra grande y cómoda; titulares en español.
-- Lectura directa desde cualquier sitio: `https://raw.githubusercontent.com/Aigosco/Bolsa-Radar/main/datos/...`
+- Lectura directa desde cualquier sitio: `https://raw.githubusercontent.com/inversion-lab/Bolsa-Radar/main/datos/...`
 
 ## 6. Reglas (decididas por el usuario; no romperlas)
 1. **Nunca inventar datos.** Si una fuente falla, se dice "sin datos"; nada de valores de relleno.
@@ -129,7 +129,7 @@ datos/            todo lo publicado (ver sección 5)
 
 ## 7. Cómo operar (comandos frecuentes)
 Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
-- Estado de la nube: `gh run list -R Aigosco/Bolsa-Radar --limit 10` · solo programadas: `--event schedule`
+- Estado de la nube: `gh run list -R inversion-lab/Bolsa-Radar --limit 10` · solo programadas: `--event schedule`
 - Lanzar a mano: `gh workflow run noticias.yml` · `gh workflow run mercado.yml -f diario=true` · `gh workflow run pagina.yml`
 - Ver el log de una ejecución: `gh run view <id> --log | grep -E "fallo|web/|Push"`
 - Tareas del PC: `schtasks /Query /TN "Bolsa-Radar videos de Cava" /FO LIST` (igual con "lectura IA" y "publicar desde PC");
@@ -174,7 +174,7 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
 - **Horarios de GitHub: funcionan desde el 19-oct 13:04 UTC.** Las primeras ~13 horas del repo nuevo no se disparó
   ninguno. Llegan con retrasos irregulares, algo normal en GitHub. El respaldo del PC ("Bolsa-Radar respaldo nube", cada
   15 min) solo lanza un flujo si no hubo ejecución reciente; con GitHub al día no hace nada. Comprobar con
-  `gh run list -R Aigosco/Bolsa-Radar --event schedule`. Si GitHub vuelve a dejar de dispararlos, la nube solo se
+  `gh run list -R inversion-lab/Bolsa-Radar --event schedule`. Si GitHub vuelve a dejar de dispararlos, la nube solo se
   actualiza con el PC encendido (gracias al respaldo).
 - Pendiente del usuario: cargar saldo en la API (platform.claude.com → Facturación) y entonces descomentar el horario de
   `resumen.yml` y desactivar la tarea "Bolsa-Radar lectura IA"; decidir si transferir el repo a la cuenta nefranco93.

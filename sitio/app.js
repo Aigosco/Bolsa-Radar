@@ -3,7 +3,7 @@
    Todo lo que se muestra es una guía para la acción: cada activo abre su ficha (gráficos, niveles y plan). */
 "use strict";
 
-const REPO = "Aigosco/Bolsa-Radar";
+const REPO = "inversion-lab/Bolsa-Radar";
 const BASE = location.hostname.endsWith("github.io")
   ? `https://raw.githubusercontent.com/${REPO}/main/datos/web/`
   : "../datos/web/";

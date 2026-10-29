@@ -2,8 +2,9 @@ name: Mercado, calendario y tesis
 
 on:
   schedule:
-    - cron: "11,41 * * * *"  # foto de mercado cada 30 min + calendario
-    - cron: "43 22 * * *"    # cierre diario: historia de precios, bonos, valor relativo, tesis
+    # Desde 2026-10-29: solo 7, 8 y 9 a. m. Colombia (UTC-5), lunes a viernes. Otros horarios: solo si el usuario lo pide.
+    - cron: "11 12 * * 1-5"     # 07:11: foto + calendario + cierre diario del día anterior (historia, bonos, valor, tesis)
+    - cron: "11 13,14 * * 1-5"  # 08:11 y 09:11: foto de mercado + calendario
   workflow_dispatch:
     inputs:
       diario:
@@ -24,7 +25,7 @@ jobs:
     timeout-minutes: 20
     env:
       PYTHONIOENCODING: utf-8
-      DIARIO: ${{ github.event.schedule == '43 22 * * *' || inputs.diario == true }}
+      DIARIO: ${{ github.event.schedule == '11 12 * * 1-5' || inputs.diario == true }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

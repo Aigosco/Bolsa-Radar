@@ -48,9 +48,9 @@ En Bash usa `PYTHONIOENCODING=utf-8`; en `.bat` ya está puesto (la consola cp12
 | 7:11, 8:11 y 9:11 a. m. Colombia, L-V (desde 2026-10-29; antes cada 30 min) | Nube | Calendario Forex Factory + foto de mercado (Yahoo) | `mercado.yml` → `radar/calendario.py`, `radar/mercado.py` |
 | 7:11 a. m. Colombia, L-V (cierre del día anterior) | Nube | Cierre diario: historia de precios desde 2005, bonos del Tesoro, valor 10 años, **verificación de tesis** | `mercado.yml` (`--diario`) → `radar/mercado.py --diario`, `radar/tesis.py` |
 | 5:00–8:40 | YouTube | Cava publica su video (03:00–06:40 hora del Pacífico, medido en 12 videos), L-V; los subtítulos automáticos tardan un rato más en aparecer | — |
-| **7:30–16:30 L-V, cada hora** | PC | Videos nuevos de los analistas de `CANALES` (Cava, y Pablo Gil desde 2026-10-25) (reintenta cada hora mientras no haya subtítulos) → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
+| **7:20, 8:20 y 9:20 L-V** (desde 2026-10-29) | PC | Videos nuevos de los analistas de `CANALES` (Cava, y Pablo Gil desde 2026-10-25) (reintenta cada hora mientras no haya subtítulos) → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
 | **8:10 diario** | PC | Lectura del día con IA (Claude Code, plan Pro) → `datos/web/resumen.json` | tarea "Bolsa-Radar lectura IA" → `local/lectura_ia_pc.bat` |
-| **cada hora (:05)** | PC | Tesis, radar de acciones, efecto F1 → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
+| **7:35, 8:35 y 9:35 L-V** (desde 2026-10-29) | PC | Tesis, radar de acciones, efecto F1, cerebro → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
 | **cada 15 min** | PC | Respaldo (DESACTIVADO desde 2026-10-29: la nube solo corre a las 7, 8 y 9 a. m.) con `gh workflow run` | tarea "Bolsa-Radar respaldo nube" → `local/respaldo_nube.bat` (log `%TEMP%\bolsa_radar_respaldo.log`) |
 | al cambiar `sitio/` | Nube | Publica la página | `pagina.yml` |
 | (en pausa) 8:15 | Nube | Lectura con IA vía API | `resumen.yml` — horario comentado hasta que la API tenga saldo |

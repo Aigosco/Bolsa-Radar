@@ -109,7 +109,7 @@ def main():
     paso(8, "Estado")
     corre("gh", "run", "list", "-R", GH_REPO, "--limit", "5")
     print("\nPágina: https://inversion-lab.github.io/Bolsa-Radar/")
-    print("Tareas de Windows activas: videos de Cava (L-V cada hora 7:30-16:30), lectura IA (8:10), publicar (cada hora), respaldo nube (15 min).")
+    print("Tareas de Windows: videos de Cava (L-V 7:20, 8:20, 9:20), lectura IA (8:10), publicar (L-V 7:35, 8:35, 9:35). Respaldo nube desactivado.")
 
 
 if __name__ == "__main__":

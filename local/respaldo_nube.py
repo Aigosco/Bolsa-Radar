@@ -1,4 +1,7 @@
-"""Respaldo de los horarios de GitHub: si las noticias no corrieron en los últimos 20 min, las lanza desde el PC.
+"""Respaldo de los horarios de GitHub: si mercado no corrió en los últimos 40 min, lo lanza desde el PC.
+
+Desde 2026-10-29 las noticias SOLO corren a las 7, 8 y 9 a. m. (Colombia, L-V) por decisión del equipo: este respaldo
+ya no las lanza (antes las relanzaba si pasaban 20 min).
 
 GitHub no disparaba los cron del repo nuevo (comprobado el 2026-10-19). Mientras el PC esté encendido, esta tarea
 (cada 15 min) garantiza noticias frescas; la de mercado se lanza si no corrió en 40 min. Si los cron de GitHub ya
@@ -21,7 +24,7 @@ def ultima(flujo):
 
 def main():
     ahora = datetime.now(timezone.utc)
-    for flujo, minutos in (("noticias.yml", 20), ("mercado.yml", 40)):
+    for flujo, minutos in (("mercado.yml", 40),):
         u = ultima(flujo)
         if u is None or ahora - u > timedelta(minutes=minutos):
             subprocess.run(["gh", "workflow", "run", flujo, "-R", GH_REPO])

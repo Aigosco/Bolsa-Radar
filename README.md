@@ -8,7 +8,7 @@ desde este repo.
 
 | Flujo | Frecuencia | Qué hace |
 |---|---|---|
-| `noticias.yml` | cada 15 min | Lee 27 feeds RSS (Bloomberg, Reuters vía Google News, WSJ, FT, CNBC, Yahoo, Investing, FXStreet, Fed…) y guarda cada titular una vez en `datos/titulares/AAAA/MM/DD.jsonl` |
+| `noticias.yml` | 7, 8 y 9 a. m. Colombia, L-V | Lee 27 feeds RSS (Bloomberg, Reuters vía Google News, WSJ, FT, CNBC, Yahoo, Investing, FXStreet, Fed…) y guarda cada titular una vez en `datos/titulares/AAAA/MM/DD.jsonl` |
 | `mercado.yml` | cada 30 min | Calendario de Forex Factory y foto de mercado (Yahoo) |
 | `mercado.yml` | 22:43 UTC | Cierre diario: historia de precios desde 2005, bonos del Tesoro, valor relativo, verificación de tesis |
 | `resumen.yml` | 08:15 Bogotá, todos los días | Lectura del momento con Claude (necesita el secreto `ANTHROPIC_API_KEY`) |

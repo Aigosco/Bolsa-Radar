@@ -1,8 +1,8 @@
-name: Noticias (cada 15 min)
+name: Noticias (7, 8 y 9 a. m. Colombia, L-V)
 
 on:
   schedule:
-    - cron: "4,19,34,49 * * * *"   # cada 15 min, en minutos poco concurridos (GitHub retrasa los :00/:15/:30)
+    - cron: "4 12-14 * * 1-5"   # 07:04, 08:04 y 09:04 Colombia (UTC-5), lunes a viernes. Otros horarios: solo si el usuario lo pide
   workflow_dispatch:
 
 concurrency:

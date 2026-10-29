@@ -44,14 +44,14 @@ En Bash usa `PYTHONIOENCODING=utf-8`; en `.bat` ya está puesto (la consola cp12
 ## 3. Calendario diario (hora de Bogotá)
 | Hora | Dónde | Qué | Archivo |
 |---|---|---|---|
-| cada 15 min (:04 :19 :34 :49 UTC) | Nube | Noticias de 28 feeds RSS | `.github/workflows/noticias.yml` → `radar/noticias.py` |
+| 7, 8 y 9 a. m. Colombia, L-V (desde 2026-10-29; antes cada 15 min) | Nube | Noticias de 28 feeds RSS | `.github/workflows/noticias.yml` → `radar/noticias.py` |
 | cada 30 min (:11 :41 UTC) | Nube | Calendario Forex Factory + foto de mercado (Yahoo) | `mercado.yml` → `radar/calendario.py`, `radar/mercado.py` |
 | 17:43 (22:43 UTC) | Nube | Cierre diario: historia de precios desde 2005, bonos del Tesoro, valor 10 años, **verificación de tesis** | `mercado.yml` (`--diario`) → `radar/mercado.py --diario`, `radar/tesis.py` |
 | 5:00–8:40 | YouTube | Cava publica su video (03:00–06:40 hora del Pacífico, medido en 12 videos), L-V; los subtítulos automáticos tardan un rato más en aparecer | — |
 | **7:30–16:30 L-V, cada hora** | PC | Videos nuevos de los analistas de `CANALES` (Cava, y Pablo Gil desde 2026-10-25) (reintenta cada hora mientras no haya subtítulos) → transcripción → tesis con Claude Code → GitHub | tarea "Bolsa-Radar videos de Cava" → `local/cava_diario.bat` |
 | **8:10 diario** | PC | Lectura del día con IA (Claude Code, plan Pro) → `datos/web/resumen.json` | tarea "Bolsa-Radar lectura IA" → `local/lectura_ia_pc.bat` |
 | **cada hora (:05)** | PC | Tesis, radar de acciones, efecto F1 → GitHub | tarea "Bolsa-Radar publicar desde PC" → `local/publicar_desde_pc.bat` |
-| **cada 15 min** | PC | Respaldo: si GitHub no corrió noticias en 20 min (o mercado en 40), los lanza con `gh workflow run` | tarea "Bolsa-Radar respaldo nube" → `local/respaldo_nube.bat` (log `%TEMP%\bolsa_radar_respaldo.log`) |
+| **cada 15 min** | PC | Respaldo: si GitHub no corrió mercado en 40 min, lo lanza (las noticias ya no) con `gh workflow run` | tarea "Bolsa-Radar respaldo nube" → `local/respaldo_nube.bat` (log `%TEMP%\bolsa_radar_respaldo.log`) |
 | al cambiar `sitio/` | Nube | Publica la página | `pagina.yml` |
 | (en pausa) 8:15 | Nube | Lectura con IA vía API | `resumen.yml` — horario comentado hasta que la API tenga saldo |
 

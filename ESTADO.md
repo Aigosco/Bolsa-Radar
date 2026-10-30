@@ -15,6 +15,8 @@
 - El repositorio es de la organización de Javier (`inversion-lab`) desde el 2026-10-29.
 
 ## Lo último que se hizo
+- 2026-10-30 · Eduardo decide: la lectura y la transcripción de los videos (Cava y Pablo Gil) **siguen en el PC**. YouTube
+  bloquea los servidores de GitHub y la extracción de tesis usa el plan Pro.
 - 2026-10-30 · Se adopta la metodología común (`C:\Users\franc\Agenda\METODOLOGIA.md`): este `ESTADO.md` reemplaza la
   sección 9 del `CLAUDE.md`.
 - 2026-10-29 · Eduardo decide: noticias, mercado y tareas del PC solo a las 7, 8 y 9 a. m. Se desactiva el respaldo
@@ -25,12 +27,10 @@
   Primer Trade).
 
 ## Qué falta / próximos pasos
-1. Decidir si el proceso del PC pasa a GitHub (la consola propuso un esquema mixto: los videos quedan en el PC y la
-   lectura con IA va a la nube): **Eduardo**.
-2. Cargar saldo en la API de Anthropic para encender `resumen.yml` (lectura con IA en la nube) y apagar la tarea
+1. Cargar saldo en la API de Anthropic para encender `resumen.yml` (lectura con IA en la nube) y apagar la tarea
    "Bolsa-Radar lectura IA" del PC: **Eduardo o Javier**. Después, **la consola** hace el cambio.
-3. Hacer privado el repositorio: **Javier**. Al hacerlo, hay que avisar a Agenda.
-4. Crear la nueva web privada del equipo desde la organización: **Eduardo y Javier**.
+2. Hacer privado el repositorio: **Javier**. Al hacerlo, hay que avisar a Agenda.
+3. Crear la nueva web privada del equipo desde la organización: **Eduardo y Javier**.
 
 ## Bloqueos o esperas
 - La lectura con IA en la nube espera saldo en la API (desde el 2026-10-19).

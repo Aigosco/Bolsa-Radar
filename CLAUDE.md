@@ -1,7 +1,8 @@
 # Bolsa-Radar: contexto completo para retomar en cualquier sesión
 
 Responde SIEMPRE en español. Este archivo es la fuente de verdad del sistema: léelo entero antes de tocar nada. Al
-terminar un cambio relevante, actualiza la sección "Estado y pendientes" de abajo.
+terminar cada sesión, actualiza `ESTADO.md` y haz commit explicado y push. Metodología común de Eduardo:
+`C:\Users\franc\Agenda\METODOLOGIA.md` (adoptada el 2026-10-30).
 
 ## 1. Qué es
 Un sistema de información de mercados que trabaja **entre el PC del usuario y la nube (GitHub)**:
@@ -13,8 +14,9 @@ Un sistema de información de mercados que trabaja **entre el PC del usuario y l
   `datos/web/` directamente de `raw.githubusercontent.com`, así que no hace falta republicarla para que cambien los datos.
 
 Usuario: trader/inversor en Colombia (hora de Bogotá, UTC−5). Sigue oro, plata, BTC, índices de EE. UU. y al analista
-José Luis Cava. Correo: nefranco93@gmail.com. El repo está en la cuenta **Aigosco** (la de `gh` en este PC); la idea a
-futuro es transferirlo a la cuenta de nefranco93 (si se hace: cambiar `REPO` en `sitio/app.js` y la URL de este archivo).
+José Luis Cava. Correo: nefranco93@gmail.com. Desde el 2026-10-29 el repo es de la organización `inversion-lab` (de
+Javier); `gh` en este PC usa la cuenta **Aigosco**. Si vuelve a cambiar: `REPO` en `sitio/app.js`, `GH_REPO` en
+`local/*.py` y las URL de este archivo.
 
 ## 0. Orden de arranque: "ejecutar bolsa"
 Cuando el usuario encienda el PC y diga **"ejecutar bolsa"** (o "arranca todo", o `/ejecutar-bolsa`), se usa la skill
@@ -167,16 +169,7 @@ Desde `C:\Users\franc\Bolsa-Radar` con el Python del PC (`$PY`):
 - **faster-whisper 1.2.1 con av 19** falla (`metadata_errors`). Por eso `audio.py` decodifica el audio con ffmpeg y le
   pasa un array a Whisper.
 
-## 9. Estado y pendientes (actualizar al cerrar cada sesión)
-Último estado: 2026-10-19.
-- Funcionando: noticias, mercado, calendario, tesis (40 videos de Cava, 224 tesis), página, lectura IA desde el PC,
-  extracción automática de videos nuevos de Cava (probada: 11 tesis, 0 citas no literales, 30 s).
-- **Horarios de GitHub: funcionan desde el 19-oct 13:04 UTC.** Las primeras ~13 horas del repo nuevo no se disparó
-  ninguno. Llegan con retrasos irregulares, algo normal en GitHub. El respaldo del PC ("Bolsa-Radar respaldo nube", cada
-  15 min) solo lanza un flujo si no hubo ejecución reciente; con GitHub al día no hace nada. Comprobar con
-  `gh run list -R inversion-lab/Bolsa-Radar --event schedule`. Si GitHub vuelve a dejar de dispararlos, la nube solo se
-  actualiza con el PC encendido (gracias al respaldo).
-- Pendiente del usuario: cargar saldo en la API (platform.claude.com → Facturación) y entonces descomentar el horario de
-  `resumen.yml` y desactivar la tarea "Bolsa-Radar lectura IA"; decidir si transferir el repo a la cuenta nefranco93.
+## 9. Estado y pendientes
+Desde el 2026-10-30 están en **`ESTADO.md`** (formato de la metodología común): se reescribe al cerrar cada sesión.
 - Ideas aparcadas: correo diario (sustituido por la página), n8n, filtro de riesgo electoral y VIX>20 en el laboratorio,
   estrategia del "truco" de Cava (ruptura de lateral + retesteo) en el laboratorio.
